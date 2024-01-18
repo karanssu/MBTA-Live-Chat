@@ -11,33 +11,40 @@ import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
+import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 
 export const UserContext = createContext();
 //test change
 //test again
 const App = () => {
-  const [user, setUser] = useState();
+    const [user, setUser] = useState();
 
-  useEffect(() => {
-    setUser(getUserInfo());
-  }, []);
+    useEffect(() => {
+        setUser(getUserInfo());
+    }, []);
 
-  return (
-    <>
-      <Navbar />
-      <UserContext.Provider value={user}>
-        <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="/home" element={<HomePage />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
-        </Routes>
-      </UserContext.Provider>
-    </>
-  );
+    return (
+        <>
+            <Navbar />
+            <UserContext.Provider value={user}>
+                <Routes>
+                    <Route exact path="/" element={<LandingPage />} />
+                    <Route exact path="/home" element={<HomePage />} />
+                    <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/signup" element={<Signup />} />
+                    <Route
+                        exact
+                        path="/mbtaAlerts"
+                        element={<MbtaAlertsPage />}
+                    />
+                    <Route
+                        path="/privateUserProfile"
+                        element={<PrivateUserProfile />}
+                    />
+                </Routes>
+            </UserContext.Provider>
+        </>
+    );
 };
 
-
-
-export default App
+export default App;
