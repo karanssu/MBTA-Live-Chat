@@ -17,6 +17,11 @@ function Routes() {
         <div>
             {routes.map((route) => (
                 <Card
+                    bg={"Primary".toLowerCase()}
+                    key={"Primary"}
+                    text={
+                        "Primary".toLowerCase() === "light" ? "dark" : "white"
+                    }
                     body
                     outline
                     color="success"

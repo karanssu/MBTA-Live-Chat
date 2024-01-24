@@ -19,6 +19,9 @@ function Alerts() {
         <div>
             {alerts.map((alert) => (
                 <Card
+                    bg={"Danger".toLowerCase()}
+                    key={"Danger"}
+                    text={"Danger".toLowerCase() === "light" ? "dark" : "white"}
                     body
                     outline
                     color="success"
