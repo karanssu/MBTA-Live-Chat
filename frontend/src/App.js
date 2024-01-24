@@ -12,6 +12,7 @@ import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/mbtaAlerts";
+import MbtaRoutePage from "./components/pages/mbtaRoutes";
 
 export const UserContext = createContext();
 //test change
@@ -36,6 +37,11 @@ const App = () => {
                         exact
                         path="/mbtaAlerts"
                         element={<MbtaAlertsPage />}
+                    />
+                    <Route
+                        exact
+                        path="/mbtaRoutes"
+                        element={<MbtaRoutePage />}
                     />
                     <Route
                         path="/privateUserProfile"
