@@ -31,3 +31,4 @@ Back End
   The back provides access to user information through a RESTful API.
 Users:
 Huthifa Joined
+Giovanni Joined
