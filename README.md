@@ -29,6 +29,10 @@ Back End
   The back end runs on port 8081.
   This is specified in user/server/server.js
   The back provides access to user information through a RESTful API.
+  
 Users:
+Karan Joined
 Huthifa Joined
 Giovanni Joined
+  
+  
