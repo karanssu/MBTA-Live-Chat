@@ -1,10 +1,11 @@
 {
   "name": "userservice",
   "version": "1.0.0",
-  "description": "",
+  "description": "copy & paste ( in terminal ) : \r - git clone https://github.com/Tochey/User_Service.git\r - cd server\r - npm install \r - npm run server\r #### In another terminal tab\r - cd client\r - npm install\r - npm start",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "directories": {
+    "test": "test"
   }
 }
