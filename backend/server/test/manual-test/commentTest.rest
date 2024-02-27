@@ -1,0 +1,8 @@
+POST http://localhost:8081/comment/
+Content-Type: application/json 
+
+{
+    "username" : "testtest",
+    "comment" : "This is my test Comment!",
+    "trainLine" : "Red"
+}
