@@ -16,6 +16,7 @@ Content-Type: application/json
     "password" : "tochi12345"
 }
 
+
 ###
 GET http://localhost:8081/user/getAll
 Content-Type: application/json
@@ -25,9 +26,10 @@ POST http://localhost:8081/user/editUser
 Content-Type: application/json 
 
 {
-    "userId" : "635ab8dfc407faf9f73deaf2",
-    "username" : "Tochi Edit",
-    "password" : "dwwrwr"
+    "userId" : "65deb3d6336c535c1f70be27",
+    "username" : "TochiEdit",
+    "email" : "test@gmail.com",
+    "password" : "dwwrwrabc"
 }
 
 ###
@@ -35,16 +37,9 @@ GET  http://localhost:8081/user/getUserById
 Content-Type: application/json 
 
 {
-    "userId" : "635ab8dfc407faf9f73deaf1"
+    "userId" : "65deb3d6336c535c1f70be27"
 }
 
+# DO NOT RUN THIS TEST (It will delete all the users
 ###
-GET  http://localhost:8081/user/getUserById
-Content-Type: application/json 
-
-{
-    "userId" : "634edb2a16710b2cda6fb370"
-}
-
-###
-POST  http://localhost:8081/user/deleteAll
+# POST  http://localhost:8081/user/deleteAll
