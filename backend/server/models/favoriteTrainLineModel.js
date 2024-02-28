@@ -8,10 +8,10 @@ const favoriteTrainLineSchema = new mongoose.Schema(
             required: true,
             label: "username",
         },
-        trainLineColor: {
+        trainLine: {
             type: String,
             required: true,
-            label: "trainLineColor",
+            label: "trainLine",
         },
         date: {
             type: Date,

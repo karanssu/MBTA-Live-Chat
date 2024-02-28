@@ -13,7 +13,7 @@ const newCommentSchema = new mongoose.Schema(
             required: true,
             label: "comment",
         },
-        trainLineColor: {
+        trainLine: {
             type: String,
             required: true,
             label: "trainLine",
