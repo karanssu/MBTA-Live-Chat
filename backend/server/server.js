@@ -6,11 +6,11 @@ const getAllUsersRoute = require("./routes/user/users");
 const registerRoute = require("./routes/user/userSignUp");
 const getUserByIdRoute = require("./routes/user/userGetUserById");
 const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername");
-const getAllCommentsRoute = require("./routes/comment/comment");
+const getAllCommentsRoute = require("./routes/comment/comments");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
 const deleteUser = require("./routes/user/userDeleteAll");
-const getAllFriendsRoute = require("./routes/friend/friend");
+const getAllFriendsRoute = require("./routes/friend/friends");
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
