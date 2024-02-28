@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //comment schema/model
-const newCommentSchema = new mongoose.Schema(
+const commentSchema = new mongoose.Schema(
     {
         username: {
             type: String,
@@ -26,4 +26,4 @@ const newCommentSchema = new mongoose.Schema(
     { collection: "comments" }
 );
 
-module.exports = mongoose.model("comments", newCommentSchema);
+module.exports = mongoose.model("comments", commentSchema);

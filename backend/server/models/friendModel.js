@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const addFriendSchema = new mongoose.Schema(
+const friendSchema = new mongoose.Schema(
     {
         username: {
             type: String,
@@ -20,4 +20,4 @@ const addFriendSchema = new mongoose.Schema(
     { collection: "friends" }
 );
 
-module.exports = mongoose.model("friends", addFriendSchema);
+module.exports = mongoose.model("friends", friendSchema);
