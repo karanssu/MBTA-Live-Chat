@@ -10,6 +10,8 @@ const getAllCommentRoute = require("./routes/comment/comment");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
 const deleteUser = require("./routes/user/userDeleteAll");
+const getAllFriendsRoute = require("./routes/friend/friend");
+
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
@@ -29,6 +31,11 @@ app.use("/user", deleteUser);
 // Comment
 app.use("/comment", getAllCommentRoute);
 app.use("/comment", addCommentByUsernameRoute);
+
+// Friends
+app.use("/friend", getAllFriendsRoute);
+
+// Favriote Line
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(

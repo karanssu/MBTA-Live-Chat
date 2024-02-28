@@ -47,5 +47,6 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\r Jean Tokam \r ## Available Scripts",
   "main": "index.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {}
 }
