@@ -2,16 +2,15 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const loginRoute = require("./routes/user/userLogin");
-const getAllUsersRoute = require("./routes/user/user");
+const getAllUsersRoute = require("./routes/user/users");
 const registerRoute = require("./routes/user/userSignUp");
 const getUserByIdRoute = require("./routes/user/userGetUserById");
 const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername");
-const getAllCommentRoute = require("./routes/comment/comment");
+const getAllCommentsRoute = require("./routes/comment/comment");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
 const deleteUser = require("./routes/user/userDeleteAll");
 const getAllFriendsRoute = require("./routes/friend/friend");
-
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
@@ -29,7 +28,7 @@ app.use("/user", editUser);
 app.use("/user", deleteUser);
 
 // Comment
-app.use("/comment", getAllCommentRoute);
+app.use("/comment", getAllCommentsRoute);
 app.use("/comment", addCommentByUsernameRoute);
 
 // Friends
