@@ -6,3 +6,7 @@ Content-Type: application/json
     "comment" : "This is my test Comment!",
     "trainLine" : "Red"
 }
+
+###
+GET http://localhost:8081/comment/getAll
+Content-Type: application/json
