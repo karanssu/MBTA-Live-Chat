@@ -2,9 +2,9 @@ POST http://localhost:8081/comment/addByUsername
 Content-Type: application/json 
 
 {
-    "username" : "testtest",
-    "trainLine" : "Red",
-    "comment" : "This is my test Comment using username!"
+    "username" : "huthifa",
+    "trainLine" : "Orange",
+    "comment" : "This is huthifa's test Comment using username!"
 }
 
 ###
@@ -19,4 +19,8 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8081/comment/
+Content-Type: application/json
+
+###
+GET http://localhost:8081/comment/getByUsername/huthifa
 Content-Type: application/json
