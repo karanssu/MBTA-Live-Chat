@@ -9,6 +9,7 @@ const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername
 const addCommentByUserIdRoute = require("./routes/comment/commentAddByUserId");
 const getAllCommentsRoute = require("./routes/comment/comments");
 const getCommentByUsernameRoute = require("./routes/comment/commentGetByUsername");
+const getCommentByUserIdRoute = require("./routes/comment/commentGetByUserId");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
 const deleteUser = require("./routes/user/userDeleteAll");
@@ -32,6 +33,7 @@ app.use("/user", deleteUser);
 // Comment
 app.use("/comment", getAllCommentsRoute);
 app.use("/comment", getCommentByUsernameRoute);
+app.use("/comment", getCommentByUserIdRoute);
 app.use("/comment", addCommentByUsernameRoute);
 app.use("/comment", addCommentByUserIdRoute);
 

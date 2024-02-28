@@ -24,3 +24,7 @@ Content-Type: application/json
 ###
 GET http://localhost:8081/comment/getByUsername/huthifa
 Content-Type: application/json
+
+###
+GET http://localhost:8081/comment/getByUserId/65deb3d6336c535c1f70be27
+Content-Type: application/json
