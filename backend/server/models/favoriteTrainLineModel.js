@@ -1,29 +1,24 @@
 const mongoose = require("mongoose");
 
-//comment schema/model
-const newCommentSchema = new mongoose.Schema(
+//user schema/model
+const favoriteTrainLineSchema = new mongoose.Schema(
     {
         username: {
             type: String,
             required: true,
             label: "username",
         },
-        comment: {
-            type: String,
-            required: true,
-            label: "comment",
-        },
         trainLineColor: {
             type: String,
             required: true,
-            label: "trainLine",
+            label: "trainLineColor",
         },
         date: {
             type: Date,
             default: Date.now,
         },
     },
-    { collection: "comments" }
+    { collection: "favorites" }
 );
 
-module.exports = mongoose.model("comments", newCommentSchema);
+module.exports = mongoose.model("favorites", favoriteTrainLineSchema);
