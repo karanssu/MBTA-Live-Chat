@@ -7,11 +7,13 @@ router.post("/addByUsername", async (req, res) => {
     console.log(req.body);
     const { username, trainLine, comment } = req.body;
 
-    //check if username does not found
-    // const user = await userModel.findOne({ username: username });
-    // if (!user) return res.status(404).send({ message: "Username not found." });
+    // Error if username does not found
+    const user = await userModel.findOne({ username: username });
+    if (!user) return res.status(404).send({ message: "Username not found." });
 
-    //creates a new comment
+    // TODO: // we need trainLineModel
+    // TODO:// check if trainLine does not found
+
     const createComment = new commentModel({
         username: username,
         trainLine: trainLine,
@@ -19,8 +21,8 @@ router.post("/addByUsername", async (req, res) => {
     });
 
     try {
-        const saveNewComment = await createComment.save();
-        res.send(saveNewComment);
+        const saveComment = await createComment.save();
+        res.send(saveComment);
     } catch (error) {
         console.log(error);
         res.status(400).send({ message: "Error trying to create new comment" });
