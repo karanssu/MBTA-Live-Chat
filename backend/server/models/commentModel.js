@@ -8,15 +8,15 @@ const commentSchema = new mongoose.Schema(
             required: true,
             label: "username",
         },
-        comment: {
-            type: String,
-            required: true,
-            label: "comment",
-        },
         trainLine: {
             type: String,
             required: true,
             label: "trainLine",
+        },
+        comment: {
+            type: String,
+            required: true,
+            label: "comment",
         },
         date: {
             type: Date,

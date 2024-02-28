@@ -1,10 +1,10 @@
 POST http://localhost:8081/comment/addByUsername
-
 Content-Type: application/json 
+
 {
     "username" : "testtest",
     "trainLine" : "Red",
-    "comment" : "This is my test Comment! test2",
+    "comment" : "This is my test Comment!"
 }
 
 ###
