@@ -2,9 +2,19 @@ POST http://localhost:8081/comment/addByUsername
 Content-Type: application/json 
 
 {
-    "username" : "asdf",
+    "username" : "testtest",
     "trainLine" : "Red",
-    "comment" : "This is my test Comment!"
+    "comment" : "This is my test Comment using username!"
+}
+
+###
+POST http://localhost:8081/comment/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "trainLine" : "Red",
+    "comment" : "This is my test Comment using userId!"
 }
 
 ###

@@ -6,6 +6,7 @@ const getAllUsersRoute = require("./routes/user/users");
 const registerRoute = require("./routes/user/userSignUp");
 const getUserByIdRoute = require("./routes/user/userGetUserById");
 const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername");
+const addCommentByUserIdRoute = require("./routes/comment/commentAddByUserId");
 const getAllCommentsRoute = require("./routes/comment/comments");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
@@ -30,6 +31,7 @@ app.use("/user", deleteUser);
 // Comment
 app.use("/comment", getAllCommentsRoute);
 app.use("/comment", addCommentByUsernameRoute);
+app.use("/comment", addCommentByUserIdRoute);
 
 // Friends
 app.use("/friend", getAllFriendsRoute);

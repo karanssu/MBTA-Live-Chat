@@ -3,18 +3,18 @@ const router = express.Router();
 const userModel = require("../../models/userModel");
 const commentModel = require("../../models/commentModel");
 
-router.post("/addByUsername", async (req, res) => {
-    const { username, trainLine, comment } = req.body;
+router.post("/addByUserId", async (req, res) => {
+    const { userId, trainLine, comment } = req.body;
 
-    // Error if username does not found
-    const user = await userModel.findOne({ username: username });
-    if (!user) return res.status(404).send({ message: "Username not found." });
+    // Error if userId does not found
+    const user = await userModel.findById(userId);
+    if (!user) return res.status(404).send({ message: "UserId not found." });
 
     // TODO: // we need trainLineModel
     // TODO:// check if trainLine does not found
 
     const createComment = new commentModel({
-        username: username,
+        username: user.username,
         trainLine: trainLine,
         comment: comment,
     });
