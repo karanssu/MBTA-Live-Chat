@@ -1,9 +1,9 @@
-POST http://localhost:8081/friend/addByUserName/
+POST http://localhost:8081/friend/addByUsername
 Content-Type: application/json 
 
 {
     "username" : "testtest",
-    "friendUsername" : "huthifa",
+    "friendUsername" : "huthifa"
 }
 
 ###
