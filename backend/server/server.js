@@ -5,6 +5,7 @@ const loginRoute = require("./routes/user/userLogin");
 const getAllUsersRoute = require("./routes/user/user");
 const registerRoute = require("./routes/user/userSignUp");
 const getUserByIdRoute = require("./routes/user/userGetUserById");
+const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername");
 const getAllCommentRoute = require("./routes/comment/comment");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
@@ -27,6 +28,7 @@ app.use("/user", deleteUser);
 
 // Comment
 app.use("/comment", getAllCommentRoute);
+app.use("/comment", addCommentByUsernameRoute);
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(
