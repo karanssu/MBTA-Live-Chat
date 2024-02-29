@@ -1,10 +1,46 @@
+###
+POST http://localhost:8081/friend/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "friendUserId" : "65deb6a2c488f1a40b1b85cd"
+}
+
+###
 POST http://localhost:8081/friend/addByUsername
 Content-Type: application/json 
 
 {
-    "username" : "testtest",
-    "friendUsername" : "huthifa"
+    "username" : "huthifaTest",
+    "friendUsername" : "testtest"
 }
+
+###
+DELETE http://localhost:8081/friend/deleteByUserId
+Content-Type: application/json 
+
+{
+    "userId": "65deb3d6336c535c1f70be27",
+    "friendUserId": "65deb6a2c488f1a40b1b85cd"
+}
+
+###
+DELETE http://localhost:8081/friend/deleteByUsername
+Content-Type: application/json 
+
+{
+    "username": "testtest",
+    "friendUsername": "huthifaTest"
+}
+
+###
+GET http://localhost:8081/friend/getByUserid/65deb3d6336c535c1f70be27
+Content-Type: application/json 
+
+###
+GET http://localhost:8081/friend/getByUsername/testtest
+Content-Type: application/json 
 
 ###
 GET http://localhost:8081/friend/

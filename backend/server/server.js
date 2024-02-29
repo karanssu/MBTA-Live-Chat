@@ -13,8 +13,13 @@ const getCommentByUserIdRoute = require("./routes/comment/commentGetByUserId");
 const dbConnection = require("./config/db.config");
 const editUser = require("./routes/user/userEditUser");
 const deleteUser = require("./routes/user/userDeleteAll");
-const getAllFriendsRoute = require("./routes/friend/friends");
+const addFriendByUserIdRoute = require("./routes/friend/friendAddByUserId");
 const addFriendByUsernameRoute = require("./routes/friend/friendAddByUsername");
+const deleteFriendByUserIdRoute = require("./routes/friend/friendDeleteByUserId");
+const deleteFriendByUsernameRoute = require("./routes/friend/friendDeleteByUsername");
+const getFriendByUserIdRoute = require("./routes/friend/friendGetByUserId");
+const getFriendByUsernameRoute = require("./routes/friend/friendGetByUsername");
+const getAllFriendsRoute = require("./routes/friend/friends");
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
@@ -39,8 +44,14 @@ app.use("/comment", addCommentByUsernameRoute);
 app.use("/comment", addCommentByUserIdRoute);
 
 // Friends
-app.use("/friend", getAllFriendsRoute);
+app.use("/friend", addFriendByUserIdRoute);
 app.use("/friend", addFriendByUsernameRoute);
+app.use("/friend", deleteFriendByUserIdRoute);
+app.use("/friend", deleteFriendByUsernameRoute);
+app.use("/friend", getFriendByUserIdRoute);
+app.use("/friend", getFriendByUsernameRoute);
+app.use("/friend", getAllFriendsRoute);
+
 
 // Favriote Line
 

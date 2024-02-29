@@ -2,9 +2,9 @@ POST http://localhost:8081/user/signup
 Content-Type: application/json 
 
 {
-    "username" : "tochiamanze",
-    "email" : "cdon@gmail.com",
-    "password" : "tochi12345"
+    "username" : "huthifaTest",
+    "email" : "huthifaTest@gmail.com",
+    "password" : "huthifa222"
 }
 
 ###
@@ -12,8 +12,8 @@ POST http://localhost:8081/user/login
 Content-Type: application/json 
 
 {
-    "username" : "tochiamanze",
-    "password" : "tochi12345"
+    "username" : "huthifaTest",
+    "password" : "huthifa222"
 }
 
 
