@@ -42,7 +42,10 @@ app.use(
     "/favoriteLine",
     require("./routes/favoriteLine/favoriteLineAddByUsername")
 );
-// app.use("/favoriteLine", addFavoriteLineByUserIdRoute);
+app.use(
+    "/favoriteLine",
+    require("./routes/favoriteLine/favoriteLIneAddByUserId")
+);
 // app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
 // app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
 // app.use("/favoriteLine", getFavoriteLineUsernameRoute);
