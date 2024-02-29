@@ -20,6 +20,7 @@ const deleteFriendByUsernameRoute = require("./routes/friend/friendDeleteByUsern
 const getFriendByUserIdRoute = require("./routes/friend/friendGetByUserId");
 const getFriendByUsernameRoute = require("./routes/friend/friendGetByUsername");
 const getAllFriendsRoute = require("./routes/friend/friends");
+const addFavoriteLineByUsernameRoute = require("./routes/favoriteLine/favoriteLineAddByUsername");
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
@@ -56,10 +57,10 @@ app.use("/friend", getAllFriendsRoute);
 // Favriote Line
 app.use("/favoriteLine", addFavoriteLineByUsernameRoute);
 app.use("/favoriteLine", addFavoriteLineByUserIdRoute);
-app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
-app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
-app.use("/favoriteLine", getFavoriteLineUsernameRoute);
-app.use("/favoriteLine", getFavoriteLineUserIdRoute);
+// app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
+// app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
+// app.use("/favoriteLine", getFavoriteLineUsernameRoute);
+// app.use("/favoriteLine", getFavoriteLineUserIdRoute);
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(
