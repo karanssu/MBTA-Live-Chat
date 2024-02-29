@@ -8,6 +8,8 @@ Content-Type: application/json
 
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
+Content-Type: application/json 
+
 {
     "userId" : "65de22f35759e9e77c171828",
     "trainLine" : "Red" 
