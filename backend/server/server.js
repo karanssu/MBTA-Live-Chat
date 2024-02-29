@@ -54,6 +54,12 @@ app.use("/friend", getAllFriendsRoute);
 
 
 // Favriote Line
+app.use("/favoriteLine", addFavoriteLineByUsernameRoute);
+app.use("/favoriteLine", addFavoriteLineByUserIdRoute);
+app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
+app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
+app.use("/favoriteLine", getFavoriteLineUsernameRoute);
+app.use("/favoriteLine", getFavoriteLineUserIdRoute);
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(
