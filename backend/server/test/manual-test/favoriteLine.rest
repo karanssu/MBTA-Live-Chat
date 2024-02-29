@@ -15,13 +15,14 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 ###
-# DELETE http://localhost:8081/favoriteLine/deleteByUsername
-# Content-Type: application/json 
+DELETE http://localhost:8081/favoriteLine/deleteByUsername
+Content-Type: application/json 
 
-# {
-#     "username": "User610",
-#     "trainLine": "Red"
-# }
+{
+    "username": "testtest",
+    "trainLine": "Red"
+}
+
 # ###
 # DELETE http://localhost:8081/favoriteLine/deleteByUserId
 # Content-Type: application/json 
