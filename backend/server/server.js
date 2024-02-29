@@ -1,25 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const loginRoute = require("./routes/user/userLogin");
-const getAllUsersRoute = require("./routes/user/users");
-const registerRoute = require("./routes/user/userSignUp");
-const getUserByIdRoute = require("./routes/user/userGetUserById");
-const addCommentByUsernameRoute = require("./routes/comment/commentAddByUsername");
-const addCommentByUserIdRoute = require("./routes/comment/commentAddByUserId");
-const getAllCommentsRoute = require("./routes/comment/comments");
-const getCommentByUsernameRoute = require("./routes/comment/commentGetByUsername");
-const getCommentByUserIdRoute = require("./routes/comment/commentGetByUserId");
 const dbConnection = require("./config/db.config");
-const editUser = require("./routes/user/userEditUser");
-const deleteUser = require("./routes/user/userDeleteAll");
-const addFriendByUserIdRoute = require("./routes/friend/friendAddByUserId");
-const addFriendByUsernameRoute = require("./routes/friend/friendAddByUsername");
-const deleteFriendByUserIdRoute = require("./routes/friend/friendDeleteByUserId");
-const deleteFriendByUsernameRoute = require("./routes/friend/friendDeleteByUsername");
-const getFriendByUserIdRoute = require("./routes/friend/friendGetByUserId");
-const getFriendByUsernameRoute = require("./routes/friend/friendGetByUsername");
-const getAllFriendsRoute = require("./routes/friend/friends");
 
 require("dotenv").config();
 const SERVER_PORT = 8081;
@@ -29,29 +11,28 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // user
-app.use("/user", loginRoute);
-app.use("/user", registerRoute);
-app.use("/user", getAllUsersRoute);
-app.use("/user", getUserByIdRoute);
-app.use("/user", editUser);
-app.use("/user", deleteUser);
+app.use("/user", require("./routes/user/userLogin"));
+app.use("/user", require("./routes/user/userSignUp"));
+app.use("/user", require("./routes/user/users"));
+app.use("/user", require("./routes/user/userGetUserById"));
+app.use("/user", require("./routes/user/userEditUser"));
+app.use("/user", require("./routes/user/userDeleteAll"));
 
 // Comment
-app.use("/comment", getAllCommentsRoute);
-app.use("/comment", getCommentByUsernameRoute);
-app.use("/comment", getCommentByUserIdRoute);
-app.use("/comment", addCommentByUsernameRoute);
-app.use("/comment", addCommentByUserIdRoute);
+app.use("/comment", require("./routes/comment/comments"));
+app.use("/comment", require("./routes/comment/commentGetByUsername"));
+app.use("/comment", require("./routes/comment/commentGetByUserId"));
+app.use("/comment", require("./routes/comment/commentAddByUsername"));
+app.use("/comment", require("./routes/comment/commentAddByUserId"));
 
 // Friends
-app.use("/friend", addFriendByUserIdRoute);
-app.use("/friend", addFriendByUsernameRoute);
-app.use("/friend", deleteFriendByUserIdRoute);
-app.use("/friend", deleteFriendByUsernameRoute);
-app.use("/friend", getFriendByUserIdRoute);
-app.use("/friend", getFriendByUsernameRoute);
-app.use("/friend", getAllFriendsRoute);
-
+app.use("/friend", require("./routes/friend/friendAddByUserId"));
+app.use("/friend", require("./routes/friend/friendAddByUsername"));
+app.use("/friend", require("./routes/friend/friendDeleteByUserId"));
+app.use("/friend", require("./routes/friend/friendDeleteByUsername"));
+app.use("/friend", require("./routes/friend/friendGetByUserId"));
+app.use("/friend", require("./routes/friend/friendGetByUsername"));
+app.use("/friend", require("./routes/friend/friends"));
 
 // Favriote Line
 app.use("/favoriteLine", addFavoriteLineByUsernameRoute);
