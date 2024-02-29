@@ -1,0 +1,16 @@
+POST http://localhost:8081/favoriteLine/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "User610",
+    "trainLine" : "Red"
+}
+
+###
+POST http://localhost:8081/favoriteLine/addByUserId
+{
+    "userId" : "65de22f35759e9e77c171828",
+    "trainLine" : "Red" 
+}
+###
+
