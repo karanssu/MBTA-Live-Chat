@@ -34,9 +34,18 @@ app.use("/friend", require("./routes/friend/friendGetByUserId"));
 app.use("/friend", require("./routes/friend/friendGetByUsername"));
 app.use("/friend", require("./routes/friend/friends"));
 
+// Train Line
+app.use("/trainLine", require("./routes/trainLine/trainLines"));
+
 // Favriote Line
-app.use("/favoriteLine", require("./routes/favoriteLine/favoriteLineAddByUsername"));
-app.use("/favoriteLine", require("./routes/favoriteLine/favoriteLIneAddByUserId"));
+app.use(
+    "/favoriteLine",
+    require("./routes/favoriteLine/favoriteLineAddByUsername")
+);
+app.use(
+    "/favoriteLine",
+    require("./routes/favoriteLine/favoriteLIneAddByUserId")
+);
 // app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
 // app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
 // app.use("/favoriteLine", getFavoriteLineUsernameRoute);
