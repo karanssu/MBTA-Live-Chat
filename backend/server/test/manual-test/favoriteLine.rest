@@ -1,3 +1,4 @@
+#Should Pass: Valid username, valid trainLine
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
 
@@ -6,8 +7,9 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
-#Should Pass: Valid username, trainLine
+
 ###
+#Should Fail: Invalid username
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
 
@@ -16,7 +18,17 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
-#Should Fail: Invalid username
+#Should Fail: Invalid trainLine
+POST http://localhost:8081/favoriteLine/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "testtest",
+    "trainLine" : "Red"
+}
+
+
+
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
