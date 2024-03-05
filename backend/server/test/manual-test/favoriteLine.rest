@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8081/favoriteLine/username/testtest
+GET http://localhost:8081/favoriteLine/getByUsername/testtest
 Content-Type: application/json 
 
 # ###
