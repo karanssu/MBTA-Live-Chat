@@ -99,7 +99,7 @@ Content-Type: application/json
 }
 
 ###
-# Should Pass: invalid Username, Valid friendUsername
+# Should Fail: invalid Username, Valid friendUsername
 DELETE http://localhost:8081/friend/deleteByUsername
 Content-Type: application/json 
 
@@ -109,7 +109,7 @@ Content-Type: application/json
 }
 
 ###
-# Should Pass: Valid Username, invalid friendUsername
+# Should Fail: Valid Username, invalid friendUsername
 DELETE http://localhost:8081/friend/deleteByUsername
 Content-Type: application/json 
 
