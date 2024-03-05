@@ -54,6 +54,10 @@ app.use(
     "/favoriteLine",
     require("./routes/favoriteLine/favoriteLineDeleteByUserId")
 );
+app.use(
+    "/favoriteLine",
+    require("./routes/favoriteLine/favoriteLineGetByUsername")
+);
 // app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
 // app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
 // app.use("/favoriteLine", getFavoriteLineUsernameRoute);
