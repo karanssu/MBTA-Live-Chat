@@ -3,7 +3,7 @@ const router = express.Router();
 const favoriteTrainLineModel = require("../../models/favoriteTrainLineModel");
 const userModel = require("../../models/userModel");
 
-router.delete("/deleteByUsername", async (req, res) => {
+router.delete("/deleteByUserId", async (req, res) => {
     const { userId, trainLine } = req.body;
 
     const user = await userModel.findById(userId);
