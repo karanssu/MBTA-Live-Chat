@@ -9,6 +9,17 @@ Content-Type: application/json
     "comment" : "This is huthifa's test Comment using username!"
 }
 
+# Should Fail: Invalid username
+###
+POST http://localhost:8081/comment/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "InvalidUsername",
+    "trainLine" : "red",
+    "comment" : "This comment should not be added and throw username not found Error!"
+}
+
 # Should Pass: Valid userid, trainLine, comment
 ###
 POST http://localhost:8081/comment/addByUserId
@@ -31,7 +42,7 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw user id not found Error!"
 }
 
-# Should Fail: Invalid TrainLine
+# Should Fail: Invalid TrainLine (add by username)
 ###
 POST http://localhost:8081/comment/addByUsername
 Content-Type: application/json 
@@ -42,7 +53,7 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw trainLine not found Error!"
 }
 
-# Should Fail: Invalid TrainLine
+# Should Fail: Invalid TrainLine (add by userId)
 ###
 POST http://localhost:8081/comment/addByUserId
 Content-Type: application/json 
