@@ -88,7 +88,7 @@ Content-Type: application/json
     "trainLine": "Beige"
 }
 
-#Should Pass: Valid userId, trainLine
+#Should Pass: Valid userId, valid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
