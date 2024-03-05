@@ -28,7 +28,7 @@ DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
 
 {
-    "userId" : "65de22f35759e9e77c171828",
+    "userId" : "65deb3d6336c535c1f70be27",
     "trainLine" : "Red" 
 }
 
