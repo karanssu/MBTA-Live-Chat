@@ -65,19 +65,17 @@ Content-Type: application/json
 }
 
 
-
-
-
-
-
+# Get all comments
 ###
 GET http://localhost:8081/comment/
 Content-Type: application/json
 
+# Get all comments of given username
 ###
 GET http://localhost:8081/comment/getByUsername/huthifa
 Content-Type: application/json
 
+# Get all comments of given userid
 ###
 GET http://localhost:8081/comment/getByUserId/65deb3d6336c535c1f70be27
 Content-Type: application/json
