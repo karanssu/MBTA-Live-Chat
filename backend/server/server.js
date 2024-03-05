@@ -38,30 +38,12 @@ app.use("/friend", require("./routes/friend/friends"));
 app.use("/trainLine", require("./routes/trainLine/trainLines"));
 
 // Favriote Line
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineAddByUsername")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineAddByUserId")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineDeleteByUsername")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineDeleteByUserId")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineGetByUsername")
-);
-// app.use("/favoriteLine", deleteFavoriteLineByUsernameRoute);
-// app.use("/favoriteLine", deleteFavoriteLineByUserIdRoute);
-// app.use("/favoriteLine", getFavoriteLineUsernameRoute);
-// app.use("/favoriteLine", getFavoriteLineUserIdRoute);
+app.use("/favoriteLine", require("./routes/favoriteLine/favoriteLineAddByUsername"));
+app.use("/favoriteLine",require("./routes/favoriteLine/favoriteLineAddByUserId"));
+app.use("/favoriteLine",require("./routes/favoriteLine/favoriteLineDeleteByUsername"));
+app.use("/favoriteLine",require("./routes/favoriteLine/favoriteLineDeleteByUserId"));
+app.use("/favoriteLine",require("./routes/favoriteLine/favoriteLineGetByUsername"));
+app.use("/favoriteLine",require("./routes/favoriteLine/favoriteLineGetByUserId"));
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(

@@ -36,7 +36,7 @@ Content-Type: application/json
 GET http://localhost:8081/favoriteLine/getByUsername/testtest
 Content-Type: application/json 
 
-# ###
-# GET http://localhost:8081/favoriteLine/userId/65de22f35759e9e77c171828
-# Content-Type: application/json 
+###
+GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336c535c1f70be27
+Content-Type: application/json 
 
