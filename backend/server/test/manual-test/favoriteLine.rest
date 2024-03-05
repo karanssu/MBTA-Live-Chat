@@ -23,15 +23,16 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
-# ###
-# DELETE http://localhost:8081/favoriteLine/deleteByUserId
-# Content-Type: application/json 
+###
+DELETE http://localhost:8081/favoriteLine/deleteByUserId
+Content-Type: application/json 
 
-# {
-#     "userId" : "65de22f35759e9e77c171828",
-#     "trainLine" : "Red" 
-# }
-# ###
+{
+    "userId" : "65de22f35759e9e77c171828",
+    "trainLine" : "Red" 
+}
+
+###
 # GET http://localhost:8081/favoriteLine/username/User610
 # Content-Type: application/json 
 
