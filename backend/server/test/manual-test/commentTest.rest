@@ -1,15 +1,15 @@
-# Add valid comment by username (user exists, trainLine exits, valid comment)
+# Should Pass: Valid username, trainLine, comment
 ###
 POST http://localhost:8081/comment/addByUsername
 Content-Type: application/json 
 
 {
     "username" : "huthifa",
-    "trainLine" : "red",
+    "trainLine" : "Red",
     "comment" : "This is huthifa's test Comment using username!"
 }
 
-# Add valid comment by userId (userId exists, trainLine exits, valid comment)
+# Should Pass: Valid userid, trainLine, comment
 ###
 POST http://localhost:8081/comment/addByUserId
 Content-Type: application/json 
@@ -20,7 +20,7 @@ Content-Type: application/json
     "comment" : "This is my test Comment using userId!"
 }
 
-# Invalid user id should not add comment (userId does not exists, trainLine exits, valid comment)
+# Should Fail: Invalid userId 
 ###
 POST http://localhost:8081/comment/addByUserId
 Content-Type: application/json 
@@ -31,18 +31,7 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw user id not found Error!"
 }
 
-# Invalid username should not add comment (username does not exists, trainLine exits, valid comment)
-###
-POST http://localhost:8081/comment/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "InvalidUsername",
-    "trainLine" : "red",
-    "comment" : "This comment should not be added and throw username not found Error!"
-}
-
-# Invalid trainLine should not add comment (username exists, trainLine DOES NOT EXITS, valid comment)
+# Should Fail: Invalid TrainLine
 ###
 POST http://localhost:8081/comment/addByUsername
 Content-Type: application/json 
@@ -53,7 +42,7 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw trainLine not found Error!"
 }
 
-# Invalid trainLine should not add comment (user id exists, trainLine DOES NOT EXITS, valid comment)
+# Should Fail: Invalid TrainLine
 ###
 POST http://localhost:8081/comment/addByUserId
 Content-Type: application/json 
@@ -64,18 +53,27 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw trainLine not found Error!"
 }
 
-
-# Get all comments
+# Should Pass: Should return all the comments
 ###
 GET http://localhost:8081/comment/
 Content-Type: application/json
 
-# Get all comments of given username
+# Should Pass: Valid username
 ###
 GET http://localhost:8081/comment/getByUsername/huthifa
 Content-Type: application/json
 
-# Get all comments of given userid
+# Should Fail: Invalid username
+###
+GET http://localhost:8081/comment/getByUsername/invalidUsername
+Content-Type: application/json
+
+# Should Pass: Valid userid
 ###
 GET http://localhost:8081/comment/getByUserId/65deb3d6336c535c1f70be27
+Content-Type: application/json
+
+# Should Fail: Invalid userid
+###
+GET http://localhost:8081/comment/getByUserId/65deb3d5336c535b1f10be27
 Content-Type: application/json
