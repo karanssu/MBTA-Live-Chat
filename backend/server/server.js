@@ -44,7 +44,7 @@ app.use(
 );
 app.use(
     "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLIneAddByUserId")
+    require("./routes/favoriteLine/favoriteLineAddByUserId")
 );
 app.use(
     "/favoriteLine",
