@@ -7,7 +7,7 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
-#Should Fail: Invalid username
+#Should Fail: Invalid username, valid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
@@ -17,7 +17,7 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
-#Should Fail: Invalid trainLine
+#Should Fail: Valid username, invalid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 
-#Should Pass: Valid userId, trainLine
+#Should Pass: Valid userId, valid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
@@ -38,7 +38,7 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
-#Should Fail: Invalid userId
+#Should Fail: Invalid userId, valid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
@@ -48,7 +48,7 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
-#Should Fail: Invalid trainLine
+#Should Fail: Valid userId, invalid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
@@ -58,7 +58,7 @@ Content-Type: application/json
     "trainLine" : "Rose" 
 }
 
-#Should Pass: Valid username, trainLine
+#Should Pass: Valid username, valid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -68,7 +68,7 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
-# Should Fail: Invalid username
+# Should Fail: Invalid username, valid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -78,7 +78,7 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
-# Should Fail: Invalid trainLine
+# Should Fail: Valid username, invalid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -98,7 +98,7 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
-#Should Fail: Valid userId
+#Should Fail: Invalid userId, valid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
@@ -108,7 +108,7 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
-#Should Fail: Valid trainLine
+#Should Fail: Valid username, invalid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
