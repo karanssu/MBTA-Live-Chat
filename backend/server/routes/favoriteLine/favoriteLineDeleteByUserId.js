@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 const favoriteTrainLineModel = require("../../models/favoriteTrainLineModel");
 const userModel = require("../../models/userModel");
+const trainLineModel = require("../../models/trainLineModel");
 
 router.delete("/deleteByUserId", async (req, res) => {
     const { userId, trainLine } = req.body;
 
     const user = await userModel.findById(userId);
-    const trainStation = await userModel.findOne({ trainLine: trainLine});
+    const trainStation = await trainLineModel.findOne({ trainLine: trainLine});
     if (!user) return res.status(404).send({ message: "UserId not found." });
     if (!trainStation) return res.status(404).send({ message: "TrainLine not found." });
 

@@ -6,6 +6,17 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
+#Should Pass: Valid username, trainLine
+###
+POST http://localhost:8081/favoriteLine/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "HVHJBK",
+    "trainLine" : "Red"
+}
+
+#Should Fail: Invalid username
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
@@ -14,6 +25,18 @@ Content-Type: application/json
     "userId" : "65deb3d6336c535c1f70be27",
     "trainLine" : "Red" 
 }
+
+#Should Pass: Valid userId, trainLine
+###
+POST http://localhost:8081/favoriteLine/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "trainLine" : "Purple" 
+}
+
+#Should Fail: Invalid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -23,6 +46,17 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
+#Should Pass: Valid username, trainLine
+###
+DELETE http://localhost:8081/favoriteLine/deleteByUsername
+Content-Type: application/json 
+
+{
+    "username": "Fjouyufuy",
+    "trainLine": "Red"
+}
+
+# Should Fail: Invalid username
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
@@ -32,11 +66,34 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
+#Should Pass: Valid userId, trainLine
+###
+DELETE http://localhost:8081/favoriteLine/deleteByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "trainLine" : "Cyan" 
+}
+
+#Should Fail: Valid trainLine
 ###
 GET http://localhost:8081/favoriteLine/getByUsername/testtest
 Content-Type: application/json 
 
+#Should Pass: Valid username
+###
+GET http://localhost:8081/favoriteLine/getByUsername/CJCFUB
+Content-Type: application/json 
+
+#Should Fail: Invalid username
 ###
 GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336c535c1f70be27
 Content-Type: application/json 
 
+#Should Pass: Valid userId
+###
+GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336d535c1f71be27
+Content-Type: application/json 
+
+#Should Fail: Invalid userId
