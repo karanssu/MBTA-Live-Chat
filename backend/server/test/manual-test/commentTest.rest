@@ -53,6 +53,17 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw trainLine not found Error!"
 }
 
+# Invalid trainLine should not add comment (user id exists, trainLine DOES NOT EXITS, valid comment)
+###
+POST http://localhost:8081/comment/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "trainLine" : "InvalidTrainLine",
+    "comment" : "This comment should not be added and throw trainLine not found Error!"
+}
+
 
 
 
