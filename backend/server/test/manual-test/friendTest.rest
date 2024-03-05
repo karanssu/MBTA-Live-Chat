@@ -1,3 +1,4 @@
+# Should Pass: valid userId, valid friendUserId
 ###
 POST http://localhost:8081/friend/addByUserId
 Content-Type: application/json 
@@ -7,6 +8,27 @@ Content-Type: application/json
     "friendUserId" : "65deb6a2c488f1a40b1b85cd"
 }
 
+# Should Fail: invalid userId, valid friendUserId
+###
+POST http://localhost:8081/friend/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be37",
+    "friendUserId" : "65deb6a2c488f1a40b1b85cd"
+}
+
+# Should Fail: valid userId, invalid friendUserId
+###
+POST http://localhost:8081/friend/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "friendUserId" : "hdfhfgh43534"
+}
+
+# Should Pass: Valid username, valid friendUsername
 ###
 POST http://localhost:8081/friend/addByUsername
 Content-Type: application/json 
@@ -16,6 +38,27 @@ Content-Type: application/json
     "friendUsername" : "testtest"
 }
 
+# Should Fail: invalid username, valid friendUsername
+###
+POST http://localhost:8081/friend/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "huthifaTestsds",
+    "friendUsername" : "testtest"
+}
+
+# Should Fail: valid username, invalid friendUsername
+###
+POST http://localhost:8081/friend/addByUsername
+Content-Type: application/json 
+
+{
+    "username" : "huthifaTest",
+    "friendUsername" : "53454"
+}
+
+# Should Pass: Valid userId, valid friendUserId
 ###
 DELETE http://localhost:8081/friend/deleteByUserId
 Content-Type: application/json 
@@ -25,23 +68,77 @@ Content-Type: application/json
     "friendUserId": "65deb6a2c488f1a40b1b85cd"
 }
 
+# Should Fail: invalid userId, Valid friendUserId
+###
+DELETE http://localhost:8081/friend/deleteByUserId
+Content-Type: application/json 
+
+{
+    "userId": "65deb3d6336c535c1f70be24",
+    "friendUserId": "65deb6a2c488f1a40b1b85cd"
+}
+
+# Should Fail: Valid userId, invalid friendUserId
+###
+DELETE http://localhost:8081/friend/deleteByUserId
+Content-Type: application/json 
+
+{
+    "userId": "65deb3d6336c535c1f70be27",
+    "friendUserId": "65deb6a2c488f1a40b1b85ce"
+}
+
+# Should Pass: Valid Username, Valid friendUsername
 ###
 DELETE http://localhost:8081/friend/deleteByUsername
 Content-Type: application/json 
 
 {
-    "username": "testtest",
-    "friendUsername": "huthifaTest"
+    "username": "huthifaTest",
+    "friendUsername": "testtest"
 }
 
+###
+# Should Pass: invalid Username, Valid friendUsername
+DELETE http://localhost:8081/friend/deleteByUsername
+Content-Type: application/json 
+
+{
+    "username": "huthif232Test",
+    "friendUsername": "testtest"
+}
+
+###
+# Should Pass: Valid Username, invalid friendUsername
+DELETE http://localhost:8081/friend/deleteByUsername
+Content-Type: application/json 
+
+{
+    "username": "huthifaTest",
+    "friendUsername": "testsdstest"
+}
+
+# Should Pass: Valid userId
 ###
 GET http://localhost:8081/friend/getByUserid/65deb3d6336c535c1f70be27
 Content-Type: application/json 
 
+# Should Fail: invalid userId
+###
+GET http://localhost:8081/friend/getByUserid/65deb3d6336c535c1f70be23
+Content-Type: application/json 
+
+# Should Pass: Valid username
 ###
 GET http://localhost:8081/friend/getByUsername/testtest
 Content-Type: application/json 
 
+# Should Fail: invalid username
+###
+GET http://localhost:8081/friend/getByUsername/testtesst
+Content-Type: application/json 
+
+# Should Pass: Should Return all Friends
 ###
 GET http://localhost:8081/friend/
 Content-Type: application/json
