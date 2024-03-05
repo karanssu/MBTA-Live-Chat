@@ -7,9 +7,8 @@ Content-Type: application/json
     "trainLine" : "Red"
 }
 
-
-###
 #Should Fail: Invalid username
+###
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
 
@@ -19,16 +18,17 @@ Content-Type: application/json
 }
 
 #Should Fail: Invalid trainLine
+###
 POST http://localhost:8081/favoriteLine/addByUsername
 Content-Type: application/json 
 
 {
     "username" : "testtest",
-    "trainLine" : "Red"
+    "trainLine" : "Lime"
 }
 
 
-
+#Should Pass: Valid userId, trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
@@ -38,17 +38,27 @@ Content-Type: application/json
     "trainLine" : "Red" 
 }
 
-#Should Pass: Valid userId, trainLine
+#Should Fail: Invalid userId
+###
+POST http://localhost:8081/favoriteLine/addByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6236c535c1f70be28",
+    "trainLine" : "Red" 
+}
+
+#Should Fail: Invalid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
 Content-Type: application/json 
 
 {
     "userId" : "65deb3d6336c535c1f70be27",
-    "trainLine" : "Purple" 
+    "trainLine" : "Rose" 
 }
 
-#Should Fail: Invalid trainLine
+#Should Pass: Valid username, trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -58,7 +68,7 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
-#Should Pass: Valid username, trainLine
+# Should Fail: Invalid username
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
@@ -68,14 +78,14 @@ Content-Type: application/json
     "trainLine": "Red"
 }
 
-# Should Fail: Invalid username
+# Should Fail: Invalid trainLine
 ###
-DELETE http://localhost:8081/favoriteLine/deleteByUserId
+DELETE http://localhost:8081/favoriteLine/deleteByUsername
 Content-Type: application/json 
 
 {
-    "userId" : "65deb3d6336c535c1f70be27",
-    "trainLine" : "Red" 
+    "username": "testtest",
+    "trainLine": "Beige"
 }
 
 #Should Pass: Valid userId, trainLine
@@ -85,27 +95,45 @@ Content-Type: application/json
 
 {
     "userId" : "65deb3d6336c535c1f70be27",
-    "trainLine" : "Cyan" 
+    "trainLine" : "Red" 
+}
+
+#Should Fail: Valid userId
+###
+DELETE http://localhost:8081/favoriteLine/deleteByUserId
+Content-Type: application/json 
+
+{
+    "userId" : "65dec3d6336c545c1f70be29",
+    "trainLine" : "Red" 
 }
 
 #Should Fail: Valid trainLine
 ###
-GET http://localhost:8081/favoriteLine/getByUsername/testtest
+DELETE http://localhost:8081/favoriteLine/deleteByUserId
 Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535c1f70be27",
+    "trainLine" : "Magenta" 
+}
 
 #Should Pass: Valid username
 ###
-GET http://localhost:8081/favoriteLine/getByUsername/CJCFUB
+GET http://localhost:8081/favoriteLine/getByUsername/testtest
 Content-Type: application/json 
 
 #Should Fail: Invalid username
 ###
-GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336c535c1f70be27
+GET http://localhost:8081/favoriteLine/getByUsername/CJCFUB
 Content-Type: application/json 
 
 #Should Pass: Valid userId
 ###
-GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336d535c1f71be27
+GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336c535c1f70be27
 Content-Type: application/json 
 
 #Should Fail: Invalid userId
+###
+GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336d535c1f71be27
+Content-Type: application/json 
