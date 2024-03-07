@@ -88,3 +88,13 @@ Content-Type: application/json
 ###
 GET http://localhost:8081/comment/getByUserId/65deb3d5336c535b1f10be27
 Content-Type: application/json
+
+# Should Pass: Valid trainLine
+###
+GET http://localhost:8081/comment/getByTrainLine/Red
+Content-Type: application/json
+
+# Should Fail: Invalid trainline
+###
+GET http://localhost:8081/comment/getByTrainLine/InvalidTrainLine
+Content-Type: application/json
