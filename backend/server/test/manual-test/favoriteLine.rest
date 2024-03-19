@@ -1,33 +1,3 @@
-#Should Pass: Valid username, valid trainLine
-POST http://localhost:8081/favoriteLine/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "testtest",
-    "trainLine" : "Red"
-}
-
-#Should Fail: Invalid username, valid trainLine
-###
-POST http://localhost:8081/favoriteLine/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "HVHJBK",
-    "trainLine" : "Red"
-}
-
-#Should Fail: Valid username, invalid trainLine
-###
-POST http://localhost:8081/favoriteLine/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "testtest",
-    "trainLine" : "Lime"
-}
-
-
 #Should Pass: Valid userId, valid trainLine
 ###
 POST http://localhost:8081/favoriteLine/addByUserId
@@ -58,36 +28,6 @@ Content-Type: application/json
     "trainLine" : "Rose" 
 }
 
-#Should Pass: Valid username, valid trainLine
-###
-DELETE http://localhost:8081/favoriteLine/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "testtest",
-    "trainLine": "Red"
-}
-
-# Should Fail: Invalid username, valid trainLine
-###
-DELETE http://localhost:8081/favoriteLine/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "Fjouyufuy",
-    "trainLine": "Red"
-}
-
-# Should Fail: Valid username, invalid trainLine
-###
-DELETE http://localhost:8081/favoriteLine/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "testtest",
-    "trainLine": "Beige"
-}
-
 #Should Pass: Valid userId, valid trainLine
 ###
 DELETE http://localhost:8081/favoriteLine/deleteByUserId
@@ -107,26 +47,6 @@ Content-Type: application/json
     "userId" : "65dec3d6336c545c1f70be29",
     "trainLine" : "Red" 
 }
-
-#Should Fail: Valid username, invalid trainLine
-###
-DELETE http://localhost:8081/favoriteLine/deleteByUserId
-Content-Type: application/json 
-
-{
-    "userId" : "65deb3d6336c535c1f70be27",
-    "trainLine" : "Magenta" 
-}
-
-#Should Pass: Valid username
-###
-GET http://localhost:8081/favoriteLine/getByUsername/testtest
-Content-Type: application/json 
-
-#Should Fail: Invalid username
-###
-GET http://localhost:8081/favoriteLine/getByUsername/CJCFUB
-Content-Type: application/json 
 
 #Should Pass: Valid userId
 ###

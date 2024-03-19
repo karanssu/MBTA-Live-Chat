@@ -39,23 +39,11 @@ app.use("/trainLine", require("./routes/trainLine/trainLines"));
 // Favriote Line
 app.use(
     "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineAddByUsername")
-);
-app.use(
-    "/favoriteLine",
     require("./routes/favoriteLine/favoriteLineAddByUserId")
 );
 app.use(
     "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineDeleteByUsername")
-);
-app.use(
-    "/favoriteLine",
     require("./routes/favoriteLine/favoriteLineDeleteByUserId")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineGetByUsername")
 );
 app.use(
     "/favoriteLine",
