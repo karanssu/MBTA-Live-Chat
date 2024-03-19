@@ -13,7 +13,7 @@ router.post("/addByUserId", async (req, res) => {
 
     // Check if already Friends
     const areFriends = await friendModel.findOne({ username: user.username, friendUsername: friendUser.username });
-    if (areFriends) return res.status(409).send({ message: "Users are already Besties." });
+    if (areFriends) return res.status(200).send({ message: "Users are already Besties." });
     
     const addFriend = new friendModel({
         username: user.username,

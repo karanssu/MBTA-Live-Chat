@@ -14,7 +14,7 @@ router.delete("/deleteByUserId", async (req, res) => {
     try {
         const deleteFriend = await friendModel.findOneAndDelete({username: user.username,friendUsername: friendUser.username});
         if (!deleteFriend) {
-            return res.status(404).send({ message: "Not currently Friends." });
+            return res.status(200).send({ message: "Not currently Friends." });
         }
         res.send({ message: "Friendship deleted successfully." });
     } catch (error) {
