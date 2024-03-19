@@ -15,7 +15,7 @@ router.delete("/deleteByUserId", async (req, res) => {
     try {
         const deleteFavorite = await favoriteTrainLineModel.findOneAndDelete({username: user.username,trainLine: trainLine});
         if (!deleteFavorite) {
-            return res.status(404).send({ message: "Not currently a Favorite." });
+            return res.status(200).send({ message: "Not currently a Favorite." });
         }
         res.send({ message: "TrainLine deleted successfully." });
     } catch (error) {

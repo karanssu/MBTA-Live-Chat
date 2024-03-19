@@ -14,7 +14,7 @@ router.post("/addByUserId", async (req, res) => {
 
     // Check if already in Favorite
     const inFavorite = await favoriteTrainLineModel.findOne({ username: user.username, trainLine: trainLine });
-    if (inFavorite) return res.status(409).send({ message: "This TrainLine is already your favorite." });
+    if (inFavorite) return res.status(200).send({ message: "This TrainLine is already your favorite." });
 
     const addTrainLine = new favoriteTrainLineModel({
         username: user.username,
