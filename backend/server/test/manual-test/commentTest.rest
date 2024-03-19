@@ -1,25 +1,3 @@
-# Should Pass: Valid username, trainLine, comment
-###
-POST http://localhost:8081/comment/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "huthifa",
-    "trainLine" : "Red",
-    "comment" : "This is huthifa's test Comment using username!"
-}
-
-# Should Fail: Invalid username
-###
-POST http://localhost:8081/comment/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "InvalidUsername",
-    "trainLine" : "red",
-    "comment" : "This comment should not be added and throw username not found Error!"
-}
-
 # Should Pass: Valid userid, trainLine, comment
 ###
 POST http://localhost:8081/comment/addByUserId
@@ -42,17 +20,6 @@ Content-Type: application/json
     "comment" : "This comment should not be added and throw user id not found Error!"
 }
 
-# Should Fail: Invalid TrainLine (add by username)
-###
-POST http://localhost:8081/comment/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "huthifa",
-    "trainLine" : "InvalidTrainLine",
-    "comment" : "This comment should not be added and throw trainLine not found Error!"
-}
-
 # Should Fail: Invalid TrainLine (add by userId)
 ###
 POST http://localhost:8081/comment/addByUserId
@@ -67,16 +34,6 @@ Content-Type: application/json
 # Should Pass: Should return all the comments
 ###
 GET http://localhost:8081/comment/
-Content-Type: application/json
-
-# Should Pass: Valid username
-###
-GET http://localhost:8081/comment/getByUsername/huthifa
-Content-Type: application/json
-
-# Should Fail: Invalid username
-###
-GET http://localhost:8081/comment/getByUsername/invalidUsername
 Content-Type: application/json
 
 # Should Pass: Valid userid

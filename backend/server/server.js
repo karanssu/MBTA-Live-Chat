@@ -20,10 +20,8 @@ app.use("/user", require("./routes/user/userDeleteAll"));
 
 // Comment
 app.use("/comment", require("./routes/comment/comments"));
-app.use("/comment", require("./routes/comment/commentGetByUsername"));
 app.use("/comment", require("./routes/comment/commentGetByUserId"));
 app.use("/comment", require("./routes/comment/commentGetByTrainLine"));
-app.use("/comment", require("./routes/comment/commentAddByUsername"));
 app.use("/comment", require("./routes/comment/commentAddByUserId"));
 
 // Friends
