@@ -26,11 +26,8 @@ app.use("/comment", require("./routes/comment/commentAddByUserId"));
 
 // Friends
 app.use("/friend", require("./routes/friend/friendAddByUserId"));
-app.use("/friend", require("./routes/friend/friendAddByUsername"));
 app.use("/friend", require("./routes/friend/friendDeleteByUserId"));
-app.use("/friend", require("./routes/friend/friendDeleteByUsername"));
 app.use("/friend", require("./routes/friend/friendGetByUserId"));
-app.use("/friend", require("./routes/friend/friendGetByUsername"));
 app.use("/friend", require("./routes/friend/friends"));
 
 // Train Line

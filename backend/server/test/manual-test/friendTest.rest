@@ -28,36 +28,6 @@ Content-Type: application/json
     "friendUserId" : "hdfhfgh43534"
 }
 
-# Should Pass: Valid username, valid friendUsername
-###
-POST http://localhost:8081/friend/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "huthifaTest",
-    "friendUsername" : "testtest"
-}
-
-# Should Fail: invalid username, valid friendUsername
-###
-POST http://localhost:8081/friend/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "huthifaTestsds",
-    "friendUsername" : "testtest"
-}
-
-# Should Fail: valid username, invalid friendUsername
-###
-POST http://localhost:8081/friend/addByUsername
-Content-Type: application/json 
-
-{
-    "username" : "huthifaTest",
-    "friendUsername" : "53454"
-}
-
 # Should Pass: Valid userId, valid friendUserId
 ###
 DELETE http://localhost:8081/friend/deleteByUserId
@@ -88,36 +58,6 @@ Content-Type: application/json
     "friendUserId": "65deb6a2c488f1a40b1b85ce"
 }
 
-# Should Pass: Valid Username, Valid friendUsername
-###
-DELETE http://localhost:8081/friend/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "huthifaTest",
-    "friendUsername": "testtest"
-}
-
-###
-# Should Fail: invalid Username, Valid friendUsername
-DELETE http://localhost:8081/friend/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "huthif232Test",
-    "friendUsername": "testtest"
-}
-
-###
-# Should Fail: Valid Username, invalid friendUsername
-DELETE http://localhost:8081/friend/deleteByUsername
-Content-Type: application/json 
-
-{
-    "username": "huthifaTest",
-    "friendUsername": "testsdstest"
-}
-
 # Should Pass: Valid userId
 ###
 GET http://localhost:8081/friend/getByUserid/65deb3d6336c535c1f70be27
@@ -126,16 +66,6 @@ Content-Type: application/json
 # Should Fail: invalid userId
 ###
 GET http://localhost:8081/friend/getByUserid/65deb3d6336c535c1f70be23
-Content-Type: application/json 
-
-# Should Pass: Valid username
-###
-GET http://localhost:8081/friend/getByUsername/testtest
-Content-Type: application/json 
-
-# Should Fail: invalid username
-###
-GET http://localhost:8081/friend/getByUsername/testtesst
 Content-Type: application/json 
 
 # Should Pass: Should Return all Friends
