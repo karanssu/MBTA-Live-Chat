@@ -3,7 +3,7 @@ const router = express.Router();
 const favoriteTrainLineModel = require("../../models/favoriteTrainLineModel");
 const userModel = require("../../models/userModel");
 
-router.get("/getByUserId/:userId", async (req, res) => {
+router.get("/:userId", async (req, res) => {
     const { userId } = req.params;
     const user = await userModel.findById(userId);
     if (!user) {

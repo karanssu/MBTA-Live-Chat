@@ -4,7 +4,7 @@ const favoriteTrainLineModel = require("../../models/favoriteTrainLineModel");
 const userModel = require("../../models/userModel");
 const trainLineModel = require("../../models/trainLineModel");
 
-router.delete("/deleteByUserId", async (req, res) => {
+router.delete("/", async (req, res) => {
     const { userId, trainLine } = req.body;
 
     const user = await userModel.findById(userId);

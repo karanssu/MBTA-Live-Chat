@@ -1,6 +1,6 @@
 #Should Pass: Valid userId, valid trainLine
 ###
-POST http://localhost:8081/favoriteLine/addByUserId
+POST http://localhost:8081/favoriteLine/
 Content-Type: application/json 
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 
 #Should Fail: Invalid userId, valid trainLine
 ###
-POST http://localhost:8081/favoriteLine/addByUserId
+POST http://localhost:8081/favoriteLine/
 Content-Type: application/json 
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 #Should Fail: Valid userId, invalid trainLine
 ###
-POST http://localhost:8081/favoriteLine/addByUserId
+POST http://localhost:8081/favoriteLine/
 Content-Type: application/json 
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 #Should Pass: Valid userId, valid trainLine
 ###
-DELETE http://localhost:8081/favoriteLine/deleteByUserId
+DELETE http://localhost:8081/favoriteLine/
 Content-Type: application/json 
 
 {
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 #Should Fail: Invalid userId, valid trainLine
 ###
-DELETE http://localhost:8081/favoriteLine/deleteByUserId
+DELETE http://localhost:8081/favoriteLine/
 Content-Type: application/json 
 
 {
@@ -50,10 +50,10 @@ Content-Type: application/json
 
 #Should Pass: Valid userId
 ###
-GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336c535c1f70be27
+GET http://localhost:8081/favoriteLine/65deb3d6336c535c1f70be27
 Content-Type: application/json 
 
 #Should Fail: Invalid userId
 ###
-GET http://localhost:8081/favoriteLine/getByUserId/65deb3d6336d535c1f71be27
+GET http://localhost:8081/favoriteLine/65deb3d6336d535c1f71be27
 Content-Type: application/json 
