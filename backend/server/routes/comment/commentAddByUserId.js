@@ -4,7 +4,7 @@ const userModel = require("../../models/userModel");
 const trainLineModel = require("../../models/trainLineModel");
 const commentModel = require("../../models/commentModel");
 
-router.post("/addByUserId", async (req, res) => {
+router.post("/", async (req, res) => {
     const { userId, trainLine, comment } = req.body;
 
     // Error if userId does not found
