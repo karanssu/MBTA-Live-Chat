@@ -7,11 +7,9 @@ const commentModel = require("../../models/commentModel");
 router.post("/", async (req, res) => {
     const { userId, trainLine, comment } = req.body;
 
-    // Error if userId does not found
     const user = await userModel.findById(userId);
     if (!user) return res.status(404).send({ message: "UserId not found." });
 
-    // Error if trainLine does not found
     const trainLineInstance = await trainLineModel.findOne({
         trainLine: trainLine,
     });
