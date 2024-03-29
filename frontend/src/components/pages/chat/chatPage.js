@@ -4,9 +4,13 @@ import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
 
 function Chat() {
+    const chatPageStyle = {
+        backgroundColor: "rgba(204, 17, 39, 0.2)",
+    };
+
     return (
         <>
-            <div>
+            <div style={chatPageStyle}>
                 <div>
                     <ChatTitle></ChatTitle>
                 </div>
