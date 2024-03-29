@@ -3,7 +3,7 @@ import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
 
-function Chat() {
+const Chat = () => {
     const chatPageStyle = {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
     };
@@ -29,6 +29,6 @@ function Chat() {
             </div>
         </>
     );
-}
+};
 
 export default Chat;

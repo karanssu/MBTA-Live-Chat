@@ -1,9 +1,9 @@
-function CommentInput() {
+const CommentInput = () => {
     return (
         <>
             <input></input>
         </>
     );
-}
+};
 
 export default CommentInput;
