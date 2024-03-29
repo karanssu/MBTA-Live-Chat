@@ -1,4 +1,4 @@
-import Button from "./button";
+import SendButton from "./sendButton";
 
 function Chat() {
     return (
@@ -14,7 +14,7 @@ function Chat() {
                         <input></input>
                     </div>
                     <div>
-                        <button>Send</button>
+                        <SendButton></SendButton>
                     </div>
                 </div>
             </div>
