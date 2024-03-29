@@ -8,6 +8,8 @@ const Chat = () => {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
     };
 
+    const bottomStyle = {};
+
     return (
         <>
             <div style={chatPageStyle}>
@@ -18,11 +20,11 @@ const Chat = () => {
                 <div>
                     <CommentBoard></CommentBoard>
                 </div>
-                <div>
-                    <div>
+                <div className="row" style={bottomStyle}>
+                    <div className="col-11">
                         <CommentInput></CommentInput>
                     </div>
-                    <div>
+                    <div className="col-1">
                         <SendButton></SendButton>
                     </div>
                 </div>
