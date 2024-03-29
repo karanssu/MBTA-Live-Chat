@@ -1,13 +1,14 @@
 import SendButton from "./sendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
+import ChatTitle from "./chatTitle";
 
 function Chat() {
     return (
         <>
             <div>
                 <div>
-                    <h1>Live Chat: (RED LINE)</h1>
+                    <ChatTitle></ChatTitle>
                 </div>
                 <hr></hr>
                 <div>
