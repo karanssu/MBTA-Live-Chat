@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "@types/ol": "^7.0.0"
+  },
+  "dependencies": {
+    "ol": "^9.1.0",
+    "react-ol": "^0.1.12"
   }
 }
