@@ -1,5 +1,6 @@
 import SendButton from "./sendButton";
 import CommentInput from "./commentInput";
+import CommentBoard from "./commentBoard";
 
 function Chat() {
     return (
@@ -9,7 +10,9 @@ function Chat() {
                     <h1>Live Chat: (RED LINE)</h1>
                 </div>
                 <hr></hr>
-                <div>Messages</div>
+                <div>
+                    <CommentBoard></CommentBoard>
+                </div>
                 <div>
                     <div>
                         <CommentInput></CommentInput>
