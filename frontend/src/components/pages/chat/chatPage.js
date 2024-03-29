@@ -2,10 +2,10 @@ import SendButton from "./sendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Chat = () => {
-    const [comment, setComment] = useState("");
+    const inputRef = useRef(null);
 
     const chatPageStyle = {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
@@ -14,7 +14,9 @@ const Chat = () => {
     const bottomStyle = {};
 
     function handleOnClick() {
-        console.log(comment);
+        console.log(inputRef.current.value);
+
+        inputRef.current.value = "";
     }
 
     return (
@@ -27,9 +29,9 @@ const Chat = () => {
                 <div>
                     <CommentBoard></CommentBoard>
                 </div>
-                <div className="row" style={bottomStyle}>
+                <div className="row">
                     <div className="col-11">
-                        <CommentInput></CommentInput>
+                        <CommentInput ref={inputRef}></CommentInput>
                     </div>
                     <div className="col-1">
                         <SendButton onClick={handleOnClick}></SendButton>
