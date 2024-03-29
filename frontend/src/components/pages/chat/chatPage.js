@@ -1,4 +1,5 @@
 import SendButton from "./sendButton";
+import CommentInput from "./commentInput";
 
 function Chat() {
     return (
@@ -11,7 +12,7 @@ function Chat() {
                 <div>Messages</div>
                 <div>
                     <div>
-                        <input></input>
+                        <CommentInput></CommentInput>
                     </div>
                     <div>
                         <SendButton></SendButton>

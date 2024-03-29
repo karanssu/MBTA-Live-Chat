@@ -1,7 +1,7 @@
 function SendButton() {
     return (
         <>
-            <button>doNotSend</button>
+            <button>Send</button>
         </>
     );
 }
