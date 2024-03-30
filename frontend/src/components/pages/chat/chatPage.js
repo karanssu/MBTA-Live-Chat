@@ -7,17 +7,12 @@ import getUserInfo from "../../../utilities/decodeJwt";
 
 const Chat = () => {
     const [user, setUser] = useState({});
+    const [userComments, setUserComments] = useState([]);
+    const inputRef = useRef(null);
 
     useEffect(() => {
         setUser(getUserInfo());
     }, []);
-
-    const userComments = [
-        { username: "testUser", comment: "This is my test comment" },
-        { username: "BostonFan00", comment: "cap" },
-    ];
-
-    const inputRef = useRef(null);
 
     const chatPageStyle = {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
@@ -26,6 +21,14 @@ const Chat = () => {
     function handleClick() {
         const username = user.username;
         const comment = inputRef.current.value;
+
+        setUserComments([
+            ...userComments,
+            {
+                username: username,
+                comment: comment,
+            },
+        ]);
 
         console.log(username, comment);
 
