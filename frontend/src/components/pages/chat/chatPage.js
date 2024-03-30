@@ -13,7 +13,7 @@ const Chat = () => {
 
     const bottomStyle = {};
 
-    function handleOnClick() {
+    function handleClick() {
         console.log(inputRef.current.value);
 
         inputRef.current.value = "";
@@ -34,7 +34,9 @@ const Chat = () => {
                         <CommentInput ref={inputRef}></CommentInput>
                     </div>
                     <div className="col-1">
-                        <SendButton onClick={handleOnClick}></SendButton>
+                        <SendButton
+                            handleSendButtonClick={handleClick}
+                        ></SendButton>
                     </div>
                 </div>
             </div>

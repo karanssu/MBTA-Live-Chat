@@ -1,6 +1,6 @@
-const SendButton = ({ onClick }) => {
+const SendButton = ({ handleSendButtonClick }) => {
     function handleClick() {
-        onClick();
+        handleSendButtonClick();
     }
 
     return (
