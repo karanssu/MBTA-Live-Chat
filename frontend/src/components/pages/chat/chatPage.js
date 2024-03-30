@@ -2,9 +2,21 @@ import SendButton from "./sendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import getUserInfo from "../../../utilities/decodeJwt";
 
 const Chat = () => {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        setUser(getUserInfo());
+    }, []);
+
+    const userComments = [
+        { username: "testUser", comment: "This is my test comment" },
+        { username: "BostonFan00", comment: "cap" },
+    ];
+
     const inputRef = useRef(null);
 
     const chatPageStyle = {
@@ -12,7 +24,10 @@ const Chat = () => {
     };
 
     function handleClick() {
-        console.log(inputRef.current.value);
+        const username = user.username;
+        const comment = inputRef.current.value;
+
+        console.log(username, comment);
 
         inputRef.current.value = "";
     }
@@ -25,7 +40,7 @@ const Chat = () => {
                 </div>
                 <hr></hr>
                 <div>
-                    <CommentBoard></CommentBoard>
+                    <CommentBoard userComments={userComments}></CommentBoard>
                 </div>
                 <div className="row">
                     <div className="col-11">

@@ -1,7 +1,13 @@
-const CommentBoard = () => {
+const CommentBoard = ({ userComments }) => {
     return (
         <>
-            <h1>Comments are here! Believe me they are here.</h1>
+            <div>
+                {userComments.map((userComment) => (
+                    <li>
+                        {userComment.username}: {userComment.comment}
+                    </li>
+                ))}
+            </div>
         </>
     );
 };
