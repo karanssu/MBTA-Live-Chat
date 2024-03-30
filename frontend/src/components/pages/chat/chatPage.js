@@ -31,7 +31,10 @@ const Chat = () => {
                 </div>
                 <div className="row">
                     <div className="col-11">
-                        <CommentInput ref={inputRef}></CommentInput>
+                        <CommentInput
+                            handleSendButtonClick={handleClick}
+                            ref={inputRef}
+                        ></CommentInput>
                     </div>
                     <div className="col-1">
                         <SendButton
