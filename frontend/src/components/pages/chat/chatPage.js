@@ -11,8 +11,6 @@ const Chat = () => {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
     };
 
-    const bottomStyle = {};
-
     function handleClick() {
         console.log(inputRef.current.value);
 
