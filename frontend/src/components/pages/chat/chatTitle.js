@@ -1,4 +1,4 @@
-const ChatTitle = () => {
+const ChatTitle = ({ trainLine }) => {
     const chatTitleStyle = {
         color: "#C72E2E",
         fontWeight: "bold",
@@ -8,7 +8,7 @@ const ChatTitle = () => {
     return (
         <>
             <div>
-                <h1 style={chatTitleStyle}>Live Chat: (RED LINE)</h1>
+                <h1 style={chatTitleStyle}>Live Chat: {trainLine} Line</h1>
             </div>
         </>
     );

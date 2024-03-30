@@ -5,6 +5,8 @@ import ChatTitle from "./chatTitle";
 import { useEffect, useRef, useState } from "react";
 import getUserInfo from "../../../utilities/decodeJwt";
 
+const trainLine = "Red";
+
 const Chat = () => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
@@ -30,8 +32,6 @@ const Chat = () => {
             },
         ]);
 
-        console.log(username, comment);
-
         inputRef.current.value = "";
     }
 
@@ -39,7 +39,7 @@ const Chat = () => {
         <>
             <div style={chatPageStyle}>
                 <div>
-                    <ChatTitle></ChatTitle>
+                    <ChatTitle trainLine={trainLine}></ChatTitle>
                 </div>
                 <hr></hr>
                 <div>
