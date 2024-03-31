@@ -36,7 +36,7 @@ const Chat = () => {
 
     const saveCommentDb = async (userId, trainLine, comment) => {
         try {
-            const response = await fetch("http://localhost:8081/coment/", {
+            const response = await fetch("http://localhost:8081/comment/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
