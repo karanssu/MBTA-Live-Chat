@@ -6,8 +6,6 @@ import { createRef, useEffect, useRef, useState } from "react";
 import getUserInfo from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 
-const trainLine = "Green";
-
 const Chat = () => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);

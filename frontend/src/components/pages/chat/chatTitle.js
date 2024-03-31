@@ -1,6 +1,8 @@
+import Color from "../../../constants/colors";
+
 const ChatTitle = ({ trainLine }) => {
     const chatTitleStyle = {
-        color: "#C72E2E",
+        color: Color[trainLine],
         fontWeight: "bold",
         textAlign: "center",
     };
