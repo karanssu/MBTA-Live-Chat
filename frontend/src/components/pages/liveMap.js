@@ -132,6 +132,13 @@ const MapComponent = () => {
     setFilterColor(color);
     setPressedButton(color);
   };
+  const resetMap = () => {
+    const bostonCords = fromLonLat([-71.07777, 42.35313]);
+    map.getView().setCenter(bostonCords);
+    map.getView().setZoom(12);
+    setFilterColor('');
+    setPressedButton('');
+  };
 
   return (
     <div>
@@ -151,7 +158,7 @@ const MapComponent = () => {
           <button style={{ color: pressedButton === 'RED' ? 'red' : 'black' }} onClick={() => handleButtonClick('RED')}>Red</button>
           <button style={{ color: pressedButton === 'GREEN' ? 'green' : 'black' }} onClick={() => handleButtonClick('GREEN')}>Green</button>
           <button style={{ color: pressedButton === 'ORANGE' ? 'orange' : 'black' }} onClick={() => handleButtonClick('ORANGE')}>Orange</button>
-          <button onClick={() => { setFilterColor(''); setPressedButton(''); }}>Clear All</button>
+          <button onClick={resetMap}>Reset All</button>
         </div>
       </div>
   );
