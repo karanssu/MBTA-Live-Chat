@@ -4,7 +4,7 @@ const CommentBoard = ({ userComments }) => {
             <div>
                 {userComments.map((userComment) => (
                     <li>
-                        {userComment.username}: {userComment.comment}
+                        <b>{userComment.username}:</b> {userComment.comment}
                     </li>
                 ))}
             </div>
