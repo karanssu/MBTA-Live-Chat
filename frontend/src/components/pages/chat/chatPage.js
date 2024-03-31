@@ -18,6 +18,7 @@ const Chat = () => {
 
     useEffect(() => {
         setUser(getUserInfo());
+        fetchCommentDb(trainLine);
     }, []);
 
     const clearCommentInput = () => {
@@ -56,6 +57,21 @@ const Chat = () => {
         }
     };
 
+    const fetchCommentDb = async (trainLine) => {
+        try {
+            const response = await fetch(
+                "http://localhost:8081/comment/getByTrainLine/" + trainLine
+            );
+            if (!response.ok) {
+                throw new Error("Failed to fetch comments");
+            }
+            const userCommentsData = await response.json();
+            setUserComments(userCommentsData);
+        } catch (error) {
+            console.error("Error fetching comments:", error.message);
+        }
+    };
+
     const handleSendButtonClick = () => {
         const userId = user.id;
         const username = user.username;
@@ -70,7 +86,7 @@ const Chat = () => {
             })
             .catch((e) => {
                 console.log(e);
-                alert("something went wrong!");
+                alert("Something went wrong!");
             });
     };
 
