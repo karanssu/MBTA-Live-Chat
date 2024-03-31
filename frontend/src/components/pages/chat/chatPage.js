@@ -49,10 +49,10 @@ const Chat = () => {
             });
             if (response.ok) {
             } else {
-                console.error("Error saving data");
+                throw new Error("Error saving data");
             }
         } catch (error) {
-            console.error("Error:", error);
+            throw new Error("Error:", error);
         }
     };
 
@@ -63,12 +63,16 @@ const Chat = () => {
 
         const success = saveCommentDb(userId, trainLine, comment);
 
-        if (success) {
-            addUserComment(username, comment);
-            clearCommentInput();
-        } else {
-            console.log("something went wrong!");
-        }
+        success
+            .then(() => {
+                addUserComment(username, comment);
+                clearCommentInput();
+                console.log("Successful!");
+            })
+            .catch((e) => {
+                console.log(e);
+                console.log("something went wrong!");
+            });
     };
 
     return (
