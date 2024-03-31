@@ -106,6 +106,17 @@ const Chat = () => {
             });
     };
 
+    // TESTING PURPOSE ONLY
+    /////////
+    const [trainLine, setTrainLine] = useState("Red");
+
+    const handleChange = (trainLine) => {
+        setTrainLine(trainLine);
+        fetchCommentDb(trainLine);
+    };
+
+    //////
+
     return (
         <>
             <div style={chatPageStyle}>
@@ -130,6 +141,48 @@ const Chat = () => {
                     </div>
                 </div>
             </div>
+
+            {/* TESTING PURPOSE ONLY */}
+            {/* ///////////// */}
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Red"
+                        onChange={() => handleChange("Red")}
+                    />
+                    Red
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Orange"
+                        onChange={() => handleChange("Orange")}
+                    />
+                    Orange
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Blue"
+                        onChange={() => handleChange("Blue")}
+                    />
+                    Blue
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Green"
+                        onChange={() => handleChange("Green")}
+                    />
+                    Green
+                </label>
+            </div>
+            {/* ////////////// */}
         </>
     );
 };
