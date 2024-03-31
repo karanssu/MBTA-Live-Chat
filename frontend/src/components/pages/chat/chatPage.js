@@ -4,6 +4,7 @@ import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
 import { createRef, useEffect, useRef, useState } from "react";
 import getUserInfo from "../../../utilities/decodeJwt";
+import Color from "../../../constants/colors";
 
 const trainLine = "Green";
 
@@ -14,7 +15,7 @@ const Chat = () => {
     const scrollableDivRef = useRef(null);
 
     const chatPageStyle = {
-        backgroundColor: "rgba(204, 17, 39, 0.2)",
+        backgroundColor: Color.PINK_BACKGROUND_COLOR,
     };
 
     const chatBoardStyle = {
