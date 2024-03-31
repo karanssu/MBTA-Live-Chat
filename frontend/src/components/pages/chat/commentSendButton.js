@@ -1,4 +1,4 @@
-const SendButton = ({ handleSendButtonClick }) => {
+const CommentSendButton = ({ handleSendButtonClick }) => {
     function handleClick() {
         handleSendButtonClick();
     }
@@ -16,4 +16,4 @@ const SendButton = ({ handleSendButtonClick }) => {
     );
 };
 
-export default SendButton;
+export default CommentSendButton;

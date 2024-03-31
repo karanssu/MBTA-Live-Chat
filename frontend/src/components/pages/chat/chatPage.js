@@ -1,4 +1,4 @@
-import SendButton from "./sendButton";
+import CommentSendButton from "./commentSendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
@@ -12,21 +12,31 @@ const Chat = () => {
     const [userComments, setUserComments] = useState([]);
     const inputRef = useRef(null);
 
-    useEffect(() => {
-        setUser(getUserInfo());
-    }, []);
-
     const chatPageStyle = {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
     };
 
-    const handleClick = async () => {
-        const userId = user.id;
-        const username = user.username;
-        const comment = inputRef.current.value;
+    useEffect(() => {
+        setUser(getUserInfo());
+    }, []);
 
+    const clearCommentInput = () => {
+        inputRef.current.value = "";
+    };
+
+    const addUserComment = (username, comment) => {
+        setUserComments([
+            ...userComments,
+            {
+                username: username,
+                comment: comment,
+            },
+        ]);
+    };
+
+    const saveCommentDb = async (userId, trainLine, comment) => {
         try {
-            const response = await fetch("http://localhost:8081/comment/", {
+            const response = await fetch("http://localhost:8081/coment/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -38,23 +48,27 @@ const Chat = () => {
                 }),
             });
             if (response.ok) {
-                console.log("Data saved successfully");
             } else {
                 console.error("Error saving data");
             }
         } catch (error) {
             console.error("Error:", error);
         }
+    };
 
-        setUserComments([
-            ...userComments,
-            {
-                username: username,
-                comment: comment,
-            },
-        ]);
+    const handleSendButtonClick = () => {
+        const userId = user.id;
+        const username = user.username;
+        const comment = inputRef.current.value;
 
-        inputRef.current.value = "";
+        const success = saveCommentDb(userId, trainLine, comment);
+
+        if (success) {
+            addUserComment(username, comment);
+            clearCommentInput();
+        } else {
+            console.log("something went wrong!");
+        }
     };
 
     return (
@@ -70,14 +84,14 @@ const Chat = () => {
                 <div className="row">
                     <div className="col-11">
                         <CommentInput
-                            handleSendButtonClick={handleClick}
+                            handleSendButtonClick={handleSendButtonClick}
                             ref={inputRef}
                         ></CommentInput>
                     </div>
                     <div className="col-1">
-                        <SendButton
-                            handleSendButtonClick={handleClick}
-                        ></SendButton>
+                        <CommentSendButton
+                            handleSendButtonClick={handleSendButtonClick}
+                        ></CommentSendButton>
                     </div>
                 </div>
             </div>
