@@ -59,7 +59,7 @@ const Chat = () => {
     const handleSendButtonClick = () => {
         const userId = user.id;
         const username = user.username;
-        const comment = inputRef.current.value;
+        const comment = inputRef.current.value.trim();
 
         const success = saveCommentDb(userId, trainLine, comment);
 
@@ -67,11 +67,10 @@ const Chat = () => {
             .then(() => {
                 addUserComment(username, comment);
                 clearCommentInput();
-                console.log("Successful!");
             })
             .catch((e) => {
                 console.log(e);
-                console.log("something went wrong!");
+                alert("something went wrong!");
             });
     };
 
