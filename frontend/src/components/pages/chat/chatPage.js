@@ -15,7 +15,7 @@ const Chat = () => {
     const scrollableDivRef = useRef(null);
 
     const chatPageStyle = {
-        backgroundColor: Color.PINK_BACKGROUND_COLOR,
+        backgroundColor: Color.Pink,
     };
 
     const chatBoardStyle = {
