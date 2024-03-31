@@ -20,9 +20,31 @@ const Chat = () => {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
     };
 
-    function handleClick() {
+    const handleClick = async () => {
+        const userId = user.id;
         const username = user.username;
         const comment = inputRef.current.value;
+
+        try {
+            const response = await fetch("http://localhost:8081/comment/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    trainLine: trainLine,
+                    comment: comment,
+                }),
+            });
+            if (response.ok) {
+                console.log("Data saved successfully");
+            } else {
+                console.error("Error saving data");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
 
         setUserComments([
             ...userComments,
@@ -33,7 +55,7 @@ const Chat = () => {
         ]);
 
         inputRef.current.value = "";
-    }
+    };
 
     return (
         <>
