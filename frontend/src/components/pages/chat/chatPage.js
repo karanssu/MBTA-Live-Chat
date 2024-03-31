@@ -2,24 +2,16 @@ import CommentSendButton from "./commentSendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { createRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import getUserInfo from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
+import "./chatPage.css";
 
 const Chat = () => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
-
-    const chatPageStyle = {
-        backgroundColor: Color.Pink,
-    };
-
-    const chatBoardStyle = {
-        height: "300px",
-        overflow: "auto",
-    };
 
     useEffect(() => {
         setUser(getUserInfo());
@@ -118,22 +110,25 @@ const Chat = () => {
 
     return (
         <>
-            <div style={chatPageStyle}>
-                <div>
+            <div
+                className="container"
+                style={{ "--primary-color": Color.Pink }}
+            >
+                <div className="title-div">
                     <ChatTitle trainLine={trainLine}></ChatTitle>
                 </div>
-                <hr></hr>
-                <div ref={scrollableDivRef} style={chatBoardStyle}>
+                <div className="horizontal-line"></div>
+                <div className="chat-board-div" ref={scrollableDivRef}>
                     <CommentBoard userComments={userComments}></CommentBoard>
                 </div>
-                <div className="row">
-                    <div className="col-11">
+                <div className="bottom-div row">
+                    <div className="input-div col-11">
                         <CommentInput
                             handleSendButtonClick={handleSendButtonClick}
                             ref={inputRef}
                         ></CommentInput>
                     </div>
-                    <div className="col-1">
+                    <div className="send-button-div col-1">
                         <CommentSendButton
                             handleSendButtonClick={handleSendButtonClick}
                         ></CommentSendButton>

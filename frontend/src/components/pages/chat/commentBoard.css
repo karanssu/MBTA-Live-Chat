@@ -1,0 +1,19 @@
+.comment-board{
+    font-family: Arial, sans-serif; 
+    padding-right: 50px;
+}
+
+.custom-list {
+    list-style-type: none; 
+    margin-bottom: 10px;
+    line-height: 30px;
+    display: flex;
+}
+
+.custom-list li span {
+    margin-left: 20px;
+}
+
+.comment-text {
+    margin-left: 6px;
+}

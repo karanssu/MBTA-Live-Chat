@@ -1,10 +1,17 @@
+import "./commentBoard.css";
+
 const CommentBoard = ({ userComments }) => {
     return (
         <>
-            <div>
+            <div className="comment-board">
                 {userComments.map((userComment) => (
-                    <li>
-                        <b>{userComment.username}:</b> {userComment.comment}
+                    <li className="custom-list">
+                        <span>
+                            <b>{userComment.username}:</b>
+                        </span>
+                        <span className="comment-text">
+                            {userComment.comment}
+                        </span>
                     </li>
                 ))}
             </div>

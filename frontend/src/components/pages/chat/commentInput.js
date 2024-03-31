@@ -1,11 +1,7 @@
 import React, { createRef, forwardRef } from "react";
+import "./commentInput.css";
 
 const CommentInput = React.forwardRef(({ handleSendButtonClick }, ref) => {
-    const inputStyle = {
-        width: "100%",
-        height: "50px",
-    };
-
     function handleKeyDown(event) {
         if (event.key === "Enter") {
             handleSendButtonClick();
@@ -14,7 +10,7 @@ const CommentInput = React.forwardRef(({ handleSendButtonClick }, ref) => {
 
     return (
         <>
-            <input ref={ref} onKeyDown={handleKeyDown} style={inputStyle} />
+            <input className="input-box" ref={ref} onKeyDown={handleKeyDown} />
         </>
     );
 });
