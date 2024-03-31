@@ -2,24 +2,37 @@ import CommentSendButton from "./commentSendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import getUserInfo from "../../../utilities/decodeJwt";
 
-const trainLine = "Red";
+const trainLine = "Green";
 
 const Chat = () => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
     const inputRef = useRef(null);
+    const scrollableDivRef = useRef(null);
 
     const chatPageStyle = {
         backgroundColor: "rgba(204, 17, 39, 0.2)",
+    };
+
+    const chatBoardStyle = {
+        height: "300px",
+        overflow: "auto",
     };
 
     useEffect(() => {
         setUser(getUserInfo());
         fetchCommentDb(trainLine);
     }, []);
+
+    const scrollToBottom = () => {
+        if (scrollableDivRef.current) {
+            scrollableDivRef.current.scrollTop =
+                scrollableDivRef.current.scrollHeight;
+        }
+    };
 
     const clearCommentInput = () => {
         inputRef.current.value = "";
@@ -67,6 +80,8 @@ const Chat = () => {
             }
             const userCommentsData = await response.json();
             setUserComments(userCommentsData);
+
+            scrollToBottom();
         } catch (error) {
             console.error("Error fetching comments:", error.message);
         }
@@ -83,6 +98,7 @@ const Chat = () => {
             .then(() => {
                 addUserComment(username, comment);
                 clearCommentInput();
+                scrollToBottom();
             })
             .catch((e) => {
                 console.log(e);
@@ -97,7 +113,7 @@ const Chat = () => {
                     <ChatTitle trainLine={trainLine}></ChatTitle>
                 </div>
                 <hr></hr>
-                <div>
+                <div ref={scrollableDivRef} style={chatBoardStyle}>
                     <CommentBoard userComments={userComments}></CommentBoard>
                 </div>
                 <div className="row">
