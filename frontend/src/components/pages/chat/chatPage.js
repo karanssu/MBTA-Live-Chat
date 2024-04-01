@@ -83,6 +83,10 @@ const Chat = () => {
         const username = user.username;
         const comment = inputRef.current.value.trim();
 
+        if (!comment) {
+            return;
+        }
+
         const success = saveCommentDb(userId, trainLine, comment);
 
         success
