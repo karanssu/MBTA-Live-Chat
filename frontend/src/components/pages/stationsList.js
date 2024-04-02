@@ -1,52 +1,64 @@
-import React, { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import axios from "axios";
-
-function Alerts() {
-    const [alerts, setAlerts] = useState([]);
-
-    useEffect(() => {
-        async function fetchData() {
-            const result = await axios(
-                "https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE"
-            );
-            setAlerts(result.data.data);
-        }
-        fetchData();
-    }, []);
+import CommentSendButton from "./commentSendButton";
+import CommentInput from "./commentInput";
+import CommentBoard from "./commentBoard";
+import ChatTitle from "./chatTitle";
+import { useEffect, useRef, useState } from "react";
+import getUserInfo from "../../../utilities/decodeJwt";
+import Color from "../../../constants/colors";
+import "./chatPage.css";
+const Stations = () => {
+    const [trainLine, setTrainLine] = useState("Red");
+    const handleChange = (trainLine) => {
+        setTrainLine(trainLine);
+    };
 
     return (
-        <div>
-            {alerts.map((alert) => (
-                <Card
-                    bg={"Danger".toLowerCase()}
-                    key={"Danger"}
-                    text={"Danger".toLowerCase() === "light" ? "dark" : "white"}
-                    body
-                    outline
-                    color="success"
-                    className="mx-1 my-2"
-                    style={{ width: "30rem" }}
-                >
-                    <Card.Body>
-                        <Card.Title>Stations</Card.Title>
-                        <Card.Text>
-                            {alert.attributes.header}
-                            {alert.attributes.description}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            ))}
-
-            <h1>Stations</h1>
-            {alerts.map((alert) => (
-                <div key={alert.id}>
-                    <h3>{alert.attributes.header}</h3>
-                    <p>{alert.attributes.description}</p>
-                </div>
-            ))}
-        </div>
+              <>
+            <div
+                className="container"
+                style={{ "--primary-color": Color.Pink }}
+            >
+            
+           
+            <label>
+                    <input
+                        type="radio"
+                        nme="color"
+                        value="Red"
+                        onChange={() => handleChange("Red")}
+                    />
+                    Red
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Orange"
+                        onChange={() => handleChange("Orange")}
+                    />
+                    Orange
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Blue"
+                        onChange={() => handleChange("Blue")}
+                    />
+                    Blue
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="color"
+                        value="Green"
+                        onChange={() => handleChange("Green")}
+                    />
+                    Green
+                </label>
+            </div>
+        </>
     );
-}
+};
 
-export default Alerts;
+export default Stations;
