@@ -14,7 +14,7 @@ import getUserInfo from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 import ChatPage from "./components/pages/chat/chatPage";
 import LiveMapPage from "./components/pages/liveMap";
-import StationsList from "./components/pages/stationsList";
+import StationsList from "./components/pages/stations/stationsList";
 
 export const UserContext = createContext();
 //test change
@@ -46,7 +46,11 @@ const App = () => {
                         element={<PrivateUserProfile />}
                     />
                     <Route exact path="/liveMap" element={<LiveMapPage />} />
-                    <Route exact path="/stationsList" element={<StationsList />} />  
+                    <Route
+                        exact
+                        path="/stationsList"
+                        element={<StationsList />}
+                    />
                 </Routes>
             </UserContext.Provider>
         </>
