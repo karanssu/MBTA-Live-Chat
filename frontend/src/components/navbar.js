@@ -28,6 +28,7 @@ export default function Navbar() {
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
                     <Nav.Link href="/chat">Chat</Nav.Link>
                     <Nav.Link href="/liveMap">Live Map</Nav.Link>
+                    <Nav.Link href="/favorites">Stations</Nav.Link>
                 </Nav>
             </Container>
         </ReactNavbar>
