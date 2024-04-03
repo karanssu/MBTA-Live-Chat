@@ -1,6 +1,7 @@
 import "./stationsList.css";
 import { useEffect, useRef, useState } from "react";
 import StationTitle from "./stationTitle";
+import Color from "../../../constants/colors";
 
 const Stations = () => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
@@ -37,7 +38,12 @@ const Stations = () => {
                 <div className="station-board">
                     <div>
                         {trainLines.map((trainLine) => (
-                            <label>
+                            <label
+                                style={{
+                                    color: Color[trainLine],
+                                    fontWeight: "bold",
+                                }}
+                            >
                                 <input
                                     type="radio"
                                     name="trainLine"
