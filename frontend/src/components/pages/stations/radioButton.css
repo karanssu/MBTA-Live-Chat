@@ -1,3 +1,11 @@
+.custom-radio-button-container {
+  display: flex;
+}
+
+.custom-radio-button-value {
+  margin-left: 10px;
+}
+
 .custom-radio-button {
   width: 20px;
   height: 20px;
@@ -19,4 +27,10 @@
 
 .custom-radio-button.checked .radio-dot {
   background-color: red;
+}
+
+.custom-radio-button-title {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
