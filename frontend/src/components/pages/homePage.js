@@ -36,10 +36,7 @@ const HomePage = () => {
                     Your registered email is
                     <span className="email"> {email}</span>
                 </h3>
-                <h3>
-                    Your password is
-                    <span className="password"> {password} ( hashed )</span>
-                </h3>
+              
             </div>
             <button onClick={(e) => handleClick(e)}>Log Out</button>
         </>
