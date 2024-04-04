@@ -2,7 +2,6 @@ import "./stationsList.css";
 import { useEffect, useRef, useState } from "react";
 import StationTitle from "./stationTitle";
 import Color from "../../../constants/colors";
-import RadioButton from "./RadioButton";
 
 const Stations = () => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
@@ -45,12 +44,14 @@ const Stations = () => {
                                     fontWeight: "bold",
                                 }}
                             >
-                                <RadioButton
-                                    selectedColor={Color[trainLine]}
-                                    onChecked={() => handleChange(trainLine)}
-                                    checked={selectedTrainLine === trainLine}
+                                <input
+                                    type="radio"
+                                    name="trainLine"
                                     value={trainLine}
+                                    checked={selectedTrainLine === trainLine}
+                                    onChange={() => handleChange(trainLine)}
                                 />
+                                {trainLine}
                             </label>
                         ))}
                     </div>
