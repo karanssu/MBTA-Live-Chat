@@ -3,6 +3,7 @@ import getUserInfo from "../utilities/decodeJwt";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
+import { useNavigate } from "react-router-dom";
 
 // Here, we display our Navbar
 export default function Navbar() {
@@ -10,10 +11,17 @@ export default function Navbar() {
     // Warning disabled:
     // eslint-disable-next-line
     const [user, setUser] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         setUser(getUserInfo());
     }, []);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        localStorage.removeItem("accessToken");
+        return navigate("/");
+    };
 
     // if (!user) return null   - for now, let's show the bar even not logged in.
     // we have an issue with getUserInfo() returning null after a few minutes
@@ -29,6 +37,9 @@ export default function Navbar() {
                     <Nav.Link href="/chat">Chat</Nav.Link>
                     <Nav.Link href="/liveMap">Live Map</Nav.Link>
                     <Nav.Link href="/stationsList">Stations</Nav.Link>
+                    <Nav.Link href="/logout" onClick={(e) => handleClick(e)}>
+                        Log out
+                    </Nav.Link>
                 </Nav>
             </Container>
         </ReactNavbar>
