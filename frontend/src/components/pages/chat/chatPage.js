@@ -7,7 +7,7 @@ import getUserInfo from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
 
-const Chat = () => {
+const Chat = ({ trainLine }) => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
     const inputRef = useRef(null);
@@ -16,7 +16,7 @@ const Chat = () => {
     useEffect(() => {
         setUser(getUserInfo());
         fetchCommentDb(trainLine);
-    }, []);
+    }, [trainLine]);
 
     const scrollToBottom = () => {
         if (scrollableDivRef.current) {
@@ -101,17 +101,6 @@ const Chat = () => {
             });
     };
 
-    // TESTING PURPOSE ONLY
-    /////////
-    const [trainLine, setTrainLine] = useState("Red");
-
-    const handleChange = (trainLine) => {
-        setTrainLine(trainLine);
-        fetchCommentDb(trainLine);
-    };
-
-    //////
-
     return (
         <>
             <div
@@ -139,48 +128,6 @@ const Chat = () => {
                     </div>
                 </div>
             </div>
-
-            {/* TESTING PURPOSE ONLY */}
-            {/* ///////////// */}
-            <div>
-                <label>
-                    <input
-                        type="radio"
-                        name="color"
-                        value="Red"
-                        onChange={() => handleChange("Red")}
-                    />
-                    Red
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="color"
-                        value="Orange"
-                        onChange={() => handleChange("Orange")}
-                    />
-                    Orange
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="color"
-                        value="Blue"
-                        onChange={() => handleChange("Blue")}
-                    />
-                    Blue
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="color"
-                        value="Green"
-                        onChange={() => handleChange("Green")}
-                    />
-                    Green
-                </label>
-            </div>
-            {/* ////////////// */}
         </>
     );
 };

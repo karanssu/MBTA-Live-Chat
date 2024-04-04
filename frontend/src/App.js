@@ -15,6 +15,7 @@ import MbtaAlertsPage from "./components/pages/alerts/mbtaAlerts";
 import ChatPage from "./components/pages/chat/chatPage";
 import LiveMapPage from "./components/pages/liveMap";
 import StationsList from "./components/pages/stations/stationsList";
+import MainPage from "./components/pages/mainPage";
 
 export const UserContext = createContext();
 //test change
@@ -33,6 +34,7 @@ const App = () => {
                 <Routes>
                     <Route exact path="/" element={<LandingPage />} />
                     <Route exact path="/home" element={<HomePage />} />
+                    <Route exact path="/main" element={<MainPage />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/signup" element={<Signup />} />
                     <Route

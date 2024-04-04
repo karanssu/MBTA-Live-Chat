@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import StationTitle from "./stationTitle";
 import Color from "../../../constants/colors";
 
-const Stations = () => {
+const Stations = ({ handleTrainlineChecked }) => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
     const [trainLines, setTrainLines] = useState([]);
 
@@ -13,6 +13,7 @@ const Stations = () => {
 
     const handleChange = (trainLine) => {
         setSelectedTrainLine(trainLine);
+        handleTrainlineChecked(trainLine);
     };
 
     const fetchTrainLineDb = async () => {
