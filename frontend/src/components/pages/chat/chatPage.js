@@ -105,7 +105,7 @@ const Chat = ({ trainLine }) => {
         <>
             <div
                 className="container"
-                style={{ "--primary-color": Color.Pink }}
+                style={{ "--primary-color": Color.Pink, margin: "0" }}
             >
                 <div className="title-div">
                     <ChatTitle trainLine={trainLine}></ChatTitle>

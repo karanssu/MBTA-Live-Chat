@@ -31,7 +31,10 @@ const Stations = ({ handleTrainlineChecked }) => {
 
     return (
         <>
-            <div className="station-container">
+            <div
+                className="station-container"
+                style={{ "--primary-color": Color.Pink }}
+            >
                 <div className="station-title">
                     <StationTitle></StationTitle>
                 </div>
