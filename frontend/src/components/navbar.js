@@ -27,7 +27,7 @@ export default function Navbar() {
         <ReactNavbar bg="dark" variant="dark">
             <Container>
                 <Nav className="me-auto">
-                    <Nav.Link href="/home">Home</Nav.Link>
+                    <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
                     <Nav.Link href="/chat">Chat</Nav.Link>
