@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getUserInfo from "../utilities/decodeJwt";
+import getUser from "../utilities/decodeJwt";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
@@ -10,7 +10,7 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        setUser(getUserInfo());
+        setUser(getUser());
     }, []);
 
     const handleClick = (e) => {

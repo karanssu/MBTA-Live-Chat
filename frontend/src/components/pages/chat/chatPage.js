@@ -3,7 +3,7 @@ import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
 import { useEffect, useRef, useState } from "react";
-import getUserInfo from "../../../utilities/decodeJwt";
+import getUser from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ const Chat = ({ trainLine }) => {
     const scrollableDivRef = useRef(null);
 
     useEffect(() => {
-        setUser(getUserInfo());
+        setUser(getUser());
         fetchCommentDb(trainLine);
     }, [trainLine]);
 

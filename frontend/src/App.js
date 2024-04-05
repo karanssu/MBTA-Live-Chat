@@ -6,11 +6,9 @@ import Login from "./components/pages/loginPage";
 import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
-import getUserInfo from "./utilities/decodeJwt";
+import getUser from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/alerts/mbtaAlerts";
-import ChatPage from "./components/pages/chat/chatPage";
 import LiveMapPage from "./components/pages/liveMap";
-import StationsList from "./components/pages/stations/stationsList";
 
 export const UserContext = createContext();
 
@@ -18,7 +16,7 @@ const App = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        setUser(getUserInfo());
+        setUser(getUser());
     }, []);
 
     return (
