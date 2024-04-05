@@ -16,7 +16,7 @@ export default function Navbar() {
     const handleClick = (e) => {
         e.preventDefault();
         localStorage.removeItem("accessToken");
-        return navigate("/");
+        return navigate("/login");
     };
 
     return (

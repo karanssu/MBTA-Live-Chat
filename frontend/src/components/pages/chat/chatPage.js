@@ -2,21 +2,21 @@ import CommentSendButton from "./commentSendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { useContext, useEffect, useRef, useState } from "react";
-// import getUserInfo from "../../../utilities/decodeJwt";
+import { useEffect, useRef, useState } from "react";
+import getUserInfo from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
-import { UserContext } from "../../../App";
+import { useNavigate } from "react-router-dom";
 
 const Chat = ({ trainLine }) => {
-    // const [user, setUser] = useState({});
+    const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
+    const navigate = useNavigate();
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
-    const user = useContext(UserContext);
 
     useEffect(() => {
-        // setUser(getUserInfo());
+        setUser(getUserInfo());
         fetchCommentDb(trainLine);
     }, [trainLine]);
 
@@ -81,6 +81,10 @@ const Chat = ({ trainLine }) => {
     };
 
     const handleSendButtonClick = () => {
+        if (!user) {
+            return navigate("/login");
+        }
+
         const userId = user.id;
         const username = user.username;
         const comment = inputRef.current.value.trim();
