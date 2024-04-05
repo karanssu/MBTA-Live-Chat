@@ -5,11 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 
-// Here, we display our Navbar
 export default function Navbar() {
-    // We are pulling in the user's info but not using it for now.
-    // Warning disabled:
-    // eslint-disable-next-line
     const [user, setUser] = useState({});
     const navigate = useNavigate();
 

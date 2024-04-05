@@ -1,8 +1,5 @@
 import React from "react";
-// We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
-
-// We import all the components we need in our app
 import Navbar from "./components/navbar";
 import HomePage from "./components/pages/homePage";
 import Login from "./components/pages/loginPage";
@@ -18,7 +15,7 @@ import StationsList from "./components/pages/stations/stationsList";
 export const UserContext = createContext();
 
 const App = () => {
-    const [user, setUser] = useState();
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         setUser(getUserInfo());
@@ -27,29 +24,19 @@ const App = () => {
     return (
         <>
             <Navbar />
-            <UserContext.Provider value={user}>
-                <Routes>
-                    <Route exact path="/" element={<HomePage />} />
-                    <Route exact path="/login" element={<Login />} />
-                    <Route exact path="/signup" element={<Signup />} />
-                    <Route
-                        exact
-                        path="/mbtaAlerts"
-                        element={<MbtaAlertsPage />}
-                    />
-                    <Route exact path="/chat" element={<ChatPage />} />
-                    <Route
-                        path="/privateUserProfile"
-                        element={<PrivateUserProfile />}
-                    />
-                    <Route exact path="/liveMap" element={<LiveMapPage />} />
-                    <Route
-                        exact
-                        path="/stationsList"
-                        element={<StationsList />}
-                    />
-                </Routes>
-            </UserContext.Provider>
+            <Routes>
+                <Route exact path="/" element={<HomePage />} />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/signup" element={<Signup />} />
+                <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
+                <Route exact path="/chat" element={<ChatPage />} />
+                <Route
+                    path="/privateUserProfile"
+                    element={<PrivateUserProfile />}
+                />
+                <Route exact path="/liveMap" element={<LiveMapPage />} />
+                <Route exact path="/stationsList" element={<StationsList />} />
+            </Routes>
         </>
     );
 };

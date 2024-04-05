@@ -2,19 +2,21 @@ import CommentSendButton from "./commentSendButton";
 import CommentInput from "./commentInput";
 import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
-import { useEffect, useRef, useState } from "react";
-import getUserInfo from "../../../utilities/decodeJwt";
+import { useContext, useEffect, useRef, useState } from "react";
+// import getUserInfo from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
+import { UserContext } from "../../../App";
 
 const Chat = ({ trainLine }) => {
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
+    const user = useContext(UserContext);
 
     useEffect(() => {
-        setUser(getUserInfo());
+        // setUser(getUserInfo());
         fetchCommentDb(trainLine);
     }, [trainLine]);
 
