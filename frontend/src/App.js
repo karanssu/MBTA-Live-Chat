@@ -29,10 +29,7 @@ const App = () => {
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
                 <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
-                <Route
-                    path="/privateUserProfile"
-                    element={<PrivateUserProfile />}
-                />
+                <Route path="/profile" element={<PrivateUserProfile />} />
                 <Route exact path="/liveMap" element={<LiveMapPage />} />
             </Routes>
         </>

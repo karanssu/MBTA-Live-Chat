@@ -24,7 +24,7 @@ export default function Navbar() {
             <Container>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
+                    <Nav.Link href="/profile">Profile</Nav.Link>
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
                     <Nav.Link href="/liveMap">Live Map</Nav.Link>
 
