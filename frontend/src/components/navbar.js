@@ -23,16 +23,11 @@ export default function Navbar() {
         return navigate("/");
     };
 
-    // if (!user) return null   - for now, let's show the bar even not logged in.
-    // we have an issue with getUserInfo() returning null after a few minutes
-    // it seems.
     return (
         <ReactNavbar bg="dark" variant="dark">
             <Container>
                 <Nav className="me-auto">
-                    {/* <Nav.Link href="/">Start</Nav.Link> */}
                     <Nav.Link href="/home">Home</Nav.Link>
-                    <Nav.Link href="/main">Main</Nav.Link>
                     <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
                     <Nav.Link href="/chat">Chat</Nav.Link>
