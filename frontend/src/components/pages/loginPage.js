@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { UserContext } from "../../App";
 import getUser from "../../utilities/decodeJwt";
 
 const PRIMARY_COLOR = "#cc5c99";
@@ -10,7 +11,7 @@ const SECONDARY_COLOR = "#0c0c1f";
 const url = "http://localhost:8081/user/login";
 
 const Login = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useContext(UserContext);
     const [data, setData] = useState({ username: "", password: "" });
     const [error, setError] = useState("");
     const [light, setLight] = useState(false);
@@ -35,9 +36,6 @@ const Login = () => {
     };
 
     useEffect(() => {
-        const obj = getUser(user);
-        setUser(obj);
-
         if (light) {
             setBgColor("white");
             setBgText("Dark mode");
@@ -54,6 +52,7 @@ const Login = () => {
             const { accessToken } = res;
             //store token in localStorage
             localStorage.setItem("accessToken", accessToken);
+            setUser(getUser());
             navigate("/");
         } catch (error) {
             if (

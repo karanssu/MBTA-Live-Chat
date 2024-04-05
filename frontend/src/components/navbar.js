@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
-import getUser from "../utilities/decodeJwt";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
 
 export default function Navbar() {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useContext(UserContext);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setUser(getUser());
-    }, []);
 
     const handleClick = (e) => {
         e.preventDefault();
         localStorage.removeItem("accessToken");
+        setUser(null);
         return navigate("/login");
     };
 

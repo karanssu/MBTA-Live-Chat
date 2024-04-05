@@ -21,15 +21,21 @@ const App = () => {
 
     return (
         <>
-            <Navbar />
-            <Routes>
-                <Route exact path="/" element={<HomePage />} />
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/signup" element={<Signup />} />
-                <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
-                <Route path="/profile" element={<PrivateUserProfile />} />
-                <Route exact path="/liveMap" element={<LiveMapPage />} />
-            </Routes>
+            <UserContext.Provider value={[user, setUser]}>
+                <Navbar />
+                <Routes>
+                    <Route exact path="/" element={<HomePage />} />
+                    <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/signup" element={<Signup />} />
+                    <Route
+                        exact
+                        path="/mbtaAlerts"
+                        element={<MbtaAlertsPage />}
+                    />
+                    <Route path="/profile" element={<PrivateUserProfile />} />
+                    <Route exact path="/liveMap" element={<LiveMapPage />} />
+                </Routes>
+            </UserContext.Provider>
         </>
     );
 };
