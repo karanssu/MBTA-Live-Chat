@@ -16,8 +16,7 @@ import LiveMapPage from "./components/pages/liveMap";
 import StationsList from "./components/pages/stations/stationsList";
 
 export const UserContext = createContext();
-//test change
-//test again
+
 const App = () => {
     const [user, setUser] = useState();
 
