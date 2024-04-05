@@ -6,7 +6,7 @@ import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,14 +26,19 @@ export default function Navbar() {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-                    <Nav.Link href="/chat">Chat</Nav.Link>
                     <Nav.Link href="/liveMap">Live Map</Nav.Link>
-                    <Nav.Link href="/stationsList">Stations</Nav.Link>
-                    <Nav.Link href="/login">Login</Nav.Link>
-                    <Nav.Link href="/signUp">Sign Up</Nav.Link>
-                    <Nav.Link href="/logout" onClick={(e) => handleClick(e)}>
-                        Log out
-                    </Nav.Link>
+
+                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
+                    {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
+
+                    {user && (
+                        <Nav.Link
+                            href="/logout"
+                            onClick={(e) => handleClick(e)}
+                        >
+                            Log out
+                        </Nav.Link>
+                    )}
                 </Nav>
             </Container>
         </ReactNavbar>
