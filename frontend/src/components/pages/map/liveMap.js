@@ -204,8 +204,8 @@ const MapComponent = () => {
         initializeMap();
         fetchTrainLocations();
 
-        // Timer For refresh 800 ms = 0.8 seconds
-        const intervalId = setInterval(fetchTrainLocations, 800);
+    // Timer For refresh 5000 ms = 5 seconds
+    const intervalId = setInterval(fetchTrainLocations, 5000);
 
         return () => {
             clearInterval(intervalId);
