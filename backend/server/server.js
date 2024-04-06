@@ -6,6 +6,17 @@ const dbConnection = require("./config/db.config");
 require("dotenv").config();
 const SERVER_PORT = 8081;
 
+const CHAT_SERVER_PORT = 2000;
+const io = require("socket.io")(CHAT_SERVER_PORT, {
+    cors: {
+        origin: ["http://localhost:3000", "http://localhost:8081"],
+    },
+});
+
+io.on("connection", (socket) => {
+    console.log(socket.id);
+});
+
 dbConnection();
 app.use(cors({ origin: "*" }));
 app.use(express.json());

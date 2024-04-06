@@ -7,6 +7,7 @@ import getUser from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 
 const Chat = ({ trainLine }) => {
     const [user, setUser] = useState({});
@@ -14,10 +15,16 @@ const Chat = ({ trainLine }) => {
     const navigate = useNavigate();
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
+    let socket = null;
 
     useEffect(() => {
         setUser(getUser());
         fetchCommentDb(trainLine);
+        socket = io("http://localhost:2000");
+
+        socket.on("connect", () => {
+            alert(`You connected with id: ${socket.id}`);
+        });
     }, [trainLine]);
 
     const scrollToBottom = () => {
