@@ -34,11 +34,12 @@ const Chat = ({ trainLine }) => {
         inputRef.current.value = "";
     };
 
-    const addUserComment = (username, comment) => {
+    const addUserComment = (username, trainLine, comment) => {
         setUserComments([
             ...userComments,
             {
                 username: username,
+                trainLine: trainLine,
                 comment: comment,
             },
         ]);
@@ -100,7 +101,7 @@ const Chat = ({ trainLine }) => {
 
         success
             .then(() => {
-                addUserComment(username, comment);
+                addUserComment(username, trainLine, comment);
                 clearCommentInput();
                 scrollToBottom();
             })
