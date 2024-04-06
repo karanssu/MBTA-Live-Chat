@@ -15,7 +15,7 @@ const io = require("socket.io")(CHAT_SERVER_PORT, {
 
 io.on("connection", (socket) => {
     socket.on("send-comment", (res) => {
-        socket.broadcast("receive-comment", res);
+        io.emit("receive-comment", res);
     });
 });
 
