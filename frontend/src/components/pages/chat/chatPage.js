@@ -18,8 +18,8 @@ const Chat = ({ trainLine }) => {
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
 
-    socket.on("receive-comment", (res) => {
-        setUserComments(res);
+    socket.on("receive-comment", (userComments) => {
+        setUserComments(userComments);
         scrollToBottom();
     });
 

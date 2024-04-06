@@ -14,8 +14,8 @@ const io = require("socket.io")(CHAT_SERVER_PORT, {
 });
 
 io.on("connection", (socket) => {
-    socket.on("send-comment", (res) => {
-        io.emit("receive-comment", res);
+    socket.on("send-comment", (userComments) => {
+        io.emit("receive-comment", userComments);
     });
 });
 
