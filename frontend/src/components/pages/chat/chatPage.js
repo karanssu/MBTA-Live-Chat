@@ -18,7 +18,7 @@ const Chat = ({ trainLine }) => {
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
 
-    socket.on("receive-comment", (userComments) => {
+    socket.on("receiveComment", (userComments) => {
         setUserComments(userComments);
         scrollToBottom();
     });
@@ -26,6 +26,7 @@ const Chat = ({ trainLine }) => {
     useEffect(() => {
         setUser(getUser());
         fetchCommentDb(trainLine);
+        socket.emit("joinTrainLine", trainLine);
     }, [trainLine]);
 
     const scrollToBottom = () => {
@@ -107,7 +108,7 @@ const Chat = ({ trainLine }) => {
         success
             .then(() => {
                 addUserComment(username, trainLine, comment);
-                socket.emit("send-comment", [
+                socket.emit("sendComment", [
                     ...userComments,
                     {
                         username: username,
