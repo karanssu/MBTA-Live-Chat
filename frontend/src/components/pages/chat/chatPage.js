@@ -21,10 +21,6 @@ const Chat = ({ trainLine }) => {
         setUser(getUser());
         fetchCommentDb(trainLine);
         socket = io("http://localhost:2000");
-
-        socket.on("connect", () => {
-            alert(`You connected with id: ${socket.id}`);
-        });
     }, [trainLine]);
 
     const scrollToBottom = () => {
