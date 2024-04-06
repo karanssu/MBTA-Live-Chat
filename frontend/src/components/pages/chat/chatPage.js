@@ -9,25 +9,23 @@ import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
+const socket = io("http://localhost:2000");
+
 const Chat = ({ trainLine }) => {
     const [user, setUser] = useState({});
     const [userComments, setUserComments] = useState([]);
     const navigate = useNavigate();
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
-    const socket = io("http://localhost:2000");
+
+    socket.on("receive-comment", (res) => {
+        setUserComments(res);
+        scrollToBottom();
+    });
 
     useEffect(() => {
         setUser(getUser());
         fetchCommentDb(trainLine);
-
-        socket.on("connect", () => {
-            alert(socket.id);
-        });
-
-        socket.on("receive-comment", (res) => {
-            setUserComments(res);
-        });
     }, [trainLine]);
 
     const scrollToBottom = () => {
