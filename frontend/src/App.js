@@ -8,7 +8,7 @@ import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
 import getUser from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/alerts/mbtaAlerts";
-import LiveMapPage from "./components/pages/liveMap";
+import LiveMapPage from "./components/pages/map/liveMap";
 
 export const UserContext = createContext();
 
