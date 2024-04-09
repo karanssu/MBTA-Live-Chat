@@ -26,7 +26,6 @@ export default function Navbar() {
                     <Nav.Link href="/liveMap">Live Map</Nav.Link>
 
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
-                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
 
                     {user && (
                         <Nav.Link
@@ -36,6 +35,9 @@ export default function Navbar() {
                             Log out
                         </Nav.Link>
                     )}
+                </Nav>
+                <Nav className="me-right">
+                {!user && <Nav.Link href="/login">Login</Nav.Link>}
                 </Nav>
             </Container>
         </ReactNavbar>
