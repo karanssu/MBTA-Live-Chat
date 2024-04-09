@@ -38,6 +38,8 @@ export default function Navbar() {
                 </Nav>
                 <Nav className="me-right">
                 {!user && <Nav.Link href="/login">Login</Nav.Link>}
+                {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
+                
                 </Nav>
             </Container>
         </ReactNavbar>
