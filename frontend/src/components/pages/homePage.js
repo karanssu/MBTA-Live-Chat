@@ -14,21 +14,17 @@ const HomePage = () => {
         <>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-3" style={{ background: "green" }}>
-                        1 of 3
-                    </div>
-                    <div class="col-6" style={{ background: "orange" }}>
-                        2 of 3
-                    </div>
-                    <div class="col-3" style={{ background: "cyan" }}>
+                    <div class="col-3 p-3">1 of 3</div>
+                    <div class="col-6 p-3">2 of 3</div>
+                    <div class="col-3 p-3">
                         <Stations
                             handleTrainlineChecked={handleTrainlineChange}
                         ></Stations>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4" style={{ background: "blue" }}></div>
-                    <div class="col-8" style={{ background: "red" }}>
+                    <div class="col-4"></div>
+                    <div class="col-8 p-3">
                         <Chat trainLine={trainLine}></Chat>
                     </div>
                 </div>

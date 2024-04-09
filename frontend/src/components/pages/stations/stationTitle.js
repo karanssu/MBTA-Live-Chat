@@ -3,8 +3,10 @@ import Color from "../../../constants/colors";
 const StationTitle = () => {
     const stationTitleStyle = {
         color: Color.Black,
+        fontSize: "2em",
         fontWeight: "bold",
         textAlign: "center",
+        marginTop: "10px",
     };
 
     return (
