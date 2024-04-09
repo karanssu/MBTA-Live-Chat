@@ -1,10 +1,8 @@
 .station-container {
-    width: 400px;
-    height: auto;
-    padding: 10px 20px 100px 20px;
-    border-radius: 15px;
-    background: var(--primary-color);
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 20px 100px 20px;
+  border-radius: 15px;
+  background: var(--primary-color);
 }
 
 .station-board label {

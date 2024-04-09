@@ -9,6 +9,7 @@ import { createContext, useState, useEffect } from "react";
 import getUser from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/alerts/mbtaAlerts";
 import LiveMapPage from "./components/pages/map/liveMap";
+import "./App.css";
 
 export const UserContext = createContext();
 
