@@ -110,17 +110,9 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
     }, [trainLine, inboundChecked, outboundChecked]);
 
     return (
-        <div>
+        <>
             <div ref={mapRef} style={mapStyles.map}></div>
-            <Buttons
-                handleButtonClick={(trainLine) =>
-                    handleButtonClick(trainLine, setPressedButton)
-                }
-                resetMap={() => resetMap(map, fromLonLat, setPressedButton)}
-                pressedButton={pressedButton}
-                filterColor={trainLine}
-            />
-        </div>
+        </>
     );
 };
 

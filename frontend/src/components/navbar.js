@@ -23,7 +23,6 @@ export default function Navbar() {
                     <Nav.Link href="/">Home</Nav.Link>
                     {user && <Nav.Link href="/profile">Profile</Nav.Link>}
                     <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-                    <Nav.Link href="/liveMap">Live Map</Nav.Link>
 
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
 
@@ -37,9 +36,8 @@ export default function Navbar() {
                     )}
                 </Nav>
                 <Nav className="me-right">
-                {!user && <Nav.Link href="/login">Login</Nav.Link>}
-                {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
-                
+                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
+                    {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
                 </Nav>
             </Container>
         </ReactNavbar>

@@ -34,7 +34,6 @@ const App = () => {
                         element={<MbtaAlertsPage />}
                     />
                     <Route path="/profile" element={<PrivateUserProfile />} />
-                    <Route exact path="/liveMap" element={<LiveMapPage />} />
                 </Routes>
             </UserContext.Provider>
         </>
