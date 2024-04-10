@@ -66,9 +66,12 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                         trainStyle(
                             feature,
                             trainLine,
-                            getDirection(inboundChecked, outboundChecked)
+                            getDirection(inboundChecked, outboundChecked),
+                            inboundChecked,
+                            outboundChecked 
                         ),
                 });
+                
 
                 map = new Map({
                     target: mapRef.current,
