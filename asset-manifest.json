@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mbta/static/css/main.3a8a4bf8.css",
+    "main.js": "/mbta/static/js/main.005a9290.js",
+    "index.html": "/mbta/index.html",
+    "main.3a8a4bf8.css.map": "/mbta/static/css/main.3a8a4bf8.css.map",
+    "main.005a9290.js.map": "/mbta/static/js/main.005a9290.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a8a4bf8.css",
+    "static/js/main.005a9290.js"
+  ]
+}
