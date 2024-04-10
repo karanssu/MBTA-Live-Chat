@@ -53,11 +53,15 @@ export const nodeStyle = (feature, filterColor) => {
     });
 };
 
-export const trainStyle = (feature, filterColor, filterDirection) => {
+export const trainStyle = (feature, filterColor, filterDirection, inboundChecked, outboundChecked) => {
     const trainLine = feature.get("LINE").toUpperCase();
     const direction = feature.get("DIRECTION");
     let isVisible = true;
 
+    if (!inboundChecked && !outboundChecked) {
+        return null; 
+    }
+    
     if (filterColor) {
         const isGreenFilter = filterColor.toUpperCase() === "GREEN";
         const isGreenLine = trainLine.includes("GREEN");

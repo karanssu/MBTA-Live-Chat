@@ -8,11 +8,9 @@ import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON";
 import { fromLonLat } from "ol/proj";
 import OSM from "ol/source/OSM";
-import Buttons from "./buttons";
 import { mapStyles } from "./mapStyles";
 import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
-import { handleButtonClick, resetMap } from "./mapControls";
 
 const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
     const mapRef = useRef();
@@ -68,9 +66,12 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                         trainStyle(
                             feature,
                             trainLine,
-                            getDirection(inboundChecked, outboundChecked)
+                            getDirection(inboundChecked, outboundChecked),
+                            inboundChecked,
+                            outboundChecked 
                         ),
                 });
+                
 
                 map = new Map({
                     target: mapRef.current,
@@ -85,6 +86,7 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                     view: new View({
                         center: fromLonLat([-71.07777, 42.35313]),
                         zoom: 12,
+                        rotation: 0,
                     }),
                 });
             } catch (error) {
