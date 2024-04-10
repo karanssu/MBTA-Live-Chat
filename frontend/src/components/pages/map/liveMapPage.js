@@ -18,7 +18,7 @@ import {
     resetMap,
 } from "./mapControls";
 
-const MapComponent = ({ trainLine }) => {
+const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
     const mapRef = useRef();
     let map;
 

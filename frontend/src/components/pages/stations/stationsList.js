@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import StationTitle from "./stationTitle";
 import Color from "../../../constants/colors";
 
-const Stations = ({ handleTrainlineChecked }) => {
+const Stations = ({
+    handleTrainlineChecked,
+    handleInboundChange,
+    handleOutboundChange,
+}) => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
     const [inboundChecked, setInboundChecked] = useState(true);
     const [outboundChecked, setOutboundChecked] = useState(true);
@@ -20,10 +24,12 @@ const Stations = ({ handleTrainlineChecked }) => {
 
     const handleInboundCheckBox = () => {
         setInboundChecked(!inboundChecked);
+        handleInboundChange(!inboundChecked);
     };
 
     const handleOutboundCheckBox = () => {
         setOutboundChecked(!outboundChecked);
+        handleOutboundChange(!outboundChecked);
     };
 
     const fetchTrainLineDb = async () => {
