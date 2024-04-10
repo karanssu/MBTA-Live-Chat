@@ -11,14 +11,12 @@
 }
 
 
-.station-board input[type="radio"] {
+.station-board input[type="radio"], input[type="checkbox"] {
   margin-right: 5px;
-  
 }
 
-.station-board input[type="radio"]:checked {
+.station-board input[type="radio"]:checked, input[type="checkbox"]:checked {
     margin-right: 15px;
-    border-color: yellow;
 }
 
 .station-board label span {

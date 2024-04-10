@@ -1,10 +1,12 @@
 import "./stationsList.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import StationTitle from "./stationTitle";
 import Color from "../../../constants/colors";
 
 const Stations = ({ handleTrainlineChecked }) => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
+    const [inboundChecked, setInboundChecked] = useState(true);
+    const [outboundChecked, setOutboundChecked] = useState(true);
     const [trainLines, setTrainLines] = useState([]);
 
     useEffect(() => {
@@ -14,6 +16,14 @@ const Stations = ({ handleTrainlineChecked }) => {
     const handleChange = (trainLine) => {
         setSelectedTrainLine(trainLine);
         handleTrainlineChecked(trainLine);
+    };
+
+    const handleInboundCheckBox = () => {
+        setInboundChecked(!inboundChecked);
+    };
+
+    const handleOutboundCheckBox = () => {
+        setOutboundChecked(!outboundChecked);
     };
 
     const fetchTrainLineDb = async () => {
@@ -39,8 +49,8 @@ const Stations = ({ handleTrainlineChecked }) => {
                     <StationTitle></StationTitle>
                 </div>
                 <div className="horizontal-line"></div>
-                <div className="station-board">
-                    <div>
+                <div className="station-board row">
+                    <div className="col-6">
                         {trainLines.map((trainLine) => (
                             <label
                                 style={{
@@ -58,6 +68,36 @@ const Stations = ({ handleTrainlineChecked }) => {
                                 {trainLine}
                             </label>
                         ))}
+                    </div>
+                    <div className="col-6">
+                        <label
+                            style={{
+                                color: Color[selectedTrainLine],
+                                fontWeight: "bold",
+                            }}
+                        >
+                            <input
+                                type="checkbox"
+                                checked={inboundChecked}
+                                value={"Inbound"}
+                                onChange={handleInboundCheckBox}
+                            />
+                            Inbound
+                        </label>
+                        <label
+                            style={{
+                                color: Color[selectedTrainLine],
+                                fontWeight: "bold",
+                            }}
+                        >
+                            <input
+                                type="checkbox"
+                                checked={outboundChecked}
+                                value={"Outbound"}
+                                onChange={handleOutboundCheckBox}
+                            />
+                            Outbound
+                        </label>
                     </div>
                 </div>
             </div>
