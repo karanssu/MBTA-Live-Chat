@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Chat from "./chat/chatPage";
 import Stations from "./stations/stationsList";
+import LiveMap from "./map/liveMapPage";
 import "./homePage.css";
 
 const HomePage = () => {
@@ -15,7 +16,9 @@ const HomePage = () => {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-3 p-3">1 of 3</div>
-                    <div class="col-6 p-3">2 of 3</div>
+                    <div class="col-6 p-3">
+                        <LiveMap trainLine={trainLine.toUpperCase()}></LiveMap>
+                    </div>
                     <div class="col-3 p-3">
                         <Stations
                             handleTrainlineChecked={handleTrainlineChange}

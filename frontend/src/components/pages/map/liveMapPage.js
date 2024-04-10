@@ -10,16 +10,18 @@ import { fromLonLat } from "ol/proj";
 import OSM from "ol/source/OSM";
 import Buttons from "./buttons";
 import { mapStyles } from "./mapStyles";
-import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions"; 
-import { fetchTrainLocations } from './fetchTrainLocations'; 
-import { handleButtonClick, handleDirectionClick, resetMap } from './mapControls';
+import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions";
+import { fetchTrainLocations } from "./fetchTrainLocations";
+import {
+    handleButtonClick,
+    handleDirectionClick,
+    resetMap,
+} from "./mapControls";
 
-
-const MapComponent = () => {
+const MapComponent = ({ trainLine }) => {
     const mapRef = useRef();
     let map;
 
-    const [filterColor, setFilterColor] = useState("");
     const [filterDirection, setFilterDirection] = useState("");
     const [pressedButton, setPressedButton] = useState("");
 
@@ -43,15 +45,16 @@ const MapComponent = () => {
 
                 const arcLayer = new VectorLayer({
                     source: arcSource,
-                    style: feature => lineStyle(feature, filterColor),
+                    style: (feature) => lineStyle(feature, trainLine),
                 });
                 const nodeLayer = new VectorLayer({
                     source: nodeSource,
-                    style: feature => nodeStyle(feature, filterColor),
+                    style: (feature) => nodeStyle(feature, trainLine),
                 });
                 const trainLayer = new VectorLayer({
                     source: trainSource,
-                    style: feature => trainStyle(feature, filterColor, filterDirection),
+                    style: (feature) =>
+                        trainStyle(feature, trainLine, filterDirection),
                 });
 
                 map = new Map({
@@ -77,8 +80,11 @@ const MapComponent = () => {
         initializeMap();
         fetchTrainLocations(trainSource);
 
-    // Timer For refresh 5000 ms = 5 seconds
-    const intervalId = setInterval(() => fetchTrainLocations(trainSource), 5000);
+        // Timer For refresh 5000 ms = 5 seconds
+        const intervalId = setInterval(
+            () => fetchTrainLocations(trainSource),
+            5000
+        );
 
         return () => {
             clearInterval(intervalId);
@@ -86,24 +92,32 @@ const MapComponent = () => {
                 map.setTarget(null);
             }
         };
-    }, [filterColor, filterDirection]);
+    }, [trainLine, filterDirection]);
 
     return (
         <div>
-          <div
-            ref={mapRef}
-            style={mapStyles.map} 
-          ></div>
-        <Buttons
-            handleButtonClick={(color) => handleButtonClick(color, setFilterColor, setPressedButton)}
-            handleDirectionClick={(direction) => handleDirectionClick(direction, setFilterDirection)}
-            resetMap={() => resetMap(map, fromLonLat, setFilterColor, setFilterDirection, setPressedButton)}
-            pressedButton={pressedButton}
-            filterDirection={filterDirection}
-            filterColor={filterColor}
-        />
+            <div ref={mapRef} style={mapStyles.map}></div>
+            <Buttons
+                handleButtonClick={(trainLine) =>
+                    handleButtonClick(trainLine, setPressedButton)
+                }
+                handleDirectionClick={(direction) =>
+                    handleDirectionClick(direction, setFilterDirection)
+                }
+                resetMap={() =>
+                    resetMap(
+                        map,
+                        fromLonLat,
+                        setFilterDirection,
+                        setPressedButton
+                    )
+                }
+                pressedButton={pressedButton}
+                filterDirection={filterDirection}
+                filterColor={trainLine}
+            />
         </div>
-      );
-    };
-    
-    export default MapComponent;
+    );
+};
+
+export default MapComponent;

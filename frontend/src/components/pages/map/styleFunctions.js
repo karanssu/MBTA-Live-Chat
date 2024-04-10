@@ -1,30 +1,30 @@
-import { Style, Stroke, Circle, Fill } from 'ol/style';
-import Icon from 'ol/style/Icon';
-import trainIcon from './train.png';
+import { Style, Stroke, Circle, Fill } from "ol/style";
+import Icon from "ol/style/Icon";
+import trainIcon from "./train.png";
 
 export const lineStyle = (feature, filterColor) => {
-    const lineColor = feature.get('LINE');
+    const lineColor = feature.get("LINE");
     let color;
 
     switch (lineColor) {
-        case 'BLUE':
-            color = 'blue';
+        case "BLUE":
+            color = "blue";
             break;
-        case 'RED':
-            color = 'red';
+        case "RED":
+            color = "red";
             break;
-        case 'GREEN':
-            color = 'green';
+        case "GREEN":
+            color = "green";
             break;
-        case 'ORANGE':
-            color = 'orange';
+        case "ORANGE":
+            color = "orange";
             break;
         default:
-            color = 'rgba(0, 0, 0, 0)';
+            color = "rgba(0, 0, 0, 0)";
     }
 
     if (filterColor && filterColor !== lineColor) {
-        color = 'rgba(0, 0, 0, 0)';
+        color = "rgba(0, 0, 0, 0)";
     }
 
     return new Style({
@@ -36,11 +36,11 @@ export const lineStyle = (feature, filterColor) => {
 };
 
 export const nodeStyle = (feature, filterColor) => {
-    const nodeColor = feature.get('LINE');
-    let visibility = 'white';
+    const nodeColor = feature.get("LINE");
+    let visibility = "white";
 
     if (filterColor && filterColor !== nodeColor) {
-        visibility = 'rgba(0, 0, 0, 0)';
+        visibility = "rgba(0, 0, 0, 0)";
     }
 
     return new Style({
@@ -54,15 +54,18 @@ export const nodeStyle = (feature, filterColor) => {
 };
 
 export const trainStyle = (feature, filterColor, filterDirection) => {
-    const trainLine = feature.get('LINE').toUpperCase();
-    const direction = feature.get('DIRECTION');
+    const trainLine = feature.get("LINE").toUpperCase();
+    const direction = feature.get("DIRECTION");
     let isVisible = true;
 
     if (filterColor) {
-        const isGreenFilter = filterColor.toUpperCase() === 'GREEN';
-        const isGreenLine = trainLine.includes('GREEN');
+        const isGreenFilter = filterColor.toUpperCase() === "GREEN";
+        const isGreenLine = trainLine.includes("GREEN");
 
-        if ((isGreenFilter && !isGreenLine) || (!isGreenFilter && filterColor.toUpperCase() !== trainLine)) {
+        if (
+            (isGreenFilter && !isGreenLine) ||
+            (!isGreenFilter && filterColor.toUpperCase() !== trainLine)
+        ) {
             isVisible = false;
         }
     }
@@ -77,8 +80,8 @@ export const trainStyle = (feature, filterColor, filterDirection) => {
             src: trainIcon,
             scale: 0.04,
             anchor: [0.5, 0.5],
-            anchorXUnits: 'fraction',
-            anchorYUnits: 'fraction',
+            anchorXUnits: "fraction",
+            anchorYUnits: "fraction",
         }),
     });
 };
