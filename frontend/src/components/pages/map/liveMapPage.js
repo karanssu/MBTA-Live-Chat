@@ -16,10 +16,7 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
     const mapRef = useRef();
     let map;
 
-    const [pressedButton, setPressedButton] = useState("");
-
     const getDirection = (inboundChecked, outboundChecked) => {
-        console.log(inboundChecked, outboundChecked);
         if (
             (inboundChecked && outboundChecked) ||
             (!inboundChecked && !outboundChecked)
@@ -68,10 +65,9 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                             trainLine,
                             getDirection(inboundChecked, outboundChecked),
                             inboundChecked,
-                            outboundChecked 
+                            outboundChecked
                         ),
                 });
-                
 
                 map = new Map({
                     target: mapRef.current,

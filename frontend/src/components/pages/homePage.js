@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Chat from "./chat/chatPage";
 import Stations from "./stations/stationsList";
 import LiveMap from "./map/liveMapPage";
-import MbtaAlerts from "./alerts/mbtaAlerts";
 import "./homePage.css";
 
 const HomePage = () => {
@@ -24,17 +23,17 @@ const HomePage = () => {
 
     return (
         <>
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    <div class="col-3 p-3">Alerts</div>
-                    <div class="col-6 p-3">
+                    <div class="col-md-3 p-3">Alerts</div>
+                    <div class="col-md-6 p-3">
                         <LiveMap
                             trainLine={trainLine.toUpperCase()}
                             inboundChecked={inboundChecked}
                             outboundChecked={outboundChecked}
                         ></LiveMap>
                     </div>
-                    <div class="col-3 p-3">
+                    <div class="col-md-3 p-3">
                         <Stations
                             handleTrainlineChecked={handleTrainlineChange}
                             handleInboundChange={handleInboundChange}
@@ -43,8 +42,8 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-3">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9 p-3">
                         <Chat trainLine={trainLine}></Chat>
                     </div>
                 </div>
