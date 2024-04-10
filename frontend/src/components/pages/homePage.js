@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Chat from "./chat/chatPage";
 import Stations from "./stations/stationsList";
 import LiveMap from "./map/liveMapPage";
+import MbtaAlerts from "./alerts/mbtaAlerts";
 import "./homePage.css";
 
 const HomePage = () => {
@@ -25,7 +26,7 @@ const HomePage = () => {
         <>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-3 p-3">1 of 3</div>
+                    <div class="col-3 p-3">Alerts</div>
                     <div class="col-6 p-3">
                         <LiveMap
                             trainLine={trainLine.toUpperCase()}
@@ -42,8 +43,8 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-8 p-3">
+                    <div class="col-3"></div>
+                    <div class="col-9 p-3">
                         <Chat trainLine={trainLine}></Chat>
                     </div>
                 </div>
