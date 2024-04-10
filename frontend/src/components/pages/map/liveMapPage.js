@@ -12,18 +12,29 @@ import Buttons from "./buttons";
 import { mapStyles } from "./mapStyles";
 import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
-import {
-    handleButtonClick,
-    handleDirectionClick,
-    resetMap,
-} from "./mapControls";
+import { handleButtonClick, resetMap } from "./mapControls";
 
 const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
     const mapRef = useRef();
     let map;
 
-    const [filterDirection, setFilterDirection] = useState("");
     const [pressedButton, setPressedButton] = useState("");
+
+    const getDirection = (inboundChecked, outboundChecked) => {
+        console.log(inboundChecked, outboundChecked);
+        if (
+            (inboundChecked && outboundChecked) ||
+            (!inboundChecked && !outboundChecked)
+        ) {
+            return "";
+        } else if (inboundChecked) {
+            return "1";
+        } else if (outboundChecked) {
+            return "0";
+        }
+
+        return "";
+    };
 
     const arcSource = new VectorSource(),
         nodeSource = new VectorSource(),
@@ -54,7 +65,11 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                 const trainLayer = new VectorLayer({
                     source: trainSource,
                     style: (feature) =>
-                        trainStyle(feature, trainLine, filterDirection),
+                        trainStyle(
+                            feature,
+                            trainLine,
+                            getDirection(inboundChecked, outboundChecked)
+                        ),
                 });
 
                 map = new Map({
@@ -92,7 +107,7 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                 map.setTarget(null);
             }
         };
-    }, [trainLine, filterDirection]);
+    }, [trainLine, inboundChecked, outboundChecked]);
 
     return (
         <div>
@@ -101,19 +116,8 @@ const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
                 handleButtonClick={(trainLine) =>
                     handleButtonClick(trainLine, setPressedButton)
                 }
-                handleDirectionClick={(direction) =>
-                    handleDirectionClick(direction, setFilterDirection)
-                }
-                resetMap={() =>
-                    resetMap(
-                        map,
-                        fromLonLat,
-                        setFilterDirection,
-                        setPressedButton
-                    )
-                }
+                resetMap={() => resetMap(map, fromLonLat, setPressedButton)}
                 pressedButton={pressedButton}
-                filterDirection={filterDirection}
                 filterColor={trainLine}
             />
         </div>

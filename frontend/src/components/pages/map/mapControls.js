@@ -6,12 +6,7 @@ export const handleDirectionClick = (direction, setFilterDirection) => {
     setFilterDirection(direction);
 };
 
-export const resetMap = (
-    map,
-    fromLonLat,
-    setFilterDirection,
-    setPressedButton
-) => {
+export const resetMap = (map, fromLonLat, setPressedButton) => {
     if (!map) {
         console.error("Map not initialized");
         return;
@@ -20,6 +15,5 @@ export const resetMap = (
     map.getView().setCenter(bostonCords);
     map.getView().setZoom(12);
     map.getView().setRotation(0);
-    setFilterDirection("");
     setPressedButton("");
 };
