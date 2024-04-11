@@ -128,7 +128,7 @@ const Chat = ({ trainLine }) => {
     return (
         <>
             <div
-                className="container"
+                className="chat-container"
                 style={{ "--primary-color": Color.Pink, margin: "0" }}
             >
                 <div className="title-div">
@@ -139,13 +139,13 @@ const Chat = ({ trainLine }) => {
                     <CommentBoard userComments={userComments}></CommentBoard>
                 </div>
                 <div className="bottom-div row">
-                    <div className="input-div col-11">
+                    <div className="input-div col-sm-8 col-md-10 col-xl-11">
                         <CommentInput
                             handleSendButtonClick={handleSendButtonClick}
                             ref={inputRef}
                         ></CommentInput>
                     </div>
-                    <div className="send-button-div col-1">
+                    <div className="send-button-div col-sm-4 col-md-2 col-xl-1">
                         <CommentSendButton
                             handleSendButtonClick={handleSendButtonClick}
                         ></CommentSendButton>

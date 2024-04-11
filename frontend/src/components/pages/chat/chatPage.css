@@ -1,6 +1,7 @@
-.container {
+.chat-container {
     background: var(--primary-color);
     border-radius: 15px;
+    padding-right: 10px;
 }
 
 .bottom-div, .chat-board-div {
@@ -21,8 +22,8 @@
 }
 
 .chat-board-div {
-    max-height: 170px;
-    overflow: auto;
+  height: 20vh;
+  overflow: auto;
 }
 
 ::-webkit-scrollbar {

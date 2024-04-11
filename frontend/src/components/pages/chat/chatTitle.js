@@ -3,7 +3,7 @@ import Color from "../../../constants/colors";
 const ChatTitle = ({ trainLine }) => {
     const chatTitleStyle = {
         color: Color[trainLine],
-        fontSize: "2em",
+        fontSize: "2rem",
         fontWeight: "bold",
         textAlign: "center",
     };

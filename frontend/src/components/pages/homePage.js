@@ -23,28 +23,46 @@ const HomePage = () => {
 
     return (
         <>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 p-3">Alerts</div>
-                    <div class="col-md-6 p-3">
-                        <LiveMap
-                            trainLine={trainLine.toUpperCase()}
-                            inboundChecked={inboundChecked}
-                            outboundChecked={outboundChecked}
-                        ></LiveMap>
+            <div
+                className="container"
+                style={{
+                    border: "2px solid black",
+                    width: "100hv",
+                }}
+            >
+                <div className="row" style={{ height: "90vh" }}>
+                    <div className="col-3" style={{ border: "2px solid red" }}>
+                        Alerts
                     </div>
-                    <div class="col-md-3 p-3">
-                        <Stations
-                            handleTrainlineChecked={handleTrainlineChange}
-                            handleInboundChange={handleInboundChange}
-                            handleOutboundChange={handleOutboundChange}
-                        ></Stations>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-9 p-3">
-                        <Chat trainLine={trainLine}></Chat>
+                    <div className="col-9" style={{ border: "2px solid red" }}>
+                        <div
+                            className="row"
+                            style={{ border: "2px solid red", height: "45vh" }}
+                        >
+                            <div
+                                className="col-8"
+                                style={{ border: "2px solid red" }}
+                            >
+                                Map
+                            </div>
+                            <div
+                                className="col-4"
+                                style={{ border: "2px solid red" }}
+                            >
+                                Stations
+                            </div>
+                        </div>
+                        <div
+                            className="row"
+                            style={{ border: "2px solid red", height: "45vh" }}
+                        >
+                            <div
+                                className="col"
+                                style={{ border: "2px solid red" }}
+                            >
+                                <Chat trainLine={trainLine}></Chat>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
