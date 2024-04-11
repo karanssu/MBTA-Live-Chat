@@ -52,7 +52,7 @@ const Stations = ({
                 style={{ "--primary-color": Color.Pink }}
             >
                 <div className="station-title">
-                    <StationTitle></StationTitle>
+                    <StationTitle trainLine={selectedTrainLine}></StationTitle>
                 </div>
                 <div className="horizontal-line"></div>
                 <div className="station-board row">

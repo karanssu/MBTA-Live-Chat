@@ -1,8 +1,8 @@
 import Color from "../../../constants/colors";
 
-const StationTitle = () => {
+const StationTitle = ({ trainLine }) => {
     const stationTitleStyle = {
-        color: Color.Black,
+        color: Color[trainLine],
         fontSize: "2em",
         fontWeight: "bold",
         textAlign: "center",
