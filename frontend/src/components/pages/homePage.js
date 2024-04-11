@@ -49,7 +49,13 @@ const HomePage = () => {
                                 className="col-4"
                                 style={{ border: "2px solid red" }}
                             >
-                                Stations
+                                <Stations
+                                    handleTrainlineChecked={
+                                        handleTrainlineChange
+                                    }
+                                    handleInboundChange={handleInboundChange}
+                                    handleOutboundChange={handleOutboundChange}
+                                ></Stations>
                             </div>
                         </div>
                         <div
