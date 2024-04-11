@@ -26,18 +26,18 @@ export default function Navbar() {
 
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
 
-                    {user && (
-                        <Nav.Link
-                            href="/logout"
-                            onClick={(e) => handleClick(e)}
-                        >
-                            Log out
-                        </Nav.Link>
-                    )}
                 </Nav>
                 <Nav className="me-right">
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
-                    {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
+                    <div className="dropdown-container">
+                        <div className="dropdown-trigger">
+                        
+                        <ul>
+                        {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
+                        <li> {user && (<Nav.Link href="/logout" onClick={(e) => handleClick(e)}>Log out</Nav.Link>)}</li>
+                        </ul>
+                        </div>   
+                    </div>
                 </Nav>
             </Container>
         </ReactNavbar>
