@@ -32,7 +32,7 @@ export default function Navbar() {
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
                     {user && <Nav.Link href="/login" onClick={() => setOpenMenu((prev) => !prev)}>{user.username}</Nav.Link>}
                     {
-                        openMenu && <DropDownList><Nav.Link href="/logout" onClick={(e) => handleClick(e)}> Log out</Nav.Link></DropDownList>
+                        openMenu && <DropDownList></DropDownList>
                     }
 
 
