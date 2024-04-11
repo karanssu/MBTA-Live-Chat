@@ -54,7 +54,7 @@ const Stations = ({
                 <div className="station-title">
                     <CustomTitle
                         title={"Stations"}
-                        trainLine={selectedTrainLine}
+                        color={"black"}
                     ></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>

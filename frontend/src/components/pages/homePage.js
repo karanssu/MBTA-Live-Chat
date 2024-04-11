@@ -35,7 +35,7 @@ const HomePage = () => {
                         className="col-3"
                         style={{ height: "85vh", overflow: "hidden" }}
                     >
-                        <Alerts trainLine={trainLine}></Alerts>
+                        <Alerts></Alerts>
                     </div>
                     <div className="col-9">
                         <div className="row" style={{ height: "42vh" }}>

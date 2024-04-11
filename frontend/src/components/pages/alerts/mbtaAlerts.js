@@ -5,7 +5,7 @@ import "./mbtaAlerts.css";
 import Color from "../../../constants/colors";
 import CustomTitle from "../stations/customTitle";
 
-function Alerts({ trainLine }) {
+function Alerts() {
     const [alerts, setAlerts] = useState([]);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ function Alerts({ trainLine }) {
                 <div className="alert-title row">
                     <CustomTitle
                         title={"Alerts"}
-                        trainLine={trainLine}
+                        trainLine={"black"}
                     ></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>
