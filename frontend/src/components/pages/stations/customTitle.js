@@ -1,7 +1,7 @@
 import Color from "../../../constants/colors";
 
-const StationTitle = ({ trainLine }) => {
-    const stationTitleStyle = {
+const CustomTitle = ({ title, trainLine }) => {
+    const titleStyle = {
         color: Color[trainLine],
         fontSize: "2em",
         fontWeight: "bold",
@@ -12,10 +12,10 @@ const StationTitle = ({ trainLine }) => {
     return (
         <>
             <div>
-                <h1 style={stationTitleStyle}>Stations</h1>
+                <h1 style={titleStyle}>{title}</h1>
             </div>
         </>
     );
 };
 
-export default StationTitle;
+export default CustomTitle;

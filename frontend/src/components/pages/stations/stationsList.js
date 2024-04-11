@@ -1,6 +1,6 @@
 import "./stationsList.css";
 import { useEffect, useState } from "react";
-import StationTitle from "./stationTitle";
+import CustomTitle from "./customTitle";
 import Color from "../../../constants/colors";
 
 const Stations = ({
@@ -52,7 +52,10 @@ const Stations = ({
                 style={{ "--primary-color": Color.Pink }}
             >
                 <div className="station-title">
-                    <StationTitle trainLine={selectedTrainLine}></StationTitle>
+                    <CustomTitle
+                        title={"Stations"}
+                        trainLine={selectedTrainLine}
+                    ></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>
                 <div className="station-board row">

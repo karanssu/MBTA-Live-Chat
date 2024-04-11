@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Chat from "./chat/chatPage";
 import Stations from "./stations/stationsList";
 import LiveMap from "./map/liveMapPage";
+import Alerts from "./alerts/mbtaAlerts";
 import "./homePage.css";
 
 const HomePage = () => {
@@ -29,18 +30,23 @@ const HomePage = () => {
                     width: "100hv",
                 }}
             >
-                <div className="row" style={{ height: "90vh" }}>
-                    <div className="col-3">Alerts</div>
+                <div className="row py-3" style={{ height: "90vh" }}>
+                    <div
+                        className="col-3"
+                        style={{ height: "85vh", overflow: "hidden" }}
+                    >
+                        <Alerts trainLine={trainLine}></Alerts>
+                    </div>
                     <div className="col-9">
                         <div className="row" style={{ height: "42vh" }}>
-                            <div className="col-8 py-2">
+                            <div className="col-8 ">
                                 <LiveMap
                                     trainLine={trainLine.toUpperCase()}
                                     inboundChecked={inboundChecked}
                                     outboundChecked={outboundChecked}
                                 ></LiveMap>
                             </div>
-                            <div className="col-4 py-2">
+                            <div className="col-4">
                                 <Stations
                                     handleTrainlineChecked={
                                         handleTrainlineChange
@@ -51,7 +57,7 @@ const HomePage = () => {
                             </div>
                         </div>
                         <div className="row" style={{ height: "42vh" }}>
-                            <div className="col py-2">
+                            <div className="col py-3">
                                 <Chat trainLine={trainLine}></Chat>
                             </div>
                         </div>

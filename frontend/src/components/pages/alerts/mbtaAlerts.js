@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import "./mbtaAlerts.css";
+import Color from "../../../constants/colors";
+import CustomTitle from "../stations/customTitle";
 
-function Alerts() {
+function Alerts({ trainLine }) {
     const [alerts, setAlerts] = useState([]);
 
     useEffect(() => {
@@ -17,27 +19,49 @@ function Alerts() {
     }, []);
 
     return (
-        <div>
-            {alerts.map((alert) => (
-                <Card
-                    bg={"Danger".toLowerCase()}
-                    key={"Danger"}
-                    text={"Danger".toLowerCase() === "light" ? "dark" : "white"}
-                    body
-                    outline
-                    color="success"
-                    className="mx-1 my-2"
-                    style={{ width: "30rem" }}
+        <>
+            <div
+                className="station-container "
+                style={{ "--primary-color": Color.Pink }}
+            >
+                <div className="alert-title row">
+                    <CustomTitle
+                        title={"Alerts"}
+                        trainLine={trainLine}
+                    ></CustomTitle>
+                </div>
+                <div className="horizontal-line"></div>
+                <div
+                    className="title-board row px-2"
+                    style={{ height: "100%", overflow: "auto" }}
                 >
-                    <Card.Body>
-                        <Card.Text>
-                            {alert.attributes.header}
-                            {alert.attributes.description}
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-            ))}
-        </div>
+                    <div className="col">
+                        {alerts.map((alert) => (
+                            <Card
+                                bg={"Danger".toLowerCase()}
+                                key={"Danger"}
+                                text={
+                                    "Danger".toLowerCase() === "light"
+                                        ? "dark"
+                                        : "white"
+                                }
+                                body
+                                outline
+                                color="success"
+                                className="mx-1 my-2"
+                                style={{ width: "auto" }}
+                            >
+                                <Card.Body>
+                                    <Card.Text>
+                                        {alert.attributes.header}
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 
