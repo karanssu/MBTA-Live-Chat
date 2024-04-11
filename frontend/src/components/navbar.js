@@ -4,9 +4,11 @@ import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
+import DropDownList from "./pages/dropDown";
 
 export default function Navbar() {
     const [user, setUser] = useContext(UserContext);
+    const [openMenu, setOpenMenu] = useState(false);
     const navigate = useNavigate();
 
     const handleClick = (e) => {
@@ -28,11 +30,12 @@ export default function Navbar() {
                 <Nav className="me-right">
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
-                    {/* <div className="dropdown-container"> */}
-                    {/* <div className="dropdown-trigger"> */}
-                    {/* <ul> */}
-                    {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
-                    {/* <li> */}
+                    {user && <Nav.Link href="/login" onClick={() => setOpenMenu((prev) => !prev)}>{user.username}</Nav.Link>}
+                    {
+                        openMenu && <DropDownList><Nav.Link href="/logout" onClick={(e) => handleClick(e)}> Log out</Nav.Link></DropDownList>
+                    }
+
+
                     {user && (
                         <Nav.Link
                             href="/logout"
@@ -41,10 +44,6 @@ export default function Navbar() {
                             Log out
                         </Nav.Link>
                     )}
-                    {/* </li> */}
-                    {/* </ul> */}
-                    {/* </div>    */}
-                    {/* </div> */}
                 </Nav>
             </Container>
         </ReactNavbar>
