@@ -22,27 +22,26 @@ export default function Navbar() {
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     {user && <Nav.Link href="/profile">Profile</Nav.Link>}
-                    <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-                    <li>
-                        {" "}
-                        {user && (
-                            <Nav.Link
-                                href="/logout"
-                                onClick={(e) => handleClick(e)}
-                            >
-                                Log out
-                            </Nav.Link>
-                        )}
-                    </li>
-                    {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
+                    {/* <li> */}
+                    {/* </li> */}
                 </Nav>
                 <Nav className="me-right">
+                    {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
                     {/* <div className="dropdown-container"> */}
                     {/* <div className="dropdown-trigger"> */}
                     {/* <ul> */}
                     {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
-                    {/* <li> {user && (<Nav.Link href="/logout" onClick={(e) => handleClick(e)}>Log out</Nav.Link>)}</li> */}
+                    {/* <li> */}
+                    {user && (
+                        <Nav.Link
+                            href="/logout"
+                            onClick={(e) => handleClick(e)}
+                        >
+                            Log out
+                        </Nav.Link>
+                    )}
+                    {/* </li> */}
                     {/* </ul> */}
                     {/* </div>    */}
                     {/* </div> */}
