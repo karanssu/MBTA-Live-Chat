@@ -26,7 +26,7 @@ export default function Navbar() {
                     {user && (
                         <Dropdown>
                             <Dropdown.Toggle
-                                variant="success"
+                                variant="secondary"
                                 id="dropdown-basic"
                             >
                                 {user.username}
