@@ -37,13 +37,17 @@ const HomePage = () => {
                     <div className="col-9" style={{ border: "2px solid red" }}>
                         <div
                             className="row"
-                            style={{ border: "2px solid red", height: "45vh" }}
+                            style={{ border: "2px solid red", height: "42vh" }}
                         >
                             <div
                                 className="col-8"
                                 style={{ border: "2px solid red" }}
                             >
-                                Map
+                                <LiveMap
+                                    trainLine={trainLine.toUpperCase()}
+                                    inboundChecked={inboundChecked}
+                                    outboundChecked={outboundChecked}
+                                ></LiveMap>
                             </div>
                             <div
                                 className="col-4"
@@ -60,7 +64,7 @@ const HomePage = () => {
                         </div>
                         <div
                             className="row"
-                            style={{ border: "2px solid red", height: "45vh" }}
+                            style={{ border: "2px solid red", height: "42vh" }}
                         >
                             <div
                                 className="col"
