@@ -4,18 +4,16 @@ import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
-import DropDownList from "./pages/dropDown";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Navbar() {
     const [user, setUser] = useContext(UserContext);
-    const [openMenu, setOpenMenu] = useState(false);
     const navigate = useNavigate();
 
-    const handleClick = (e) => {
-        e.preventDefault();
+    const handleLogout = () => {
         localStorage.removeItem("accessToken");
         setUser(null);
-        return navigate("/login");
+        navigate("/login");
     };
 
     return (
@@ -24,26 +22,27 @@ export default function Navbar() {
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     {user && <Nav.Link href="/profile">Profile</Nav.Link>}
-                    {/* <li> */}
-                    {/* </li> */}
-                </Nav>
-                <Nav className="me-right">
+                    
+
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
-                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
-                    {user && <Nav.Link href="/login" onClick={() => setOpenMenu((prev) => !prev)}>{user.username}</Nav.Link>}
-                    {
-                        openMenu && <DropDownList></DropDownList>
-                    }
 
-
+                </Nav>
+                <div className="profile-div">
                     {user && (
-                        <Nav.Link
-                            href="/logout"
-                            onClick={(e) => handleClick(e)}
-                        >
-                            Log out
-                        </Nav.Link>
+                        <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                {user.username}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
                     )}
+                </div>
+                <Nav className="me-right">
+                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
                 </Nav>
             </Container>
         </ReactNavbar>
