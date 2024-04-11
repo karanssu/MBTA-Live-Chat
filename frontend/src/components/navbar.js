@@ -31,9 +31,8 @@ export default function Navbar() {
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
                     <div className="dropdown-container">
                         <div className="dropdown-trigger">
-                        
+                        {user && <Nav.Link href="/login">{user.username}</Nav.Link>} 
                         <ul>
-                        {user && <Nav.Link href="/login">{user.username}</Nav.Link>}
                         <li> {user && (<Nav.Link href="/logout" onClick={(e) => handleClick(e)}>Log out</Nav.Link>)}</li>
                         </ul>
                         </div>   
