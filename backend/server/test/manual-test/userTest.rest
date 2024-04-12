@@ -1,4 +1,4 @@
-POST http://localhost:8081/user/signup
+POST {{$processEnv REACT_APP_API_URL}}/user/signup
 Content-Type: application/json 
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8081/user/login
+POST {{$processEnv REACT_APP_API_URL}}/user/login
 Content-Type: application/json 
 
 {
@@ -18,11 +18,11 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:8081/user/
+GET {{$processEnv REACT_APP_API_URL}}/user/
 Content-Type: application/json
 
 ###
-POST http://localhost:8081/user/editUser
+POST {{$processEnv REACT_APP_API_URL}}/user/editUser
 Content-Type: application/json 
 
 {
@@ -33,7 +33,7 @@ Content-Type: application/json
 }
 
 ###
-GET  http://localhost:8081/user/getUserById
+GET  {{$processEnv REACT_APP_API_URL}}/user/getUserById
 Content-Type: application/json 
 
 {
@@ -42,4 +42,4 @@ Content-Type: application/json
 
 # DO NOT RUN THIS TEST (It will delete all the users
 ###
-# POST  http://localhost:8081/user/deleteAll
+# POST  {{$processEnv REACT_APP_API_URL}}/user/deleteAll

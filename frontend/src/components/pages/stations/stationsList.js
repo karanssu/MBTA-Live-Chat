@@ -34,7 +34,9 @@ const Stations = ({
 
     const fetchTrainLineDb = async () => {
         try {
-            const response = await fetch("http://localhost:8081/trainLine/");
+            const response = await fetch(
+                process.env.REACT_APP_API_URL + "/trainLine/"
+            );
             if (!response.ok) {
                 throw new Error("Failed to fetch trainLines");
             }

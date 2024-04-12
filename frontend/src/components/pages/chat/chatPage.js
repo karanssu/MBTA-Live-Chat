@@ -9,7 +9,7 @@ import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:2000");
+const socket = io(process.env.REACT_APP_SOCKET_URI);
 
 const Chat = ({ trainLine }) => {
     const [user, setUser] = useState({});
@@ -53,17 +53,20 @@ const Chat = ({ trainLine }) => {
 
     const saveCommentDb = async (userId, trainLine, comment) => {
         try {
-            const response = await fetch("http://localhost:8081/comment/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userId: userId,
-                    trainLine: trainLine,
-                    comment: comment,
-                }),
-            });
+            const response = await fetch(
+                process.env.REACT_APP_API_URL + "/comment/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userId: userId,
+                        trainLine: trainLine,
+                        comment: comment,
+                    }),
+                }
+            );
             if (response.ok) {
             } else {
                 throw new Error("Error saving data");
@@ -76,7 +79,9 @@ const Chat = ({ trainLine }) => {
     const fetchCommentDb = async (trainLine) => {
         try {
             const response = await fetch(
-                "http://localhost:8081/comment/getByTrainLine/" + trainLine
+                process.env.REACT_APP_API_URL +
+                    "/comment/getByTrainLine/" +
+                    trainLine
             );
             if (!response.ok) {
                 throw new Error("Failed to fetch comments");

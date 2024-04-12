@@ -1,6 +1,6 @@
 # Should Pass: valid userId, valid friendUserId
 ###
-POST http://localhost:8081/friend/
+POST {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 
 # Should Fail: invalid userId, valid friendUserId
 ###
-POST http://localhost:8081/friend/
+POST {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
 
 # Should Fail: valid userId, invalid friendUserId
 ###
-POST http://localhost:8081/friend/
+POST {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 # Should Pass: Valid userId, valid friendUserId
 ###
-DELETE http://localhost:8081/friend/
+DELETE {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 # Should Fail: invalid userId, Valid friendUserId
 ###
-DELETE http://localhost:8081/friend/
+DELETE {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -50,7 +50,7 @@ Content-Type: application/json
 
 # Should Fail: Valid userId, invalid friendUserId
 ###
-DELETE http://localhost:8081/friend/
+DELETE {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json 
 
 {
@@ -60,15 +60,15 @@ Content-Type: application/json
 
 # Should Pass: Valid userId
 ###
-GET http://localhost:8081/friend/65deb3d6336c535c1f70be27
+GET {{$processEnv REACT_APP_API_URL}}/friend/65deb3d6336c535c1f70be27
 Content-Type: application/json 
 
 # Should Fail: invalid userId
 ###
-GET http://localhost:8081/friend/65deb3d6336c535c1f70be23
+GET {{$processEnv REACT_APP_API_URL}}/friend/65deb3d6336c535c1f70be23
 Content-Type: application/json 
 
 # Should Pass: Should Return all Friends
 ###
-GET http://localhost:8081/friend/
+GET {{$processEnv REACT_APP_API_URL}}/friend/
 Content-Type: application/json

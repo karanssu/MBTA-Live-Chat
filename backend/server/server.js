@@ -9,7 +9,10 @@ const SERVER_PORT = 8081;
 const CHAT_SERVER_PORT = 2000;
 const io = require("socket.io")(CHAT_SERVER_PORT, {
     cors: {
-        origin: ["http://localhost:3000", "http://localhost:8081"],
+        origin: [
+            process.env.REACT_APP_FRONTEND_URL,
+            process.env.REACT_APP_API_URL,
+        ],
     },
 });
 

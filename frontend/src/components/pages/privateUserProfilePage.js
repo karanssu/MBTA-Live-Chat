@@ -5,9 +5,6 @@ import { useNavigate } from "react-router-dom";
 import getUser from "../../utilities/decodeJwt";
 import EditUserPage from "./editUserPage";
 
-//link to service
-//http://localhost:8096/privateUserProfile
-
 const PrivateUserProfile = () => {
     const [show, setShow] = useState(false);
     const [user, setUser] = useState({});
