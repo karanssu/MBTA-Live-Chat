@@ -59,7 +59,7 @@ app.use("/trainLine", require("./routes/trainLine/trainLines"));
 // Favriote Line
 app.use(
     "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLiineAddByUserId")
+    require("./routes/favoriteLine/favoriteLineAddByUserId")
 );
 app.use(
     "/favoriteLine",
