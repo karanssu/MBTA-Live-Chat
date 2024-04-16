@@ -8,7 +8,7 @@ const PRIMARY_COLOR = "#cc5c99";
 const SECONDARY_COLOR = "#0c0c1f";
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
-const url = REACT_APP_API_URL + "user/signup";
+const url = REACT_APP_API_URL + "/user/signup";
 
 const Register = () => {
     const [data, setData] = useState({ username: "", email: "", password: "" });

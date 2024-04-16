@@ -8,7 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const EditUserPage = () => {
     const url = REACT_APP_API_URL + "/user/editUser";
