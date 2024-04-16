@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CustomTitle from "./customTitle";
 import Color from "../../../constants/colors";
 
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const Stations = ({
     handleTrainlineChecked,

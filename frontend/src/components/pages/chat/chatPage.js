@@ -9,11 +9,8 @@ import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
-const REACT_APP_SOCKET_URI = process.env.REACT_APP_SOCKET_URI.toString().slice(
-    0,
-    -1
-);
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+const REACT_APP_SOCKET_URI = process.env.REACT_APP_SOCKET_URI;
 const socket = io(REACT_APP_SOCKET_URI);
 
 const Chat = ({ trainLine }) => {

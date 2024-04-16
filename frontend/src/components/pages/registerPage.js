@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 
 const PRIMARY_COLOR = "#cc5c99";
 const SECONDARY_COLOR = "#0c0c1f";
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const url = REACT_APP_API_URL + "user/signup";
 
@@ -121,9 +121,9 @@ const Register = () => {
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
-                                     <Form.Text className="returning-user">
-                                    Already have an account? 
-                                    <span>
+                                    <Form.Text className="returning-user">
+                                        Already have an account?
+                                        <span>
                                             <Link
                                                 to="/login"
                                                 style={labelStyling}
@@ -132,7 +132,7 @@ const Register = () => {
                                                 Login
                                             </Link>
                                         </span>
-                                </Form.Text>  
+                                    </Form.Text>
                                 </Form.Group>
 
                                 <div class="form-check form-switch">
