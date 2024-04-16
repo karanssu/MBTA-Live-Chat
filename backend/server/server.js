@@ -10,6 +10,7 @@ const SERVER_PORT = 8081;
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 const REACT_APP_FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
+// Socket
 // const io = require("socket.io")(CHAT_SERVER_PORT, {
 //     cors: {
 //         origin: [REACT_APP_API_URL, REACT_APP_FRONTEND_URL],
