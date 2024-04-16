@@ -7,9 +7,8 @@ require("dotenv").config();
 const SERVER_PORT = 8081;
 const CHAT_SERVER_PORT = 2000;
 
-const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
-const REACT_APP_FRONTEND_URL =
-    process.env.REACT_APP_FRONTEND_URL.toString().slice(0, -1);
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
+const REACT_APP_FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL;
 
 const io = require("socket.io")(CHAT_SERVER_PORT, {
     cors: {
