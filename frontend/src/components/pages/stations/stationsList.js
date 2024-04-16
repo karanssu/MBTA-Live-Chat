@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import CustomTitle from "./customTitle";
 import Color from "../../../constants/colors";
 
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+
 const Stations = ({
     handleTrainlineChecked,
     handleInboundChange,
@@ -34,9 +36,7 @@ const Stations = ({
 
     const fetchTrainLineDb = async () => {
         try {
-            const response = await fetch(
-                process.env.REACT_APP_API_URL + "/trainLine/"
-            );
+            const response = await fetch(REACT_APP_API_URL + "/trainLine/");
             if (!response.ok) {
                 throw new Error("Failed to fetch trainLines");
             }

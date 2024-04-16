@@ -8,8 +8,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+
 const EditUserPage = () => {
-    const url = process.env.REACT_APP_API_URL + "/user/editUser";
+    const url = REACT_APP_API_URL + "/user/editUser";
     const navigate = useNavigate();
 
     // form validation checks
