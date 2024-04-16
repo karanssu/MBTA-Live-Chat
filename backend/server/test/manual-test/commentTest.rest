@@ -1,6 +1,6 @@
 # Should Pass: Valid userid, trainLine, comment
 ###
-POST {{$processEnv REACT_APP_API_URL}}/comment/
+POST http://localhost:8081/comment/
 Content-Type: application/json 
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 # Should Fail: Invalid userId 
 ###
-POST {{$processEnv REACT_APP_API_URL}}/comment/
+POST http://localhost:8081/comment/
 Content-Type: application/json 
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 
 # Should Fail: Invalid TrainLine (add by userId)
 ###
-POST {{$processEnv REACT_APP_API_URL}}/comment/
+POST http://localhost:8081/comment/
 Content-Type: application/json 
 
 {
@@ -33,25 +33,25 @@ Content-Type: application/json
 
 # Should Pass: Should return all the comments
 ###
-GET {{$processEnv REACT_APP_API_URL}}/comment/
+GET http://localhost:8081/comment/
 Content-Type: application/json
 
 # Should Pass: Valid userid
 ###
-GET {{$processEnv REACT_APP_API_URL}}/comment/getByUserId/65deb3d6336c535c1f70be27
+GET http://localhost:8081/comment/getByUserId/65deb3d6336c535c1f70be27
 Content-Type: application/json
 
 # Should Fail: Invalid userid
 ###
-GET {{$processEnv REACT_APP_API_URL}}/comment/getByUserId/65deb3d5336c535b1f10be27
+GET http://localhost:8081/comment/getByUserId/65deb3d5336c535b1f10be27
 Content-Type: application/json
 
 # Should Pass: Valid trainLine
 ###
-GET {{$processEnv REACT_APP_API_URL}}/comment/getByTrainLine/Red
+GET http://localhost:8081/comment/getByTrainLine/Red
 Content-Type: application/json
 
 # Should Fail: Invalid trainline
 ###
-GET {{$processEnv REACT_APP_API_URL}}/comment/getByTrainLine/InvalidTrainLine
+GET http://localhost:8081/comment/getByTrainLine/InvalidTrainLine
 Content-Type: application/json
