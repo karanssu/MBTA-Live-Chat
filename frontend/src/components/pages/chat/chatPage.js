@@ -7,6 +7,14 @@ import getUser from "../../../utilities/decodeJwt";
 import Color from "../../../constants/colors";
 import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
+
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+const REACT_APP_SOCKET_URI = process.env.REACT_APP_SOCKET_URI.toString().slice(
+    0,
+    -1
+);
+const socket = io(REACT_APP_SOCKET_URI);
 
 const Chat = ({ trainLine }) => {
     const [user, setUser] = useState({});
@@ -15,9 +23,15 @@ const Chat = ({ trainLine }) => {
     const inputRef = useRef(null);
     const scrollableDivRef = useRef(null);
 
+    socket.on("receiveComment", (userComments) => {
+        setUserComments(userComments);
+        scrollToBottom();
+    });
+
     useEffect(() => {
         setUser(getUser());
         fetchCommentDb(trainLine);
+        socket.emit("joinTrainLine", trainLine);
     }, [trainLine]);
 
     const scrollToBottom = () => {
@@ -31,11 +45,12 @@ const Chat = ({ trainLine }) => {
         inputRef.current.value = "";
     };
 
-    const addUserComment = (username, comment) => {
+    const addUserComment = (username, trainLine, comment) => {
         setUserComments([
             ...userComments,
             {
                 username: username,
+                trainLine: trainLine,
                 comment: comment,
             },
         ]);
@@ -43,20 +58,17 @@ const Chat = ({ trainLine }) => {
 
     const saveCommentDb = async (userId, trainLine, comment) => {
         try {
-            const response = await fetch(
-                process.env.REACT_APP_BACKEND_SERVER_URI + "/comment/",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        userId: userId,
-                        trainLine: trainLine,
-                        comment: comment,
-                    }),
-                }
-            );
+            const response = await fetch(REACT_APP_API_URL + "/comment/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    trainLine: trainLine,
+                    comment: comment,
+                }),
+            });
             if (response.ok) {
             } else {
                 throw new Error("Error saving data");
@@ -69,9 +81,7 @@ const Chat = ({ trainLine }) => {
     const fetchCommentDb = async (trainLine) => {
         try {
             const response = await fetch(
-                process.env.REACT_APP_BACKEND_SERVER_URI +
-                    "/comment/getByTrainLine/" +
-                    trainLine
+                "http://localhost:8081/comment/getByTrainLine/" + trainLine
             );
             if (!response.ok) {
                 throw new Error("Failed to fetch comments");
@@ -102,7 +112,15 @@ const Chat = ({ trainLine }) => {
 
         success
             .then(() => {
-                addUserComment(username, comment);
+                addUserComment(username, trainLine, comment);
+                socket.emit("sendComment", [
+                    ...userComments,
+                    {
+                        username: username,
+                        trainLine: trainLine,
+                        comment: comment,
+                    },
+                ]);
                 clearCommentInput();
                 scrollToBottom();
             })
@@ -115,7 +133,7 @@ const Chat = ({ trainLine }) => {
     return (
         <>
             <div
-                className="container"
+                className="chat-container"
                 style={{ "--primary-color": Color.Pink, margin: "0" }}
             >
                 <div className="title-div">
@@ -126,13 +144,13 @@ const Chat = ({ trainLine }) => {
                     <CommentBoard userComments={userComments}></CommentBoard>
                 </div>
                 <div className="bottom-div row">
-                    <div className="input-div col-11">
+                    <div className="input-div col-sm-8 col-md-10 col-xl-11">
                         <CommentInput
                             handleSendButtonClick={handleSendButtonClick}
                             ref={inputRef}
                         ></CommentInput>
                     </div>
-                    <div className="send-button-div col-1">
+                    <div className="send-button-div col-sm-4 col-md-2 col-xl-1">
                         <CommentSendButton
                             handleSendButtonClick={handleSendButtonClick}
                         ></CommentSendButton>

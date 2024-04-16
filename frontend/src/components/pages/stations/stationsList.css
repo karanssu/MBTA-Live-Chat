@@ -1,10 +1,9 @@
 .station-container {
-    width: 400px;
-    height: auto;
-    padding: 10px 20px 100px 20px;
-    border-radius: 15px;
-    background: var(--primary-color);
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 20px 10px 20px;
+  border-radius: 15px;
+  background: var(--primary-color);
+  height: 100%;
 }
 
 .station-board label {
@@ -12,18 +11,10 @@
   margin-bottom: 10px;
 }
 
-
-.station-board input[type="radio"] {
+.station-board input[type="radio"], input[type="checkbox"] {
   margin-right: 5px;
-  
 }
 
-.station-board input[type="radio"]:checked {
+.station-board input[type="radio"]:checked, input[type="checkbox"]:checked {
     margin-right: 15px;
-    border-color: yellow;
-}
-
-.station-board label span {
-  font-weight: bold;
-  color: #333;
 }

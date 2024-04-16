@@ -3,6 +3,7 @@ import Color from "../../../constants/colors";
 const ChatTitle = ({ trainLine }) => {
     const chatTitleStyle = {
         color: Color[trainLine],
+        fontSize: "2rem",
         fontWeight: "bold",
         textAlign: "center",
     };
@@ -10,7 +11,10 @@ const ChatTitle = ({ trainLine }) => {
     return (
         <>
             <div>
-                <h1 style={chatTitleStyle}>Live Chat: {trainLine} Line</h1>
+                <h1 style={chatTitleStyle}>
+                    <span style={{ color: "black" }}>Live Chat: </span>
+                    {trainLine} Line
+                </h1>
             </div>
         </>
     );

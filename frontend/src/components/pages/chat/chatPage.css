@@ -1,6 +1,7 @@
-.container {
+.chat-container {
     background: var(--primary-color);
     border-radius: 15px;
+    padding-right: 10px;
 }
 
 .bottom-div, .chat-board-div {
@@ -13,7 +14,6 @@
 
 .input-div, .send-button-div{
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 .horizontal-line{
@@ -22,8 +22,8 @@
 }
 
 .chat-board-div {
-    height: 300px;
-    overflow: auto;
+  height: 18vh;
+  overflow: auto;
 }
 
 ::-webkit-scrollbar {
@@ -31,7 +31,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffffff; 
+  background-color: white; 
   border-radius: 10px; 
 }
 

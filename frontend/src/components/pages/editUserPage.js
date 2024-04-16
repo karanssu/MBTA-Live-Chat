@@ -5,11 +5,13 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import getUserInfo from "../../utilities/decodeJwt";
 
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+
 const EditUserPage = () => {
-    const url = process.env.REACT_APP_BACKEND_SERVER_URI + "/user/editUser";
+    const url = "http://localhost:8081/user/editUser";
     const navigate = useNavigate();
 
     // form validation checks

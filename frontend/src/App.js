@@ -8,7 +8,8 @@ import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
 import getUser from "./utilities/decodeJwt";
 import MbtaAlertsPage from "./components/pages/alerts/mbtaAlerts";
-import LiveMapPage from "./components/pages/map/liveMap";
+import LiveMapPage from "./components/pages/map/liveMapPage";
+import "./App.css";
 
 export const UserContext = createContext();
 
@@ -27,13 +28,7 @@ const App = () => {
                     <Route exact path="/" element={<HomePage />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/signup" element={<Signup />} />
-                    <Route
-                        exact
-                        path="/mbtaAlerts"
-                        element={<MbtaAlertsPage />}
-                    />
                     <Route path="/profile" element={<PrivateUserProfile />} />
-                    <Route exact path="/liveMap" element={<LiveMapPage />} />
                 </Routes>
             </UserContext.Provider>
         </>

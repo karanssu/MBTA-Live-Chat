@@ -4,16 +4,16 @@ import Nav from "react-bootstrap/Nav";
 import ReactNavbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
+import Dropdown from "react-bootstrap/Dropdown";
 
 export default function Navbar() {
     const [user, setUser] = useContext(UserContext);
     const navigate = useNavigate();
 
-    const handleClick = (e) => {
-        e.preventDefault();
+    const handleLogout = () => {
         localStorage.removeItem("accessToken");
         setUser(null);
-        return navigate("/login");
+        navigate("/login");
     };
 
     return (
@@ -21,21 +21,31 @@ export default function Navbar() {
             <Container>
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    {user && <Nav.Link href="/profile">Profile</Nav.Link>}
-                    <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-                    <Nav.Link href="/liveMap">Live Map</Nav.Link>
-
+                </Nav>
+                <div className="profile-div">
+                    {user && (
+                        <Dropdown>
+                            <Dropdown.Toggle
+                                variant="secondary"
+                                id="dropdown-basic"
+                            >
+                                {user.username}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item href="/profile">
+                                    Profile
+                                </Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Item onClick={handleLogout}>
+                                    Logout
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    )}
+                </div>
+                <Nav className="me-right">
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
-
-                    {user && (
-                        <Nav.Link
-                            href="/logout"
-                            onClick={(e) => handleClick(e)}
-                        >
-                            Log out
-                        </Nav.Link>
-                    )}
                 </Nav>
             </Container>
         </ReactNavbar>

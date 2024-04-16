@@ -1,10 +1,18 @@
 import "./stationsList.css";
-import { useEffect, useRef, useState } from "react";
-import StationTitle from "./stationTitle";
+import { useEffect, useState } from "react";
+import CustomTitle from "./customTitle";
 import Color from "../../../constants/colors";
 
-const Stations = ({ handleTrainlineChecked }) => {
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+
+const Stations = ({
+    handleTrainlineChecked,
+    handleInboundChange,
+    handleOutboundChange,
+}) => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
+    const [inboundChecked, setInboundChecked] = useState(true);
+    const [outboundChecked, setOutboundChecked] = useState(true);
     const [trainLines, setTrainLines] = useState([]);
 
     useEffect(() => {
@@ -16,9 +24,19 @@ const Stations = ({ handleTrainlineChecked }) => {
         handleTrainlineChecked(trainLine);
     };
 
+    const handleInboundCheckBox = () => {
+        setInboundChecked(!inboundChecked);
+        handleInboundChange(!inboundChecked);
+    };
+
+    const handleOutboundCheckBox = () => {
+        setOutboundChecked(!outboundChecked);
+        handleOutboundChange(!outboundChecked);
+    };
+
     const fetchTrainLineDb = async () => {
         try {
-            const response = await fetch("http://localhost:8081/trainLine/");
+            const response = await fetch(REACT_APP_API_URL + "/trainLine/");
             if (!response.ok) {
                 throw new Error("Failed to fetch trainLines");
             }
@@ -36,11 +54,14 @@ const Stations = ({ handleTrainlineChecked }) => {
                 style={{ "--primary-color": Color.Pink }}
             >
                 <div className="station-title">
-                    <StationTitle></StationTitle>
+                    <CustomTitle
+                        title={"Stations"}
+                        color={"black"}
+                    ></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>
-                <div className="station-board">
-                    <div>
+                <div className="station-board row">
+                    <div className="col-6">
                         {trainLines.map((trainLine) => (
                             <label
                                 style={{
@@ -58,6 +79,36 @@ const Stations = ({ handleTrainlineChecked }) => {
                                 {trainLine}
                             </label>
                         ))}
+                    </div>
+                    <div className="col-6">
+                        <label
+                            style={{
+                                color: Color[selectedTrainLine],
+                                fontWeight: "bold",
+                            }}
+                        >
+                            <input
+                                type="checkbox"
+                                checked={inboundChecked}
+                                value={"Inbound"}
+                                onChange={handleInboundCheckBox}
+                            />
+                            Inbound
+                        </label>
+                        <label
+                            style={{
+                                color: Color[selectedTrainLine],
+                                fontWeight: "bold",
+                            }}
+                        >
+                            <input
+                                type="checkbox"
+                                checked={outboundChecked}
+                                value={"Outbound"}
+                                onChange={handleOutboundCheckBox}
+                            />
+                            Outbound
+                        </label>
                     </div>
                 </div>
             </div>

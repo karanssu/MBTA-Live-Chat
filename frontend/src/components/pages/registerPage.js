@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const PRIMARY_COLOR = "#cc5c99";
 const SECONDARY_COLOR = "#0c0c1f";
-const url = process.env.REACT_APP_BACKEND_SERVER_URI + "/user/signup";
+const REACT_APP_API_URL = process.env.REACT_APP_API_URL.toString().slice(0, -1);
+
+const url = REACT_APP_API_URL + "user/signup";
 
 const Register = () => {
     const [data, setData] = useState({ username: "", email: "", password: "" });
@@ -118,6 +120,21 @@ const Register = () => {
                                         onChange={handleChange}
                                     />
                                 </Form.Group>
+                                <Form.Group className="mb-3">
+                                    <Form.Text className="returning-user">
+                                        Already have an account?
+                                        <span>
+                                            <Link
+                                                to="/login"
+                                                style={labelStyling}
+                                            >
+                                                {" "}
+                                                Login
+                                            </Link>
+                                        </span>
+                                    </Form.Text>
+                                </Form.Group>
+
                                 <div class="form-check form-switch">
                                     <input
                                         class="form-check-input"
