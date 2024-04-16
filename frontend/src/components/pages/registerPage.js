@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -120,6 +120,21 @@ const Register = () => {
                                         onChange={handleChange}
                                     />
                                 </Form.Group>
+                                <Form.Group className="mb-3">
+                                     <Form.Text className="returning-user">
+                                    Already have an account? 
+                                    <span>
+                                            <Link
+                                                to="/login"
+                                                style={labelStyling}
+                                            >
+                                                {" "}
+                                                Login
+                                            </Link>
+                                        </span>
+                                </Form.Text>  
+                                </Form.Group>
+
                                 <div class="form-check form-switch">
                                     <input
                                         class="form-check-input"
