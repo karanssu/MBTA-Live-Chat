@@ -19,3 +19,89 @@
 .station-board input[type="radio"]:checked, input[type="checkbox"]:checked {
     margin-right: 15px;
 }
+
+.radio-label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.radio-input {
+  display: none;
+}
+
+.radio-text {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.radio-text:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.radio-input:checked + .radio-text:before {
+  background-color: #007bff; /* Change to your desired color */
+  border-color: #007bff; /* Change to your desired color */
+}
+
+.radio-text:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: none;
+}
+
+.checkbox-label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-text {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.checkbox-text:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.checkbox-input:checked + .checkbox-text:before {
+  background-color: #007bff; /* Change to your desired color */
+}
+
+.checkbox-text:after {
+  content: "\2713"; /* Checkmark symbol */
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 14px;
+  color: #fff;
+  display: none;
+}
