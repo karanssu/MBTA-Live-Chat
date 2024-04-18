@@ -89,7 +89,7 @@ const EditUserPage = () => {
 
     // handle cancel button
     const handleCancel = (async) => {
-        navigate("/privateuserprofile");
+        navigate();
     };
 
     return (
