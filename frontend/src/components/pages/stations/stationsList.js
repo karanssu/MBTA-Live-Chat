@@ -7,21 +7,29 @@ const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const Stations = ({
     handleTrainlineChecked,
+    handleGreenSubLineChecked,
     handleInboundChange,
     handleOutboundChange,
 }) => {
     const [selectedTrainLine, setSelectedTrainLine] = useState("Red");
+    const [selectedGreenSubLine, setSelectedGreenSubLine] = useState("B");
     const [inboundChecked, setInboundChecked] = useState(true);
     const [outboundChecked, setOutboundChecked] = useState(true);
     const [trainLines, setTrainLines] = useState([]);
+    const [greenSubLines, setGreenSubLines] = useState(["B", "C", "D", "E"]);
 
     useEffect(() => {
         fetchTrainLineDb();
     }, []);
 
-    const handleChange = (trainLine) => {
+    const handleTrainLineChange = (trainLine) => {
         setSelectedTrainLine(trainLine);
         handleTrainlineChecked(trainLine);
+    };
+
+    const handleSubLineChange = (greenSubLine) => {
+        setSelectedGreenSubLine(greenSubLine);
+        handleGreenSubLineChecked(greenSubLine);
     };
 
     const handleInboundCheckBox = () => {
@@ -54,32 +62,71 @@ const Stations = ({
                 style={{ "--primary-color": Color.Pink }}
             >
                 <div className="station-title">
-                    <CustomTitle
-                        title={"Stations"}
-                    ></CustomTitle>
+                    <CustomTitle title={"Lines"}></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>
                 <div className="station-board row">
                     <div className="col-7">
-                        {trainLines.map((trainLine) => (
-                            <label
-                                className="radio-label"
-                                style={{
-                                    color: Color[trainLine],
-                                    fontWeight: "bold",
-                                }}
-                            >
-                                <input
-                                    className="radio-input"
-                                    type="radio"
-                                    name="trainLine"
-                                    value={trainLine}
-                                    checked={selectedTrainLine === trainLine}
-                                    onChange={() => handleChange(trainLine)}
-                                />
-                                <span className="radio-text">{trainLine}</span>
-                            </label>
-                        ))}
+                        <div className="row">
+                            <div className="col-7">
+                                {trainLines.map((trainLine) => (
+                                    <label
+                                        className="radio-label"
+                                        style={{
+                                            color: Color[trainLine],
+                                            fontWeight: "bold",
+                                        }}
+                                    >
+                                        <input
+                                            className="radio-input"
+                                            type="radio"
+                                            name="trainLine"
+                                            value={trainLine}
+                                            checked={
+                                                selectedTrainLine === trainLine
+                                            }
+                                            onChange={() =>
+                                                handleTrainLineChange(trainLine)
+                                            }
+                                        />
+                                        <span className="radio-text">
+                                            {trainLine}
+                                        </span>
+                                    </label>
+                                ))}
+                            </div>
+                            <div className="col-5">
+                                {selectedTrainLine == "Green" &&
+                                    greenSubLines.map((greenSubLine) => (
+                                        <label
+                                            className="radio-label"
+                                            style={{
+                                                color: Color["Green"],
+                                                fontWeight: "bold",
+                                            }}
+                                        >
+                                            <input
+                                                className="radio-input"
+                                                type="radio"
+                                                name="greenSubLine"
+                                                value={greenSubLine}
+                                                checked={
+                                                    selectedGreenSubLine ==
+                                                    greenSubLine
+                                                }
+                                                onChange={() =>
+                                                    handleSubLineChange(
+                                                        greenSubLine
+                                                    )
+                                                }
+                                            />
+                                            <span className="radio-text">
+                                                {greenSubLine}
+                                            </span>
+                                        </label>
+                                    ))}
+                            </div>
+                        </div>
                     </div>
                     <div className="col-5">
                         <label

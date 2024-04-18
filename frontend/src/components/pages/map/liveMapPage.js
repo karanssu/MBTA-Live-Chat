@@ -12,7 +12,12 @@ import { mapStyles } from "./mapStyles";
 import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
 
-const MapComponent = ({ trainLine, inboundChecked, outboundChecked }) => {
+const MapComponent = ({
+    trainLine,
+    greenSubLine,
+    inboundChecked,
+    outboundChecked,
+}) => {
     const mapRef = useRef();
     let map;
 

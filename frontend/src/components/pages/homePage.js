@@ -7,11 +7,16 @@ import "./homePage.css";
 
 const HomePage = () => {
     const [trainLine, setTrainLine] = useState("Red");
+    const [greenSubLine, setGreenSubLine] = useState("B");
     const [inboundChecked, setInboundChecked] = useState(true);
     const [outboundChecked, setOutboundChecked] = useState(true);
 
     const handleTrainlineChange = (trainLine) => {
         setTrainLine(trainLine);
+    };
+
+    const handleGreenSubLineChecked = (greenSubLine) => {
+        setGreenSubLine(greenSubLine);
     };
 
     const handleInboundChange = (inboundChecked) => {
@@ -42,6 +47,7 @@ const HomePage = () => {
                             <div className="col-8 ">
                                 <LiveMap
                                     trainLine={trainLine.toUpperCase()}
+                                    greenSubLine={greenSubLine}
                                     inboundChecked={inboundChecked}
                                     outboundChecked={outboundChecked}
                                 ></LiveMap>
@@ -50,6 +56,9 @@ const HomePage = () => {
                                 <Stations
                                     handleTrainlineChecked={
                                         handleTrainlineChange
+                                    }
+                                    handleGreenSubLineChecked={
+                                        handleGreenSubLineChecked
                                     }
                                     handleInboundChange={handleInboundChange}
                                     handleOutboundChange={handleOutboundChange}
