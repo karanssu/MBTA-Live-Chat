@@ -2,8 +2,9 @@
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px 20px 10px 20px;
   border-radius: 15px;
-  background: var(--primary-color);
-  background: lightblue;
+  background: #FFFFFF;
+background: linear-gradient(to top, #FFFFFF 0%, #EFE4FF 30%);
+
   height: 100%;
 }
 
@@ -18,6 +19,9 @@
 
 .station-board input[type="radio"]:checked, input[type="checkbox"]:checked {
     margin-right: 15px;
+}
+.station-title{
+  color:black;
 }
 
 .radio-label {

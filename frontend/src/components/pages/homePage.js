@@ -25,7 +25,7 @@ const HomePage = () => {
     return (
         <>
             <div
-                className="container"
+                className="container-fluid"
                 style={{
                     width: "100hv",
                 }}
