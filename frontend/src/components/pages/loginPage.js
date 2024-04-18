@@ -94,9 +94,6 @@ const Login = () => {
                                         onChange={handleChange}
                                         placeholder="Enter username"
                                     />
-                                    <Form.Text className="text-muted">
-                                        We just might sell your data
-                                    </Form.Text>
                                 </Form.Group>
                                 <Form.Group
                                     className="mb-3"
