@@ -4,7 +4,7 @@ const cors = require("cors");
 const dbConnection = require("./config/db.config");
 
 require("dotenv").config();
-const SERVER_PORT = 8081;
+const SERVER_PORT = process.env.SERVER_PORT || 8081;
 // const CHAT_SERVER_PORT = 2000;
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
