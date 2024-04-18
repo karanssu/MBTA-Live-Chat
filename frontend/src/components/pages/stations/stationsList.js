@@ -56,7 +56,6 @@ const Stations = ({
                 <div className="station-title">
                     <CustomTitle
                         title={"Stations"}
-                        color={"black"}
                     ></CustomTitle>
                 </div>
                 <div className="horizontal-line"></div>
