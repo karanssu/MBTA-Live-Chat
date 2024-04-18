@@ -63,50 +63,56 @@ const Stations = ({
                     <div className="col-6">
                         {trainLines.map((trainLine) => (
                             <label
+                                className="radio-label"
                                 style={{
                                     color: Color[trainLine],
                                     fontWeight: "bold",
                                 }}
                             >
                                 <input
+                                    className="radio-input"
                                     type="radio"
                                     name="trainLine"
                                     value={trainLine}
                                     checked={selectedTrainLine === trainLine}
                                     onChange={() => handleChange(trainLine)}
                                 />
-                                {trainLine}
+                                <span className="radio-text">{trainLine}</span>
                             </label>
                         ))}
                     </div>
                     <div className="col-6">
                         <label
+                            className="checkbox-label"
                             style={{
-                                color: Color[selectedTrainLine],
-                                fontWeight: "bold",
+                                color: "black",
+                                fontWeight: inboundChecked ? "bold" : "normal",
                             }}
                         >
                             <input
+                                className="checkbox-input"
                                 type="checkbox"
                                 checked={inboundChecked}
                                 value={"Inbound"}
                                 onChange={handleInboundCheckBox}
                             />
-                            Inbound
+                            <span className="checkbox-text">Inbound</span>
                         </label>
                         <label
+                            className="checkbox-label"
                             style={{
-                                color: Color[selectedTrainLine],
-                                fontWeight: "bold",
+                                color: "black",
+                                fontWeight: outboundChecked ? "bold" : "normal",
                             }}
                         >
                             <input
+                                className="checkbox-input"
                                 type="checkbox"
                                 checked={outboundChecked}
                                 value={"Outbound"}
                                 onChange={handleOutboundCheckBox}
                             />
-                            Outbound
+                            <span className="checkbox-text">Outbound</span>
                         </label>
                     </div>
                 </div>
