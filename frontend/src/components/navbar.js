@@ -22,12 +22,15 @@ export default function Navbar() {
                 <Nav className="me-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                 </Nav>
-                <div className="profile-div">
+                <Nav className="me-right">
                     {user && (
                         <Dropdown>
                             <Dropdown.Toggle
-                                variant="secondary"
                                 id="dropdown-basic"
+                                style={{
+                                    background: "none",
+                                    border: "none",
+                                }}
                             >
                                 {user.username}
                             </Dropdown.Toggle>
@@ -42,8 +45,6 @@ export default function Navbar() {
                             </Dropdown.Menu>
                         </Dropdown>
                     )}
-                </div>
-                <Nav className="me-right">
                     {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
                     {!user && <Nav.Link href="/login">Login</Nav.Link>}
                 </Nav>
