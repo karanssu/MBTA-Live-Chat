@@ -17,18 +17,18 @@ const io = require("socket.io")(CHAT_SERVER_PORT, {
     },
 });
 
-// io.on("connection", (socket) => {
-//     socket.on("joinTrainLine", (trainLine) => {
-//         if (socket.trainLine) {
-//             socket.leave(socket.trainLine);
-//         }
-//         socket.join(trainLine);
-//         socket.trainLine = trainLine;
-//     });
-//     socket.on("sendComment", (userComments) => {
-//         io.to(socket.trainLine).emit("receiveComment", userComments);
-//     });
-// });
+io.on("connection", (socket) => {
+    socket.on("joinTrainLine", (trainLine) => {
+        if (socket.trainLine) {
+            socket.leave(socket.trainLine);
+        }
+        socket.join(trainLine);
+        socket.trainLine = trainLine;
+    });
+    socket.on("sendComment", (userComments) => {
+        io.to(socket.trainLine).emit("receiveComment", userComments);
+    });
+});
 
 dbConnection();
 app.use(cors({ origin: "*" }));
