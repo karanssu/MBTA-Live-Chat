@@ -33,7 +33,7 @@ function Alerts() {
                 <div className="horizontal-line"></div>
                 <div
                     className="title-board row px-2"
-                    style={{ height: "85%", overflow: "auto" }}
+                    style={{ height: "70%", overflow: "auto" }}
                 >
                     <div className="col">
                         {alerts.map((alert) => (
@@ -45,11 +45,8 @@ function Alerts() {
                                         ? "dark"
                                         : "white"
                                 }
-                                body
-                                outline
-                                color="success"
-                                className="mx-1 my-2"
-                                style={{ width: "auto" }}
+                                className="my-2"
+                                style={{ width: "auto", padding: "0" }}
                             >
                                 <Card.Body>
                                     <Card.Text>
