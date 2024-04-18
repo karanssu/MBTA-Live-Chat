@@ -13,7 +13,7 @@ function Alerts() {
             const result = await axios(
                 "https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE"
             );
-            setAlerts(result.data.data);
+            setAlerts(result.data.data.slice(0, 20));
         }
         fetchData();
     }, []);
