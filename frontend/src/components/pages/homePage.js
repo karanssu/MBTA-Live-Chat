@@ -33,7 +33,7 @@ const HomePage = () => {
                 <div className="row py-3" style={{ height: "90vh" }}>
                     <div
                         className="col-3"
-                        style={{ height: "85vh", overflow: "hidden" }}
+                        style={{ height: "83vh", overflow: "hidden" }}
                     >
                         <Alerts></Alerts>
                     </div>

@@ -21,8 +21,8 @@ function Alerts() {
     return (
         <>
             <div
-                className="station-container "
-                style={{ "--primary-color": Color.Pink }}
+                className="station-container my-1"
+                style={{ "--primary-color": Color.Pink, height: "99%" }}
             >
                 <div className="alert-title row">
                     <CustomTitle
@@ -33,7 +33,7 @@ function Alerts() {
                 <div className="horizontal-line"></div>
                 <div
                     className="title-board row px-2"
-                    style={{ height: "100%", overflow: "auto" }}
+                    style={{ height: "85%", overflow: "auto" }}
                 >
                     <div className="col">
                         {alerts.map((alert) => (
