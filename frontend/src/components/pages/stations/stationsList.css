@@ -1,11 +1,13 @@
 .station-container {
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px 20px 10px 20px;
-  border-radius: 15px;
-  background: #FFFFFF;
-background: linear-gradient(to top, #FFFFFF 0%, #EFE4FF 30%);
-
   height: 100%;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(92,88,92,1);
+  -moz-box-shadow: 0px 0px 6px 1px rgba(92,88,92,1);
+  box-shadow: 0px 0px 6px 0.2px rgba(0,0,0,0.6);
+  background: #FFE3DE;
+  background: linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%);
 }
 
 .station-board label {
@@ -18,7 +20,7 @@ background: linear-gradient(to top, #FFFFFF 0%, #EFE4FF 30%);
 }
 
 .station-board input[type="radio"]:checked, input[type="checkbox"]:checked {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 .station-title{
   color:black;
@@ -53,8 +55,8 @@ background: linear-gradient(to top, #FFFFFF 0%, #EFE4FF 30%);
 }
 
 .radio-input:checked + .radio-text:before {
-  background-color: #007bff; /* Change to your desired color */
-  border-color: #007bff; /* Change to your desired color */
+  background-color: #ff0000; /* Change to your desired color */
+  border-color: #ff0000; /* Change to your desired color */
 }
 
 .radio-text:after {
@@ -97,7 +99,7 @@ background: linear-gradient(to top, #FFFFFF 0%, #EFE4FF 30%);
 }
 
 .checkbox-input:checked + .checkbox-text:before {
-  background-color: #007bff; /* Change to your desired color */
+  background-color: #e01010; /* Change to your desired color */
 }
 
 .checkbox-text:after {

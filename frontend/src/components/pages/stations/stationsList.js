@@ -60,7 +60,7 @@ const Stations = ({
                 </div>
                 <div className="horizontal-line"></div>
                 <div className="station-board row">
-                    <div className="col-6">
+                    <div className="col-7">
                         {trainLines.map((trainLine) => (
                             <label
                                 className="radio-label"
@@ -81,7 +81,7 @@ const Stations = ({
                             </label>
                         ))}
                     </div>
-                    <div className="col-6">
+                    <div className="col-5">
                         <label
                             className="checkbox-label"
                             style={{
