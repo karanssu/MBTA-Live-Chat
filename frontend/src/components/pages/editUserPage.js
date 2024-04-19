@@ -98,8 +98,8 @@ const EditUserPage = () => {
     };
 
     // handle cancel button
-    const handleReset = (async) => {
-        navigate("/profile");
+    const handleCancel = (async) => {
+        navigate("/");
     };
 
     return (
