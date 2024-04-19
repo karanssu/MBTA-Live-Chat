@@ -7,16 +7,55 @@ import CustomTitle from "../stations/customTitle";
 
 function Alerts() {
     const [alerts, setAlerts] = useState([]);
+    const [flashRed, setFlashRed] = useState(false);
 
     useEffect(() => {
-        async function fetchData() {
-            const result = await axios(
-                "https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE"
-            );
-            setAlerts(result.data.data.slice(0, 20));
-        }
+        const fetchData = async () => {
+            try {
+                const result = await axios(
+                    "https://api-v3.mbta.com/alerts?sort=banner&filter%5Bactivity%5D=BOARD%2CEXIT%2CRIDE"
+                );
+                setAlerts(result.data.data.slice(0, 20));
+            } catch (error) {
+                console.error('Error fetching data: ', error);
+            }
+        };
+
         fetchData();
+        const intervalId = setInterval(fetchData, 5000);
+
+        return () => clearInterval(intervalId);
     }, []);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setFlashRed((prevFlashRed) => !prevFlashRed);
+        }, 500);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    const getAlertBorderStyle = (severity) => {
+        let borderColor, borderWidth;
+
+        if (severity >= 7) {
+            borderColor = flashRed ? "Red" : "White";
+            borderWidth = "2.6px";
+        } else if (severity >= 4) {
+            borderColor = "Yellow";
+            borderWidth = "2.6px";
+        } else {
+            borderColor = "Blue";
+            borderWidth = "2.6px";
+        }
+
+        return {
+            borderColor: borderColor,
+            borderWidth: borderWidth,
+            borderStyle: "solid",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)" 
+        };
+    };    
 
     return (
         <>
@@ -38,15 +77,15 @@ function Alerts() {
                     <div className="col">
                         {alerts.map((alert) => (
                             <Card
-                                bg={"Danger".toLowerCase()}
                                 key={alert.id}
-                                text={
-                                    "Danger".toLowerCase() === "light"
-                                        ? "dark"
-                                        : "white"
-                                }
+                                text="black"
                                 className="my-2"
-                                style={{ width: "auto", padding: "0" }}
+                                style={{
+                                    width: "auto",
+                                    padding: "0",
+                                    background: "white",
+                                    ...getAlertBorderStyle(alert.attributes.severity)
+                                }}
                             >
                                 <Card.Body>
                                     <Card.Text>
