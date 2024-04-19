@@ -20,7 +20,9 @@ export default function Navbar() {
         <ReactNavbar bg="dark" variant="dark">
             <Container>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/" style={{ color: "white" }}>
+                        Home
+                    </Nav.Link>
                 </Nav>
                 <Nav className="me-right">
                     {user && (
@@ -30,10 +32,17 @@ export default function Navbar() {
                                 style={{
                                     background: "none",
                                     border: "none",
+                                    boxShadow: "none",
+                                    color: "inherit",
+                                    textDecoration: "underline",
+                                    cursor: "pointer",
                                 }}
                             >
-                                {user.username}
+                                <span style={{ color: "white" }}>
+                                    {user.username}
+                                </span>
                             </Dropdown.Toggle>
+
                             <Dropdown.Menu>
                                 <Dropdown.Item href="/profile">
                                     Profile
@@ -45,8 +54,16 @@ export default function Navbar() {
                             </Dropdown.Menu>
                         </Dropdown>
                     )}
-                    {!user && <Nav.Link href="/signUp">Sign Up</Nav.Link>}
-                    {!user && <Nav.Link href="/login">Login</Nav.Link>}
+                    {!user && (
+                        <Nav.Link href="/signUp" style={{ color: "white" }}>
+                            Sign Up
+                        </Nav.Link>
+                    )}
+                    {!user && (
+                        <Nav.Link href="/login" style={{ color: "white" }}>
+                            Login
+                        </Nav.Link>
+                    )}
                 </Nav>
             </Container>
         </ReactNavbar>
