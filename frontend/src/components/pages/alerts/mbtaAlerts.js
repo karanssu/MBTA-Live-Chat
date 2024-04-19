@@ -40,13 +40,13 @@ function Alerts() {
 
         if (severity >= 7) {
             borderColor = flashRed ? "Red" : "White";
-            borderWidth = "2.6px";
+            borderWidth = "2.4px";
         } else if (severity >= 4) {
             borderColor = "Yellow";
-            borderWidth = "2.6px";
+            borderWidth = "2.4px";
         } else {
             borderColor = "Blue";
-            borderWidth = "2.6px";
+            borderWidth = "2.4px";
         }
 
         return {

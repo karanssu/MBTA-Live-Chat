@@ -7,6 +7,7 @@ const CustomTitle = ({ title, color }) => {
         fontWeight: "bold",
         textAlign: "center",
         marginTop: "10px",
+        marginBottom: "-5px",
     };
 
     return (
