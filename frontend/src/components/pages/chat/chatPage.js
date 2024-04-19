@@ -25,18 +25,18 @@ const Chat = ({ trainLine }) => {
         scrollToBottom();
     });
 
-    useEffect(() => {
-        setUser(getUser());
-        fetchCommentDb(trainLine);
-        socket.emit("joinTrainLine", trainLine);
-    }, [trainLine]);
-
     const scrollToBottom = () => {
         if (scrollableDivRef.current) {
             scrollableDivRef.current.scrollTop =
                 scrollableDivRef.current.scrollHeight;
         }
     };
+
+    useEffect(() => {
+        setUser(getUser());
+        fetchCommentDb(trainLine);
+        socket.emit("joinTrainLine", trainLine);
+    }, [trainLine, scrollToBottom]);
 
     const clearCommentInput = () => {
         inputRef.current.value = "";
