@@ -110,7 +110,9 @@ const EditUserPage = () => {
                 className="mx-1 my-2"
                 style={{ width: "30rem" }}
             >
-                <Card.Title>Edit User Information</Card.Title>
+                <Card.Title style={{ marginLeft: "15px" }}>
+                    Edit Profile
+                </Card.Title>
                 <Card.Body>
                     <Form>
                         <Form.Group className="mb-3" controlId="formName">
