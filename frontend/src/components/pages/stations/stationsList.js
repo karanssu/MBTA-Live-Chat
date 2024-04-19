@@ -16,7 +16,7 @@ const Stations = ({
     const [inboundChecked, setInboundChecked] = useState(true);
     const [outboundChecked, setOutboundChecked] = useState(true);
     const [trainLines, setTrainLines] = useState([]);
-    const [greenSubLines, setGreenSubLines] = useState(["B", "C", "D", "E"]);
+    const [greenSubLines] = useState(["B", "C", "D", "E"]);
 
     useEffect(() => {
         fetchTrainLineDb();
@@ -71,6 +71,7 @@ const Stations = ({
                             <div className="col-7">
                                 {trainLines.map((trainLine) => (
                                     <label
+                                    key={trainLine}
                                         className="radio-label"
                                         style={{
                                             color: Color[trainLine],
@@ -99,6 +100,7 @@ const Stations = ({
                                 {selectedTrainLine == "Green" &&
                                     greenSubLines.map((greenSubLine) => (
                                         <label
+                                        key={greenSubLine}
                                             className="radio-label"
                                             style={{
                                                 color: Color["Green"],

@@ -39,7 +39,7 @@ function Alerts() {
                         {alerts.map((alert) => (
                             <Card
                                 bg={"Danger".toLowerCase()}
-                                key={"Danger"}
+                                key={alert.id}
                                 text={
                                     "Danger".toLowerCase() === "light"
                                         ? "dark"

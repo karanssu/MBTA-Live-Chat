@@ -70,7 +70,8 @@ const MapComponent = ({
                             trainLine,
                             getDirection(inboundChecked, outboundChecked),
                             inboundChecked,
-                            outboundChecked
+                            outboundChecked,
+                            greenSubLine
                         ),
                 });
 
@@ -110,7 +111,7 @@ const MapComponent = ({
                 map.setTarget(null);
             }
         };
-    }, [trainLine, inboundChecked, outboundChecked]);
+    }, [trainLine, inboundChecked, outboundChecked,greenSubLine]);
 
     return (
         <>

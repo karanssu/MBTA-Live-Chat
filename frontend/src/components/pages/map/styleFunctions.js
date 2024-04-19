@@ -53,23 +53,22 @@ export const nodeStyle = (feature, filterColor) => {
     });
 };
 
-export const trainStyle = (feature, filterColor, filterDirection, inboundChecked, outboundChecked) => {
-    const trainLine = feature.get("LINE").toUpperCase();
+export const trainStyle = (feature, filterColor, filterDirection, inboundChecked, outboundChecked, greenSubLine) => {
+    const trainLine = feature.get("LINE").toUpperCase(); 
+    const [lineColor, lineSub] = trainLine.split('-'); 
     const direction = feature.get("DIRECTION");
     let isVisible = true;
 
     if (!inboundChecked && !outboundChecked) {
         return null; 
     }
-    
-    if (filterColor) {
-        const isGreenFilter = filterColor.toUpperCase() === "GREEN";
-        const isGreenLine = trainLine.includes("GREEN");
 
-        if (
-            (isGreenFilter && !isGreenLine) ||
-            (!isGreenFilter && filterColor.toUpperCase() !== trainLine)
-        ) {
+    if (filterColor && filterColor.toUpperCase() !== lineColor) {
+        isVisible = false;
+    }
+
+    if (filterColor.toUpperCase() === "GREEN" && greenSubLine && lineColor === "GREEN") {
+        if (greenSubLine.toUpperCase() !== lineSub) {
             isVisible = false;
         }
     }
