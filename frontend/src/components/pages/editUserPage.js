@@ -45,7 +45,12 @@ const EditUserPage = () => {
         password: "",
     });
     useEffect(() => {
-        setValues({ userId: getUserInfo().id });
+        const user = getUserInfo();
+        setValues({
+            userId: user.id,
+            username: user.username,
+            email: user.email,
+        });
     }, []);
 
     // handle form field changes
@@ -70,7 +75,7 @@ const EditUserPage = () => {
                 const { accessToken } = res;
                 //store token in localStorage
                 localStorage.setItem("accessToken", accessToken);
-                navigate("/privateuserprofile");
+                navigate("/");
             } catch (error) {
                 if (
                     error.response &&
