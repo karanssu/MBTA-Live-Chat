@@ -97,9 +97,8 @@ const EditUserPage = () => {
         }
     };
 
-    // handle cancel button
-    const handleCancel = (async) => {
-        navigate("/");
+    const handleReset = (async) => {
+        navigate("/profile");
     };
 
     return (
@@ -169,7 +168,8 @@ const EditUserPage = () => {
                                     Submit
                                 </Button>
                                 <Button
-                                    variant="primary"
+                                    style={{ marginLeft: "20px" }}
+                                    variant="secondary"
                                     type="cancel"
                                     onClick={handleReset}
                                 >

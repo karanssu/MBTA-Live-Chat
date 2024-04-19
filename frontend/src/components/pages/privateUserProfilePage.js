@@ -6,7 +6,9 @@ import EditUserPage from "./editUserPage";
 const PrivateUserProfile = () => {
     return (
         <>
-            <EditUserPage />
+            <div className="d-flex justify-content-center">
+                <EditUserPage />
+            </div>
         </>
     );
 };
