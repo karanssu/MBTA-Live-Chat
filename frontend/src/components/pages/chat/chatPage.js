@@ -36,7 +36,7 @@ const Chat = ({ trainLine }) => {
         setUser(getUser());
         fetchCommentDb(trainLine);
         socket.emit("joinTrainLine", trainLine);
-    }, [trainLine, scrollToBottom]);
+    }, [trainLine]);
 
     const clearCommentInput = () => {
         inputRef.current.value = "";

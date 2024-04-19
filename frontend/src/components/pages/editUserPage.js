@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
@@ -6,11 +6,13 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import getUserInfo from "../../utilities/decodeJwt";
+import { UserContext } from "../../App";
+import getUser from "../../utilities/decodeJwt";
 
 const REACT_APP_API_URL = process.env.REACT_APP_API_URL;
 
 const EditUserPage = () => {
+    const [user, setUser] = useContext(UserContext);
     const url = REACT_APP_API_URL + "/user/editUser";
     const navigate = useNavigate();
 
@@ -44,14 +46,16 @@ const EditUserPage = () => {
         email: "",
         password: "",
     });
+
     useEffect(() => {
-        const user = getUserInfo();
-        setValues({
-            userId: user.id,
-            username: user.username,
-            email: user.email,
-        });
-    }, []);
+        if (user) {
+            setValues({
+                userId: user.id,
+                username: user.username,
+                email: user.email,
+            });
+        }
+    }, [user]);
 
     // handle form field changes
     const handleChange = ({ currentTarget: input }) => {
@@ -75,6 +79,7 @@ const EditUserPage = () => {
                 const { accessToken } = res;
                 //store token in localStorage
                 localStorage.setItem("accessToken", accessToken);
+                setUser(getUser());
                 navigate("/");
             } catch (error) {
                 if (
@@ -93,8 +98,8 @@ const EditUserPage = () => {
     };
 
     // handle cancel button
-    const handleCancel = (async) => {
-        navigate();
+    const handleReset = (async) => {
+        navigate("/profile");
     };
 
     return (
@@ -163,15 +168,12 @@ const EditUserPage = () => {
                                 >
                                     Submit
                                 </Button>
-                            </Col>
-
-                            <Col>
                                 <Button
                                     variant="primary"
                                     type="cancel"
-                                    onClick={handleCancel}
+                                    onClick={handleReset}
                                 >
-                                    Cancel
+                                    Reset
                                 </Button>
                             </Col>
                         </Row>
