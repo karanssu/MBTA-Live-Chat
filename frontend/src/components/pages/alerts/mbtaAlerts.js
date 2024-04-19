@@ -21,7 +21,7 @@ function Alerts() {
     return (
         <>
             <div
-                className="station-container my-1"
+                className="station-container"
                 style={{ "--primary-color": Color.Pink, height: "99%" }}
             >
                 <div className="alert-title row">
