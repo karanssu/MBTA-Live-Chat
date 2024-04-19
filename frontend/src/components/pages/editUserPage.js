@@ -94,7 +94,7 @@ const EditUserPage = () => {
 
     // handle cancel button
     const handleCancel = (async) => {
-        navigate();
+        navigate("/");
     };
 
     return (
