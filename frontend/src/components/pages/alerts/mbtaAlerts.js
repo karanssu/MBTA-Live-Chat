@@ -42,10 +42,10 @@ function Alerts() {
             borderColor = flashRed ? "Red" : "White";
             borderWidth = "2.4px";
         } else if (severity >= 4) {
-            borderColor = "Yellow";
+            borderColor = "#FF8C00";
             borderWidth = "2.4px";
         } else {
-            borderColor = "Blue";
+            borderColor = "Yellow";
             borderWidth = "2.4px";
         }
 
@@ -83,7 +83,7 @@ function Alerts() {
                                 style={{
                                     width: "auto",
                                     padding: "0",
-                                    background: "white",
+                                    background: "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
                                     ...getAlertBorderStyle(alert.attributes.severity)
                                 }}
                             >
