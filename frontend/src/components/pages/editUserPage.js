@@ -124,6 +124,7 @@ const EditUserPage = () => {
                                 value={form.username}
                                 onChange={handleChange}
                                 isInvalid={!!errors.name}
+                                disabled="true"
                             />
                             <Form.Control.Feedback type="invalid">
                                 {errors.name}
