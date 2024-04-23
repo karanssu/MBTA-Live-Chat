@@ -30,7 +30,7 @@ export const lineStyle = (feature, filterColor) => {
     return new Style({
         stroke: new Stroke({
             color: color,
-            width: 5.5,
+            width: 5.4,
         }),
     });
 };
@@ -38,20 +38,27 @@ export const lineStyle = (feature, filterColor) => {
 export const nodeStyle = (feature, filterColor) => {
     const nodeColor = feature.get("LINE");
     let visibility = "white";
+    let borderColor = "black";
 
     if (filterColor && filterColor !== nodeColor) {
         visibility = "rgba(0, 0, 0, 0)";
+        borderColor = "rgba(0, 0, 0, 0)";
     }
 
     return new Style({
         image: new Circle({
-            radius: 3,
+            radius: 3.7,
             fill: new Fill({
                 color: visibility,
+            }),
+            stroke: new Stroke({
+                color: borderColor,
+                width: 1.3, 
             }),
         }),
     });
 };
+
 
 export const trainStyle = (feature, filterColor, filterDirection, inboundChecked, outboundChecked, greenSubLine) => {
     const trainLine = feature.get("LINE").toUpperCase(); 
