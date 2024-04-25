@@ -71,17 +71,19 @@ function Alerts() {
                 style={{ "--primary-color": Color.Pink, height: "99%" }}
             >
                 <div className="alert-title row">
-                    <div className="col-8">
-                        <CustomTitle
-                            title={"Alerts"}
-                            trainLine={"black"}
-                        ></CustomTitle>
-                    </div>
-                    <div className="col-4 mt-2">
-                        <CustomDropdown
-                            options={severities}
-                            onChange={(e) => handleChange(e.target.value)}
-                        ></CustomDropdown>
+                    <div className="col flex justify-content-center align-items-center">
+                        <span>
+                            <CustomTitle
+                                title={"Alerts"}
+                                trainLine={"black"}
+                            ></CustomTitle>
+                        </span>
+                        <span className="px-3">
+                            <CustomDropdown
+                                options={severities}
+                                onChange={(e) => handleChange(e.target.value)}
+                            ></CustomDropdown>
+                        </span>
                     </div>
                 </div>
                 <div className="horizontal-line"></div>

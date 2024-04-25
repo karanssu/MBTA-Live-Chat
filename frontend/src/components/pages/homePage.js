@@ -37,8 +37,8 @@ const HomePage = () => {
             >
                 <div className="row py-3" style={{ height: "90vh" }}>
                     <div className="col-8">
-                        <div className="row" style={{ height: "42vh" }}>
-                            <div className="col">
+                        <div className="row" style={{ height: "55vh" }}>
+                            <div className="col px-0">
                                 <LiveMap
                                     trainLine={trainLine.toUpperCase()}
                                     greenSubLine={greenSubLine}
@@ -47,14 +47,14 @@ const HomePage = () => {
                                 ></LiveMap>
                             </div>
                         </div>
-                        <div className="row" style={{ height: "42vh" }}>
+                        <div className="row" style={{ height: "35vh" }}>
                             <div
-                                className="col-8 py-3"
+                                className="col-8 py-2 px-2"
                                 style={{ height: "100%", overflow: "hidden" }}
                             >
                                 <Alerts></Alerts>
                             </div>
-                            <div className="col-4 py-3 px-0">
+                            <div className="col-4 py-2 px-0">
                                 <Stations
                                     handleTrainlineChecked={
                                         handleTrainlineChange
