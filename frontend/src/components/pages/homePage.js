@@ -49,12 +49,12 @@ const HomePage = () => {
                         </div>
                         <div className="row" style={{ height: "42vh" }}>
                             <div
-                                className="col-6 py-3"
+                                className="col-8 py-3"
                                 style={{ height: "100%", overflow: "hidden" }}
                             >
                                 <Alerts></Alerts>
                             </div>
-                            <div className="col-6 py-3">
+                            <div className="col-4 py-3 px-0">
                                 <Stations
                                     handleTrainlineChecked={
                                         handleTrainlineChange
