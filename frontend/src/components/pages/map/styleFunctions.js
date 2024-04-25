@@ -5,6 +5,7 @@ import trainIcon from "./train.png";
 export const lineStyle = (feature, filterColor) => {
     const lineColor = feature.get("LINE");
     let color;
+    let borderColor = 'black';  
 
     switch (lineColor) {
         case "BLUE":
@@ -20,19 +21,28 @@ export const lineStyle = (feature, filterColor) => {
             color = "orange";
             break;
         default:
-            color = "rgba(0, 0, 0, 0)";
+            color = "rgba(0, 0, 0, 0)";  
     }
 
     if (filterColor && filterColor !== lineColor) {
-        color = "rgba(0, 0, 0, 0)";
+        color = "rgba(0, 0, 0, 0)";  
+        borderColor = "rgba(0, 0, 0, 0)";  
     }
 
-    return new Style({
-        stroke: new Stroke({
-            color: color,
-            width: 5.4,
+    return [
+        new Style({
+            stroke: new Stroke({
+                color: borderColor, 
+                width: 7  
+            })
         }),
-    });
+        new Style({
+            stroke: new Stroke({
+                color: color, 
+                width: 5  
+            })
+        })
+    ];
 };
 
 export const nodeStyle = (feature, filterColor) => {

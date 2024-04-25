@@ -42,6 +42,16 @@ function Alerts() {
         setSeverity(severity);
     };
 
+    const getSeverityLabel = (severityLevel) => {
+        if (severityLevel >= 7) {
+            return "Critical";
+        } else if (severityLevel >= 4) {
+            return "Warning";
+        } else {
+            return "Info";
+        }
+    };
+
     const getAlertBorderStyle = (severity) => {
         let borderColor, borderWidth;
 
@@ -92,28 +102,30 @@ function Alerts() {
                     style={{ height: "70%", overflow: "auto" }}
                 >
                     <div className="col">
-                        {alerts.map((alert) => (
-                            <Card
-                                key={alert.id}
-                                text="black"
-                                className="my-2"
-                                style={{
-                                    width: "auto",
-                                    padding: "0",
-                                    background:
-                                        "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
-                                    ...getAlertBorderStyle(
-                                        alert.attributes.severity
-                                    ),
-                                }}
-                            >
-                                <Card.Body>
-                                    <Card.Text>
-                                        {alert.attributes.header}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        ))}
+                        {alerts
+                            .filter(alert => severity === "All" || getSeverityLabel(alert.attributes.severity) === severity)
+                            .map(alert => (
+                                <Card
+                                    key={alert.id}
+                                    text="black"
+                                    className="my-2"
+                                    style={{
+                                        width: "auto",
+                                        padding: "0",
+                                        background:
+                                            "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
+                                        ...getAlertBorderStyle(
+                                            alert.attributes.severity
+                                        ),
+                                    }}
+                                >
+                                    <Card.Body>
+                                        <Card.Text>
+                                            {alert.attributes.header}
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            ))}
                     </div>
                 </div>
             </div>
