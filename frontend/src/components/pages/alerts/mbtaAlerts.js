@@ -4,10 +4,13 @@ import axios from "axios";
 import "./mbtaAlerts.css";
 import Color from "../../../constants/colors";
 import CustomTitle from "../stations/customTitle";
+import CustomDropdown from "./customDropdown";
 
 function Alerts() {
     const [alerts, setAlerts] = useState([]);
     const [flashRed, setFlashRed] = useState(false);
+    const severities = ["All", "Critical", "Warning", "Info"];
+    const [severity, setSeverity] = useState("All");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,7 +20,7 @@ function Alerts() {
                 );
                 setAlerts(result.data.data.slice(0, 20));
             } catch (error) {
-                console.error('Error fetching data: ', error);
+                console.error("Error fetching data: ", error);
             }
         };
 
@@ -34,6 +37,10 @@ function Alerts() {
 
         return () => clearInterval(intervalId);
     }, []);
+
+    const handleChange = (severity) => {
+        setSeverity(severity);
+    };
 
     const getAlertBorderStyle = (severity) => {
         let borderColor, borderWidth;
@@ -53,9 +60,9 @@ function Alerts() {
             borderColor: borderColor,
             borderWidth: borderWidth,
             borderStyle: "solid",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)" 
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)",
         };
-    };    
+    };
 
     return (
         <>
@@ -64,10 +71,18 @@ function Alerts() {
                 style={{ "--primary-color": Color.Pink, height: "99%" }}
             >
                 <div className="alert-title row">
-                    <CustomTitle
-                        title={"Alerts"}
-                        trainLine={"black"}
-                    ></CustomTitle>
+                    <div className="col-8">
+                        <CustomTitle
+                            title={"Alerts"}
+                            trainLine={"black"}
+                        ></CustomTitle>
+                    </div>
+                    <div className="col-4 mt-2">
+                        <CustomDropdown
+                            options={severities}
+                            onChange={(e) => handleChange(e.target.value)}
+                        ></CustomDropdown>
+                    </div>
                 </div>
                 <div className="horizontal-line"></div>
                 <div
@@ -83,8 +98,11 @@ function Alerts() {
                                 style={{
                                     width: "auto",
                                     padding: "0",
-                                    background: "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
-                                    ...getAlertBorderStyle(alert.attributes.severity)
+                                    background:
+                                        "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
+                                    ...getAlertBorderStyle(
+                                        alert.attributes.severity
+                                    ),
                                 }}
                             >
                                 <Card.Body>
