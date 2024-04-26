@@ -6,6 +6,9 @@ import Color from "../../../constants/colors";
 import CustomTitle from "../stations/customTitle";
 import CustomDropdown from "./customDropdown";
 
+const CRITICAL_LEVEL = 7;
+const WARNING_LEVEL = 4;
+
 function Alerts() {
     const [alerts, setAlerts] = useState([]);
     const [flashRed, setFlashRed] = useState(false);
@@ -43,9 +46,9 @@ function Alerts() {
     };
 
     const getSeverityLabel = (severityLevel) => {
-        if (severityLevel >= 7) {
+        if (severityLevel >= CRITICAL_LEVEL) {
             return "Critical";
-        } else if (severityLevel >= 4) {
+        } else if (severityLevel >= WARNING_LEVEL) {
             return "Warning";
         } else {
             return "Info";
@@ -55,10 +58,10 @@ function Alerts() {
     const getAlertBorderStyle = (severity) => {
         let borderColor, borderWidth;
 
-        if (severity >= 7) {
+        if (severity >= CRITICAL_LEVEL) {
             borderColor = flashRed ? "Red" : "White";
             borderWidth = "2.4px";
-        } else if (severity >= 4) {
+        } else if (severity >= WARNING_LEVEL) {
             borderColor = "#FF8C00";
             borderWidth = "2.4px";
         } else {
@@ -103,8 +106,14 @@ function Alerts() {
                 >
                     <div className="col">
                         {alerts
-                            .filter(alert => severity === "All" || getSeverityLabel(alert.attributes.severity) === severity)
-                            .map(alert => (
+                            .filter(
+                                (alert) =>
+                                    severity === "All" ||
+                                    getSeverityLabel(
+                                        alert.attributes.severity
+                                    ) === severity
+                            )
+                            .map((alert) => (
                                 <Card
                                     key={alert.id}
                                     text="black"
