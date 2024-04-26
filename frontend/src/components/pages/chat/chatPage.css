@@ -5,7 +5,7 @@
     -webkit-box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.6);
     box-shadow: 0px 0px 6px 0.2px rgba(0,0,0,0.6);
     background: #FFF1F0;
-    background: linear-gradient(to top, #FFF1F0 0%, #FFD6DC 42%);
+    background: linear-gradient(to top, #F8F8F8 0%, #F8F8F8 42%);
 }
 .chat-container:hover {
   transition: box-shadow 0.2s ease 0s;

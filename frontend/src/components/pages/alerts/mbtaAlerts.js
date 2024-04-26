@@ -62,10 +62,10 @@ function Alerts() {
             borderColor = flashRed ? "Red" : "White";
             borderWidth = "2.4px";
         } else if (severity >= WARNING_LEVEL) {
-            borderColor = "#FF8C00";
+            borderColor = "Yellow";
             borderWidth = "2.4px";
         } else {
-            borderColor = "Yellow";
+            borderColor = "Blue";
             borderWidth = "2.4px";
         }
 
@@ -79,10 +79,7 @@ function Alerts() {
 
     return (
         <>
-            <div
-                className="station-container"
-                style={{ "--primary-color": Color.Pink, height: "99%" }}
-            >
+            <div className="station-container" style={{ height: "99%" }}>
                 <div className="alert-title row">
                     <div className="col flex justify-content-center align-items-center">
                         <span>
@@ -122,7 +119,7 @@ function Alerts() {
                                         width: "auto",
                                         padding: "0",
                                         background:
-                                            "linear-gradient(to top, #FFE3DE 0%, #FFD6DC 42%)",
+                                            "linear-gradient(to top, #F8F8F8 0%, #F8F8F8 42%)",
                                         ...getAlertBorderStyle(
                                             alert.attributes.severity
                                         ),

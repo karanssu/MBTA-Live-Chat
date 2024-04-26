@@ -57,10 +57,7 @@ const Stations = ({
 
     return (
         <>
-            <div
-                className="station-container"
-                style={{ "--primary-color": Color.Pink }}
-            >
+            <div className="station-container">
                 <div className="station-title">
                     <CustomTitle title={"Lines"}></CustomTitle>
                 </div>
@@ -71,7 +68,7 @@ const Stations = ({
                             <div className="col-7">
                                 {trainLines.map((trainLine) => (
                                     <label
-                                    key={trainLine}
+                                        key={trainLine}
                                         className="radio-label"
                                         style={{
                                             color: Color[trainLine],
@@ -100,7 +97,7 @@ const Stations = ({
                                 {selectedTrainLine == "Green" &&
                                     greenSubLines.map((greenSubLine) => (
                                         <label
-                                        key={greenSubLine}
+                                            key={greenSubLine}
                                             className="radio-label"
                                             style={{
                                                 color: Color["Green"],
