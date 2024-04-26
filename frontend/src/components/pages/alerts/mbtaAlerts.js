@@ -95,8 +95,10 @@ function Alerts() {
                         <span className="px-3">
                             <CustomDropdown
                                 options={severities}
+                                value={selectedSeverity}
                                 onChange={(e) => handleChange(e.target.value)}
-                            ></CustomDropdown>
+                                severity={selectedSeverity} 
+                            />
                         </span>
                     </div>
                 </div>
