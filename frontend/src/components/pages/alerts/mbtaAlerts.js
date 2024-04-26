@@ -105,7 +105,7 @@ function Alerts() {
                 <div className="horizontal-line"></div>
                 <div
                     className="title-board row px-2"
-                    style={{ height: "70%", overflow: "auto" }}
+                    style={{ height: "60%", overflow: "auto" }}
                 >
                     <div className="col">
                         {alerts
