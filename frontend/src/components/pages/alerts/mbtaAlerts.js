@@ -123,7 +123,7 @@ function Alerts() {
                                         width: "auto",
                                         padding: "0",
                                         background:
-                                            "linear-gradient(to top, #F8F8F8 0%, #F8F8F8 42%)",
+                                            "rgba(255,255,255,0.2)",
                                         ...getAlertBorderStyle(
                                             alert.attributes.severity
                                         ),

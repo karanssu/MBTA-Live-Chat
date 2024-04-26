@@ -2,14 +2,12 @@
     background: var(--primary-color);
     border-radius: 15px;
     padding-right: 10px;
-    -webkit-box-shadow: 0px 0px 6px 2px rgba(0,0,0,0.6);
-    box-shadow: 0px 0px 6px 0.2px rgba(0,0,0,0.6);
-    background: #FFF1F0;
-    background: linear-gradient(to top, #F8F8F8 0%, #F8F8F8 42%);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.6) 0px 0px 12px;
+    background: #f6f6f7;
 }
 .chat-container:hover {
   transition: box-shadow 0.2s ease 0s;
-  box-shadow: 0px 0px 10px 3px rgba(5, 5, 5, 0.5); 
+  box-shadow: 0px 0px 10px 3.5px rgba(0, 0, 0); 
 }
 
 .bottom-div, .chat-board-div {
@@ -38,8 +36,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white; 
+  background-color: black; 
   border-radius: 10px; 
+  border: 1px solid black;
 }
 
 ::-webkit-scrollbar-track {
