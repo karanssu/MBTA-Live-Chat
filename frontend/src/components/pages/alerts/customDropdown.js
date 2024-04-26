@@ -1,17 +1,21 @@
 import React from "react";
 
-const CustomDropdown = ({ options, value, onChange, severity }) => {
-    
-    const getDropdownStyle = () => {
-        if (severity === "Critical") {
-            return { backgroundColor: "#FF9393" }; 
-        } else if (severity === "Warning") {
-            return { backgroundColor: "#ffff99" }; 
-        } else if (severity === "Info") {
-            return { backgroundColor: "#A3B6FF" }; 
-        } else {
-            return { backgroundColor: "#f8f9fa" }; 
+const CustomDropdown = ({ options, value, onChange }) => {
+    const getDropdownStyle = (option) => {
+        switch (option) {
+            case "Critical":
+                return { color: "Red", borderColor: "Red" }; 
+            case "Warning":
+                return { color: "#D4D23F", borderColor: "Black"};
+            case "Info":
+                return { color: "Blue", borderColor: "Blue" }; 
+            default:
+                return { color: "Black", borderColor: "Black" }; 
         }
+    };
+    const selectStyle = {
+        ...getDropdownStyle(value), 
+        backgroundColor: '#f8f9fa', 
     };
 
     return (
@@ -19,10 +23,10 @@ const CustomDropdown = ({ options, value, onChange, severity }) => {
             className="custom-dropdown"
             value={value}
             onChange={onChange}
-            style={getDropdownStyle()}
+            style={selectStyle} 
         >
             {options.map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} style={getDropdownStyle(option)}>
                     {option}
                 </option>
             ))}
