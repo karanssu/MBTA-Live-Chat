@@ -13,7 +13,7 @@ function Alerts() {
     const [alerts, setAlerts] = useState([]);
     const [flashRed, setFlashRed] = useState(false);
     const severities = ["All", "Critical", "Warning", "Info"];
-    const [severity, setSeverity] = useState("All");
+    const [selectedSeverity, setSelectedSeverity] = useState("All");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -42,7 +42,7 @@ function Alerts() {
     }, []);
 
     const handleChange = (severity) => {
-        setSeverity(severity);
+        setSelectedSeverity(severity);
     };
 
     const getSeverityLabel = (severityLevel) => {
@@ -55,13 +55,17 @@ function Alerts() {
         }
     };
 
-    const getAlertBorderStyle = (severity) => {
+    const getAlertBorderStyle = (severityLevel) => {
         let borderColor, borderWidth;
 
-        if (severity >= CRITICAL_LEVEL) {
-            borderColor = flashRed ? "Red" : "White";
+        if (severityLevel >= CRITICAL_LEVEL) {
+            if (selectedSeverity === "All") {
+                borderColor = flashRed ? "Red" : "White";
+            } else {
+                borderColor = "Red";
+            }
             borderWidth = "2.4px";
-        } else if (severity >= WARNING_LEVEL) {
+        } else if (severityLevel >= WARNING_LEVEL) {
             borderColor = "Yellow";
             borderWidth = "2.4px";
         } else {
@@ -105,10 +109,10 @@ function Alerts() {
                         {alerts
                             .filter(
                                 (alert) =>
-                                    severity === "All" ||
+                                    selectedSeverity === "All" ||
                                     getSeverityLabel(
                                         alert.attributes.severity
-                                    ) === severity
+                                    ) === selectedSeverity
                             )
                             .map((alert) => (
                                 <Card
