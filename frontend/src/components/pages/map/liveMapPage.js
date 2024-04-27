@@ -12,7 +12,7 @@ import { mapStyles } from "./mapStyles";
 import {
     stationConnectlineStyle,
     stationDotStyle,
-    trainStyle,
+    trainIconStyle,
 } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
 
@@ -70,13 +70,14 @@ const MapComponent = ({
                 const trainLayer = new VectorLayer({
                     source: trainSource,
                     style: (feature) =>
-                        trainStyle(
+                        trainIconStyle(
                             feature,
                             trainLine,
                             getDirection(inboundChecked, outboundChecked),
                             inboundChecked,
                             outboundChecked,
-                            greenSubLine
+                            greenSubLine,
+                            map.get("view").get("zoom")
                         ),
                 });
 

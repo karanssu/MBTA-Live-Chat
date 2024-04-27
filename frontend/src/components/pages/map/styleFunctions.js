@@ -84,16 +84,21 @@ export const stationDotStyle = (feature, trainLineColor) => {
     });
 };
 
-export const trainStyle = (
+export const trainIconStyle = (
     feature,
-    filterColor,
-    filterDirection,
+    selectedTrainLine,
+    trainDirection,
     inboundChecked,
     outboundChecked,
-    greenSubLine
+    greenSubLine,
+    mapZoomLevel
 ) => {
-    const trainLine = feature.get("LINE").toUpperCase();
-    const [lineColor, lineSub] = trainLine.split("-");
+    const ICON_SIZE = mapZoomLevel / 250;
+
+    console.log(mapZoomLevel);
+
+    const trainLineWithSubLine = feature.get("LINE").toUpperCase();
+    const [trainLine, subLine] = trainLineWithSubLine.split("-");
     const direction = feature.get("DIRECTION");
     let isVisible = true;
 
@@ -101,21 +106,21 @@ export const trainStyle = (
         return null;
     }
 
-    if (filterColor && filterColor.toUpperCase() !== lineColor) {
+    if (selectedTrainLine && trainLine !== selectedTrainLine.toUpperCase()) {
         isVisible = false;
     }
 
     if (
-        filterColor.toUpperCase() === "GREEN" &&
+        selectedTrainLine.toUpperCase() === "GREEN" &&
         greenSubLine &&
-        lineColor === "GREEN"
+        trainLine === selectedTrainLine.toUpperCase()
     ) {
-        if (greenSubLine.toUpperCase() !== lineSub) {
+        if (subLine !== greenSubLine.toUpperCase()) {
             isVisible = false;
         }
     }
 
-    if (filterDirection && filterDirection !== direction) {
+    if (trainDirection && direction !== trainDirection) {
         isVisible = false;
     }
 
@@ -123,7 +128,7 @@ export const trainStyle = (
         image: new Icon({
             opacity: isVisible ? 1 : 0,
             src: trainIcon,
-            scale: 0.04,
+            scale: ICON_SIZE,
             anchor: [0.5, 0.5],
             anchorXUnits: "fraction",
             anchorYUnits: "fraction",
