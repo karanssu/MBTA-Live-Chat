@@ -9,7 +9,7 @@ import GeoJSON from "ol/format/GeoJSON";
 import { fromLonLat } from "ol/proj";
 import OSM from "ol/source/OSM";
 import { mapStyles } from "./mapStyles";
-import { lineStyle, nodeStyle, trainStyle } from "./styleFunctions";
+import { lineStyle, stationDotStyle, trainStyle } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
 
 const MapComponent = ({
@@ -60,7 +60,7 @@ const MapComponent = ({
                 });
                 const nodeLayer = new VectorLayer({
                     source: nodeSource,
-                    style: (feature) => nodeStyle(feature, trainLine),
+                    style: (feature) => stationDotStyle(feature, trainLine),
                 });
                 const trainLayer = new VectorLayer({
                     source: trainSource,
@@ -111,7 +111,7 @@ const MapComponent = ({
                 map.setTarget(null);
             }
         };
-    }, [trainLine, inboundChecked, outboundChecked,greenSubLine]);
+    }, [trainLine, inboundChecked, outboundChecked, greenSubLine]);
 
     return (
         <>
