@@ -2,30 +2,37 @@ import { Style, Stroke, Circle, Fill } from "ol/style";
 import Icon from "ol/style/Icon";
 import trainIcon from "./train.png";
 
-export const lineStyle = (feature, filterColor) => {
+export const stationConnectlineStyle = (feature, trainLineColor) => {
+    const BORDER_COLOR = "black";
+    const LINE_RADIUS = 5;
+    const LINE_BORDER_WIDTH = 9;
+
     const lineColor = feature.get("LINE");
-    let color;
-    let borderColor = "black";
+    let borderColor = BORDER_COLOR;
+    let fillColor;
 
     switch (lineColor) {
         case "BLUE":
-            color = "blue";
+            fillColor = "blue";
             break;
         case "RED":
-            color = "red";
+            fillColor = "red";
             break;
         case "GREEN":
-            color = "green";
+            fillColor = "green";
             break;
         case "ORANGE":
-            color = "orange";
+            fillColor = "orange";
             break;
         default:
-            color = "rgba(0, 0, 0, 0)";
+            fillColor = "rgba(0, 0, 0, 0)";
     }
 
-    if (filterColor && filterColor !== lineColor) {
-        color = "rgba(0, 0, 0, 0)";
+    const isSelectedTrainLineConnectLine =
+        trainLineColor && trainLineColor === lineColor;
+
+    if (!isSelectedTrainLineConnectLine) {
+        fillColor = "rgba(0, 0, 0, 0)";
         borderColor = "rgba(0, 0, 0, 0)";
     }
 
@@ -33,13 +40,13 @@ export const lineStyle = (feature, filterColor) => {
         new Style({
             stroke: new Stroke({
                 color: borderColor,
-                width: 7,
+                width: LINE_BORDER_WIDTH,
             }),
         }),
         new Style({
             stroke: new Stroke({
-                color: color,
-                width: 5,
+                color: fillColor,
+                width: LINE_RADIUS,
             }),
         }),
     ];
@@ -48,7 +55,7 @@ export const lineStyle = (feature, filterColor) => {
 export const stationDotStyle = (feature, trainLineColor) => {
     const FILL_COLOR = "white";
     const BORDER_COLOR = "black";
-    const STATION_DOT_RADIUS = 4.7;
+    const STATION_DOT_RADIUS = 6;
     const STATION_DOT_BORDER_WIDTH = 2;
 
     const stationDotColor = feature.get("LINE");

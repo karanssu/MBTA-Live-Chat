@@ -9,7 +9,11 @@ import GeoJSON from "ol/format/GeoJSON";
 import { fromLonLat } from "ol/proj";
 import OSM from "ol/source/OSM";
 import { mapStyles } from "./mapStyles";
-import { lineStyle, stationDotStyle, trainStyle } from "./styleFunctions";
+import {
+    stationConnectlineStyle,
+    stationDotStyle,
+    trainStyle,
+} from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
 
 const MapComponent = ({
@@ -56,7 +60,8 @@ const MapComponent = ({
 
                 const arcLayer = new VectorLayer({
                     source: arcSource,
-                    style: (feature) => lineStyle(feature, trainLine),
+                    style: (feature) =>
+                        stationConnectlineStyle(feature, trainLine),
                 });
                 const nodeLayer = new VectorLayer({
                     source: nodeSource,
