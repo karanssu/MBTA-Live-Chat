@@ -95,8 +95,6 @@ export const trainIconStyle = (
 ) => {
     const ICON_SIZE = mapZoomLevel / 250;
 
-    console.log(mapZoomLevel);
-
     const trainLineWithSubLine = feature.get("LINE").toUpperCase();
     const [trainLine, subLine] = trainLineWithSubLine.split("-");
     const direction = feature.get("DIRECTION");
