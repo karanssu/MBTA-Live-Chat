@@ -107,7 +107,7 @@ const MapComponent = ({
                 const tooltip = new Overlay({
                     element: tooltipRef.current,
                     positioning: 'bottom-center',
-                    offset: [0, -10],
+                    offset: [0, 1],
                     stopEvent: false,
                 });
                 map.addOverlay(tooltip);

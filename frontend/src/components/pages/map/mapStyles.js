@@ -14,6 +14,7 @@ export const mapStyles = {
         border: '1px solid black',
         borderRadius: '5px',
         zIndex: 1000,
-        fontWeight: 'bolder'
+        fontWeight: 'bolder',
+        whiteSpace: 'nowrap',
     }
 };
