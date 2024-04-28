@@ -23,6 +23,7 @@ export const fetchTrainLocations = async (trainSource) => {
 
     const locations = trainData.flatMap((data) =>
         data.data.map((vehicle) => ({
+            id: vehicle.id,
             type: "Feature",
             properties: {
                 LINE: vehicle.relationships.route.data.id,
@@ -42,6 +43,35 @@ export const fetchTrainLocations = async (trainSource) => {
         { type: "FeatureCollection", features: locations },
         { featureProjection: "EPSG:3857" }
     );
-    trainSource.clear(true);
-    trainSource.addFeatures(features);
+
+    features.forEach((newFeature) => {
+        const existingFeature = trainSource.getFeatureById(newFeature.getId());
+        if (existingFeature) {
+            animate(existingFeature, newFeature.getGeometry().getCoordinates());
+        } else {
+            trainSource.addFeature(newFeature);
+        }
+    });
 };
+
+const animate = (feature, newCoordinates) => {
+    const duration = 3000;
+    const oldCoordinates = feature.getGeometry().getCoordinates();
+    const startTime = performance.now();
+  
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progressPercent = Math.min(elapsed / duration * 100, 100);
+  
+      const x = oldCoordinates[0] + (newCoordinates[0] - oldCoordinates[0]) * progressPercent / 100;
+      const y = oldCoordinates[1] + (newCoordinates[1] - oldCoordinates[1]) * progressPercent / 100;
+  
+      feature.getGeometry().setCoordinates([x, y]);
+  
+      if (progressPercent < 100) {
+        requestAnimationFrame(animate);
+      }
+    };
+  
+    requestAnimationFrame(animate);
+  };
