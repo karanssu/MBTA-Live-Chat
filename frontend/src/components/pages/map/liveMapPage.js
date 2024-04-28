@@ -8,6 +8,7 @@ import VectorSource from "ol/source/Vector";
 import GeoJSON from "ol/format/GeoJSON";
 import { fromLonLat } from "ol/proj";
 import OSM from "ol/source/OSM";
+import Overlay from 'ol/Overlay';
 import { mapStyles } from "./mapStyles";
 import {
     stationConnectlineStyle,
@@ -24,6 +25,7 @@ const MapComponent = ({
     outboundChecked,
 }) => {
     const mapRef = useRef();
+    const tooltipRef = useRef(null);
     let map;
 
     const getDirection = (inboundChecked, outboundChecked) => {
@@ -101,6 +103,37 @@ const MapComponent = ({
                         rotation: 0,
                     }),
                 });
+                
+                const tooltip = new Overlay({
+                    element: tooltipRef.current,
+                    positioning: 'bottom-center',
+                    offset: [0, -10],
+                    stopEvent: false,
+                });
+                map.addOverlay(tooltip);
+
+                map.on('pointermove', function (evt) {
+                    const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+                        return feature;
+                    }, {
+                        hitTolerance: 2
+                    });
+                
+                    if (feature && feature.get('STATION')) {
+                        const pixel = map.getPixelFromCoordinate(feature.getGeometry().getCoordinates());
+                        const offset = [-50, -50]; 
+                        const position = map.getCoordinateFromPixel([pixel[0] + offset[0], pixel[1] + offset[1]]);
+                        
+                        tooltip.setPosition(position);
+                        tooltipRef.current.innerHTML = feature.get('STATION');
+                        tooltipRef.current.style.display = '';
+                        map.getViewport().style.cursor = 'pointer';
+                    } else {
+                        tooltipRef.current.style.display = 'none';
+                        map.getViewport().style.cursor = '';
+                    }
+                });
+                
             } catch (error) {
                 console.error("Failed to load Data:", error);
             }
@@ -126,6 +159,7 @@ const MapComponent = ({
     return (
         <>
             <div ref={mapRef} style={mapStyles.map}></div>
+            <div ref={tooltipRef} style={mapStyles.tooltip}></div>
         </>
     );
 };
