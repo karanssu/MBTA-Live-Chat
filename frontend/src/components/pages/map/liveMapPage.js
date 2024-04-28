@@ -114,8 +114,11 @@ const MapComponent = ({
 
                 map.on('pointermove', function (evt) {
                     const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-                        return feature;
+                        if (feature.get('LINE') === trainLine) {
+                            return feature;
+                        }
                     }, {
+                        layerFilter: (layer) => layer === nodeLayer, 
                         hitTolerance: 2
                     });
                 
