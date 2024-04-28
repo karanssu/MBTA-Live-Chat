@@ -15,6 +15,7 @@ import {
     trainIconStyle,
 } from "./styleFunctions";
 import { fetchTrainLocations } from "./fetchTrainLocations";
+import { getMapData } from "./mapData";
 
 const MapComponent = ({
     trainLine,
@@ -43,6 +44,9 @@ const MapComponent = ({
     const arcSource = new VectorSource(),
         nodeSource = new VectorSource(),
         trainSource = new VectorSource();
+
+    const mapData = getMapData(trainLine, greenSubLine);
+    console.log(mapData);
 
     useEffect(() => {
         const loadGeoJSONData = async (geojsonPath) => {
