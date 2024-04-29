@@ -6,7 +6,7 @@ import EditUserPage from "./editUserPage";
 const PrivateUserProfile = () => {
     return (
         <>
-        <img src="images/trains.jpeg"></img>
+     
             <div className="d-flex justify-content-center">
                 <EditUserPage />
             </div>
