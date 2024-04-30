@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import getUser from "../../utilities/decodeJwt";
 import EditUserPage from "./editUserPage";
 
 const PrivateUserProfile = () => {
     return (
         <>
-     
-            <div className="d-flex justify-content-center">
+            <div
+                className="d-flex justify-content-center"
+                style={{ height: "calc(100vh - 60px)" }}
+            >
                 <EditUserPage />
             </div>
         </>

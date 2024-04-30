@@ -23,13 +23,20 @@ const App = () => {
     return (
         <>
             <UserContext.Provider value={[user, setUser]}>
-                <Navbar />
-                <Routes>
-                    <Route exact path="/" element={<HomePage />} />
-                    <Route exact path="/login" element={<Login />} />
-                    <Route exact path="/signup" element={<Signup />} />
-                    <Route path="/profile" element={<PrivateUserProfile />} />
-                </Routes>
+                <div className="overlay">
+                    <div className="content">
+                        <Navbar />
+                        <Routes>
+                            <Route exact path="/" element={<HomePage />} />
+                            <Route exact path="/login" element={<Login />} />
+                            <Route exact path="/signup" element={<Signup />} />
+                            <Route
+                                path="/profile"
+                                element={<PrivateUserProfile />}
+                            />
+                        </Routes>
+                    </div>
+                </div>
             </UserContext.Provider>
         </>
     );
