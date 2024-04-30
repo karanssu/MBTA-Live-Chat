@@ -38,7 +38,7 @@ const HomePage = () => {
                 <div className="row py-3" style={{ height: "90vh" }}>
                     <div className="col-8">
                         <div className="row" style={{ height: "55vh" }}>
-                            <div className="col px-0">
+                            <div className="col px-2">
                                 <LiveMap
                                     trainLine={trainLine.toUpperCase()}
                                     greenSubLine={greenSubLine}
