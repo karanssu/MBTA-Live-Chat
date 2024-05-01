@@ -86,20 +86,20 @@ function Alerts() {
             <div className="station-container" style={{ height: "99%" }}>
                 <div className="alert-title row">
                     <div className="col flex justify-content-center align-items-center">
-                        <span>
-                            <CustomTitle
-                                title={"Alerts"}
-                                trainLine={"black"}
-                            ></CustomTitle>
-                        </span>
-                        <span className="px-3">
-                            <CustomDropdown
-                                options={severities}
-                                value={selectedSeverity}
-                                onChange={(e) => handleChange(e.target.value)}
-                                severity={selectedSeverity} 
-                            />
-                        </span>
+                        <CustomTitle
+                            title={"Alerts"}
+                            trainLine={"black"}
+                        ></CustomTitle>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="mx-3">
+                        <CustomDropdown
+                            options={severities}
+                            value={selectedSeverity}
+                            onChange={(e) => handleChange(e.target.value)}
+                            severity={selectedSeverity}
+                        />
                     </div>
                 </div>
                 <div className="horizontal-line"></div>
@@ -124,8 +124,7 @@ function Alerts() {
                                     style={{
                                         width: "auto",
                                         padding: "0",
-                                        background:
-                                            "rgba(255,255,255,0.2)",
+                                        background: "rgba(255,255,255,0.2)",
                                         ...getAlertBorderStyle(
                                             alert.attributes.severity
                                         ),
