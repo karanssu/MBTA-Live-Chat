@@ -94,7 +94,7 @@ const Stations = ({
                                 ))}
                             </div>
                             <div className="col-5">
-                                {selectedTrainLine == "Green" &&
+                                {selectedTrainLine === "Green" &&
                                     greenSubLines.map((greenSubLine) => (
                                         <label
                                             key={greenSubLine}
@@ -110,7 +110,7 @@ const Stations = ({
                                                 name="greenSubLine"
                                                 value={greenSubLine}
                                                 checked={
-                                                    selectedGreenSubLine ==
+                                                    selectedGreenSubLine ===
                                                     greenSubLine
                                                 }
                                                 onChange={() =>
