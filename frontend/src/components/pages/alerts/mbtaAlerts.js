@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 import "./mbtaAlerts.css";
-import Color from "../../../constants/colors";
 import CustomTitle from "../stations/customTitle";
 import CustomDropdown from "./customDropdown";
 

@@ -1,4 +1,4 @@
-import React, { createRef, forwardRef } from "react";
+import React from "react";
 import "./commentInput.css";
 
 const CommentInput = React.forwardRef(({ handleSendButtonClick }, ref) => {

@@ -4,7 +4,6 @@ import CommentBoard from "./commentBoard";
 import ChatTitle from "./chatTitle";
 import { useEffect, useRef, useState } from "react";
 import getUser from "../../../utilities/decodeJwt";
-import Color from "../../../constants/colors";
 import "./chatPage.css";
 import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
