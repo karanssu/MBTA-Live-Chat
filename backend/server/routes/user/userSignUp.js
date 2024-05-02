@@ -13,20 +13,16 @@ router.post("/signup", async (req, res) => {
 
     const { username, email, password } = req.body;
 
-    //check if email already exists
     const user = await newUserModel.findOne({ username: username });
     if (user)
         return res
             .status(409)
             .send({ message: "Username is taken, pick another" });
 
-    //generates the hash
     const generateHash = await bcrypt.genSalt(Number(10));
 
-    //parse the generated hash into the password
     const hashPassword = await bcrypt.hash(password, generateHash);
 
-    //creates a new user
     const createUser = new newUserModel({
         username: username,
         email: email,
