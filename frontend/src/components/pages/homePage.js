@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Chat from "./chat/chatPage";
 import Stations from "./stations/stationsList";
 import LiveMap from "./map/liveMapPage";
 import Alerts from "./alerts/mbtaAlerts";
-import "./homePage.css";
 
 const HomePage = () => {
     const [trainLine, setTrainLine] = useState("Red");
