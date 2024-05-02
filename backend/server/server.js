@@ -48,28 +48,8 @@ app.use("/comment", require("./routes/comment/commentGetByUserId"));
 app.use("/comment", require("./routes/comment/commentGetByTrainLine"));
 app.use("/comment", require("./routes/comment/commentAddByUserId"));
 
-// Friends
-app.use("/friend", require("./routes/friend/friendAddByUserId"));
-app.use("/friend", require("./routes/friend/friendDeleteByUserId"));
-app.use("/friend", require("./routes/friend/friendGetByUserId"));
-app.use("/friend", require("./routes/friend/friends"));
-
 // Train Line
 app.use("/trainLine", require("./routes/trainLine/trainLines"));
-
-// Favriote Line
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineAddByUserId")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineDeleteByUserId")
-);
-app.use(
-    "/favoriteLine",
-    require("./routes/favoriteLine/favoriteLineGetByUserId")
-);
 
 app.listen(SERVER_PORT, (req, res) => {
     console.log(
