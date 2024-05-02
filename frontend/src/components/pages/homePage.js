@@ -36,7 +36,7 @@ const HomePage = () => {
             >
                 <div className="row py-3" style={{ height: "90vh" }}>
                     <div className="col-8">
-                        <div className="row" style={{ height: "55vh" }}>
+                        <div className="row" style={{ height: "60vh" }}>
                             <div className="col px-2">
                                 <LiveMap
                                     trainLine={trainLine.toUpperCase()}
@@ -46,7 +46,7 @@ const HomePage = () => {
                                 ></LiveMap>
                             </div>
                         </div>
-                        <div className="row" style={{ height: "35vh" }}>
+                        <div className="row" style={{ height: "30vh" }}>
                             <div
                                 className="col-8 py-2 px-2"
                                 style={{ height: "100%", overflow: "hidden" }}
