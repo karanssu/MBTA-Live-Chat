@@ -52,12 +52,32 @@ Content-Type: application/json
     "password" : "huthifa222"
 }
 
+# Should fail: invalid username, valid password
+###
+POST http://localhost:8081/user/login
+Content-Type: application/json 
+
+{
+    "username" : "F4ilt3st5",
+    "password" : "failtest5"
+}
+
+# Should fail: valid username, invalid password
+###
+POST http://localhost:8081/user/login
+Content-Type: application/json 
+
+{
+    "username" : "huthifaTest",
+    "password" : "failtest6"
+}
+
 # Should pass: valid username
 ###
 GET http://localhost:8081/user/
 Content-Type: application/json
 
-# Should pass: valid username
+# Should pass: valid userId, valid username, valid, valid email, valid password
 ###
 POST http://localhost:8081/user/editUser
 Content-Type: application/json 
@@ -69,6 +89,7 @@ Content-Type: application/json
     "password" : "dwwrwrabc"
 }
 
+
 # Should pass: Valid userId
 ###
 GET  http://localhost:8081/user/getUserById
@@ -76,6 +97,15 @@ Content-Type: application/json
 
 {
     "userId" : "65deb3d6336c535c1f70be27"
+}
+
+# Should pass: inalid userId
+###
+GET  http://localhost:8081/user/getUserById
+Content-Type: application/json 
+
+{
+    "userId" : "65deb3d6336c535cwe70be27"
 }
 
 # DO NOT RUN THIS TEST (It will delete all the users
