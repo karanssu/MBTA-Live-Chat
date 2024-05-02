@@ -4,18 +4,18 @@ const CustomDropdown = ({ options, value, onChange }) => {
     const getDropdownStyle = (option) => {
         switch (option) {
             case "Critical":
-                return { color: "Red", borderColor: "Red" }; 
+                return { color: "Red", borderColor: "Red" };
             case "Warning":
-                return { color: "#D4D23F", borderColor: "Black"};
+                return { color: "#D4D23F", borderColor: "#D4D23F" };
             case "Info":
-                return { color: "Blue", borderColor: "Blue" }; 
+                return { color: "Blue", borderColor: "Blue" };
             default:
-                return { color: "Black", borderColor: "Black" }; 
+                return { color: "Black", borderColor: "Black" };
         }
     };
     const selectStyle = {
-        ...getDropdownStyle(value), 
-        backgroundColor: '#f8f9fa', 
+        ...getDropdownStyle(value),
+        backgroundColor: "#f8f9fa",
     };
 
     return (
@@ -23,10 +23,14 @@ const CustomDropdown = ({ options, value, onChange }) => {
             className="custom-dropdown"
             value={value}
             onChange={onChange}
-            style={selectStyle} 
+            style={selectStyle}
         >
             {options.map((option) => (
-                <option key={option} value={option} style={getDropdownStyle(option)}>
+                <option
+                    key={option}
+                    value={option}
+                    style={getDropdownStyle(option)}
+                >
                     {option}
                 </option>
             ))}
