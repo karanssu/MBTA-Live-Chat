@@ -1,3 +1,5 @@
+# Should pass: valid username, valid email, valid password
+###
 POST http://localhost:8081/user/signup
 Content-Type: application/json 
 
@@ -7,6 +9,40 @@ Content-Type: application/json
     "password" : "huthifa222"
 }
 
+# Should fail: invalid username, valid email, valid password
+###
+POST http://localhost:8081/user/signup
+Content-Type: application/json 
+
+{
+    "username" : "ft1",
+    "email" : "failtest1@gmail.com",
+    "password" : "failtest111"
+}
+
+# Should fail: valid username, invalid email, valid password
+###
+POST http://localhost:8081/user/signup
+Content-Type: application/json 
+
+{
+    "username" : "failtest2",
+    "email" : "ft2@.com",
+    "password" : "failtest222"
+}
+
+# Should fail: valid username, valid email, invalid password
+###
+POST http://localhost:8081/user/signup
+Content-Type: application/json 
+
+{
+    "username" : "failtest3",
+    "email" : "failtest3@gmail.com",
+    "password" : "ft3x3"
+}
+
+# Should pass: valid username, valid password
 ###
 POST http://localhost:8081/user/login
 Content-Type: application/json 
@@ -16,11 +52,12 @@ Content-Type: application/json
     "password" : "huthifa222"
 }
 
-
+# Should pass: valid username
 ###
 GET http://localhost:8081/user/
 Content-Type: application/json
 
+# Should pass: valid username
 ###
 POST http://localhost:8081/user/editUser
 Content-Type: application/json 
@@ -32,6 +69,7 @@ Content-Type: application/json
     "password" : "dwwrwrabc"
 }
 
+# Should pass: Valid userId
 ###
 GET  http://localhost:8081/user/getUserById
 Content-Type: application/json 
